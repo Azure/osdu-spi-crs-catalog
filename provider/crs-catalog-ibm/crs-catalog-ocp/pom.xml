@@ -6,13 +6,13 @@
     <parent>
         <groupId>org.opengroup.osdu.crs-catalog-service</groupId>
         <artifactId>crs-catalog-service</artifactId>
-        <version>0.30.4-SNAPSHOT</version>
+        <version>0.30.5-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
     <packaging>jar</packaging>
     <artifactId>crs-catalog-ocp</artifactId>
-    <version>0.30.4-SNAPSHOT</version>
+    <version>0.30.5-SNAPSHOT</version>
     <name>crs-catalog-ocp</name>
     <description>CRS Catalog service Openshift Container Platform deployment</description>
 

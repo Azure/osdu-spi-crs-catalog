@@ -6,11 +6,11 @@
     <parent>
         <groupId>org.opengroup.osdu.crs-catalog-service</groupId>
         <artifactId>crs-catalog-service</artifactId>
-        <version>0.30.4-SNAPSHOT</version>
+        <version>0.30.5-SNAPSHOT</version>
     </parent>
 
     <artifactId>crs-catalog-core-plus</artifactId>
-    <version>0.30.4-SNAPSHOT</version>
+    <version>0.30.5-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>crs-catalog-core-plus</name>
     <description>CRS Catalog service for Hybrid Cloud</description>
