@@ -105,21 +105,14 @@
             </activation>
             <modules>
                 <module>crs-catalog-core</module>
-                <module>crs-catalog-core-plus</module>
             </modules>
         </profile>
-        <profile>
-            <id>azure</id>
-            <modules>
-                <module>provider/crs-catalog-azure/crs-catalog-aks</module>
-            </modules>
-        </profile>
-        <profile>
-            <id>ibm</id>
-            <modules>
-                <module>provider/crs-catalog-ibm/crs-catalog-ocp</module>
-            </modules>
-        </profile>
+      <profile>
+          <id>azure</id>
+          <modules>
+              <module>provider/crs-catalog-azure/crs-catalog-aks</module>
+          </modules>
+      </profile>
     </profiles>
 
     <dependencyManagement>

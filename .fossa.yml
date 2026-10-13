@@ -16,15 +16,3 @@ analyze:
       type: mvn
       target: crs-catalog-core/pom.xml
       path: .
-    - name: crs-catalog-core-plus
-      type: mvn
-      target: crs-catalog-core-plus/pom.xml
-      path: .
-    - name: crs-catalog-aks
-      type: mvn
-      target: provider/crs-catalog-azure/crs-catalog-aks/pom.xml
-      path: .
-    - name: crs-catalog-ocp
-      type: mvn
-      target: provider/crs-catalog-ibm/crs-catalog-ocp/pom.xml
-      path: .
