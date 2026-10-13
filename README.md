@@ -1,24 +1,24 @@
-# OSDU <Service> Service for Azure
+# OSDU CRS Catalog Service for Azure
 
-[![Release](https://img.shields.io/github/v/release/Azure/osdu-spi-<service>)](https://github.com/Azure/osdu-spi-<service>/releases)
-[![Validate](https://github.com/Azure/osdu-spi-<service>/actions/workflows/validate.yml/badge.svg?branch=main)](https://github.com/Azure/osdu-spi-<service>/actions/workflows/validate.yml)
+[![Release](https://img.shields.io/github/v/release/Azure/osdu-spi-crs-catalog)](https://github.com/Azure/osdu-spi-crs-catalog/releases)
+[![Validate](https://github.com/Azure/osdu-spi-crs-catalog/actions/workflows/validate.yml/badge.svg?branch=main)](https://github.com/Azure/osdu-spi-crs-catalog/actions/workflows/validate.yml)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
 > [!NOTE]
-> Shared service code comes from the [OSDU community upstream](<upstream-url>); the [OSDU documentation](<docs-url>) covers the API.
+> Shared service code comes from the [OSDU community upstream](https://community.opengroup.org/osdu/platform/system/reference/crs-catalog-service).
 
-<One or two sentences: what the service does for a caller. No implementation detail.>
+CRS Catalog answers lookups and searches for coordinate reference systems, coordinate transformations, and their areas of use, so callers can interpret and convert spatial data consistently.
 
 ## At a glance
 
 | | |
 |---|---|
-| API base path | `<api-base-path>`, for example `/api/legal/v1/` |
-| Swagger UI | `<api-base-path>swagger` |
-| Health | `:<management-port>/actuator/health` |
-| Depends on | <Partition, Entitlements, ...> |
-| Azure resources | <Cosmos DB, Storage, Service Bus, Redis, Key Vault, ...> |
-| Deployed by | [OSDU SPI Stack](https://github.com/Azure/osdu-spi-stack) (`software/stacks/osdu/services/<service>.yaml`) |
+| API base path | `/api/crs/catalog/v2/`, `/api/crs/catalog/v3/` |
+| Swagger UI | `/api/crs/catalog/swagger` |
+| Health | `:8081/actuator/health` |
+| Depends on | Entitlements; Search for the v3 API |
+| Azure resources | Key Vault URL only; the v2 catalog is a JSON file on a pod volume |
+| Deployed by | [OSDU SPI Stack](https://github.com/Azure/osdu-spi-stack) (`software/stacks/osdu/services-reference/crs-catalog.yaml`) |
 
 ## Repository layout
 
@@ -26,89 +26,96 @@
 
 | Path | Owner | Contents |
 |---|---|---|
-| `<service>-core/` | OSDU upstream | Shared service code |
-| `provider/<service>-azure/` | This repository | Azure provider |
-| `<service>-acceptance-test/` | OSDU upstream | End-to-end suite run against a deployed environment |
-| `testing/<service>-test-azure/` | This repository | Legacy Azure integration tests |
+| `crs-catalog-core/` | OSDU upstream | Shared service code |
+| `provider/crs-catalog-azure/` | This repository | Azure provider, in the `crs-catalog-aks` module |
+| `crs-catalog_acceptance_test/` | OSDU upstream | End-to-end Python suite run against a deployed environment |
+| `data/` | OSDU upstream | The catalog file, `crs_catalog_v2.json` |
+| `testing/catalog_test_core/` | OSDU upstream | Shared Python integration tests |
+| `testing/catalog_test_azure/` | This repository | Azure runner for the integration tests |
 | `.spi/service.yaml` | This repository | How CI deploys and tests the service on SPI Stack |
 
 ## Build
 
-Requires the Java release the root `pom.xml` declares and Maven 3.6.3+. OSDU dependencies resolve from the public community registry through the settings file in `.mvn`:
+Requires Java 17 and Maven 3.6.3+. OSDU dependencies resolve from the public community registry through the settings file in `.mvn`:
 
 ```bash
 mvn --settings .mvn/community-maven.settings.xml -P core,azure clean install
 ```
 
-The runnable jar lands at `provider/<service>-azure/target/<artifact>-*-spring-boot.jar`.
+The runnable jar lands at `provider/crs-catalog-azure/crs-catalog-aks/target/crs-catalog-aks-*-spring-boot.jar`.
 
 ## Configuration
 
-SPI Stack sets the service's environment from two places: the shared `osdu-config` ConfigMap and the service's own entry in [`services/<service>.yaml`](https://github.com/Azure/osdu-spi-stack/blob/main/software/stacks/osdu/services/<service>.yaml). Those files are the contract; the tables below list what <Service> actually reads from them.
-
-<List only variables the provider reads: trace each through `provider/<service>-azure/src/main/resources/application.properties`, and confirm values against a running deployment.>
+SPI Stack sets the service's environment from two places: the shared `osdu-config` ConfigMap and the service's own entry in [`services-reference/crs-catalog.yaml`](https://github.com/Azure/osdu-spi-stack/blob/main/software/stacks/osdu/services-reference/crs-catalog.yaml). Those files are the contract; the tables below distinguish variables CRS Catalog reads from additional service-specific values the stack sets but this service ignores.
 
 **Shared, from `osdu-config`:**
 
 | Variable | Purpose |
 |---|---|
-| `AZURE_TENANT_ID` | Entra tenant |
-| `AAD_CLIENT_ID` | Application ID that caller tokens are issued for |
 | `KEYVAULT_URI` | Central Key Vault |
-| <...> | |
+| `AAD_CLIENT_ID` | Application ID that caller tokens are issued for, read as `aad_client_id` |
+| `APPINSIGHTS_KEY` | Telemetry, read as `appinsights_key` |
+| `SERVER_PORT` | HTTP port (`8080`) |
 
-**Specific to <Service>**, from `services/<service>.yaml`:
+**Specific to CRS Catalog**, from `services-reference/crs-catalog.yaml`:
 
 | Variable and value on SPI Stack | Purpose |
 |---|---|
-| `SERVER_SERVLET_CONTEXTPATH`<br>`<api-base-path>` | API base path |
-| `AZURE_ISTIOAUTH_ENABLED`<br>`true` | Trust the mesh's token validation |
+| `SPRING_APPLICATION_NAME`<br>`crs-catalog` | Application name in logs and telemetry |
+| `SERVER_SERVLET_CONTEXTPATH`<br>`/api/crs/catalog/` | API base path |
+| `ENTITLEMENT_URL`<br>`http://entitlements/api/entitlements/v2` | Caller authorization; each request fetches the caller's groups |
 | `AZURE_PAAS_WORKLOADIDENTITY_ISENABLED`<br>`true` | Authenticate to Azure with workload identity |
-| `PARTITION_SERVICE_ENDPOINT`<br>`http://partition/api/partition/v1` | Per-partition resource lookup |
-| <...><br> |  |
+| `AZURE_ISTIOAUTH_ENABLED`<br>`true` | Not read by this service |
+| `ACCEPT_HTTP`<br>`true` | Not read by this service |
+| `PARTITION_SERVICE_ENDPOINT`<br>`http://partition/api/partition/v1` | Not read by this service |
 
-The service authenticates to Azure with workload identity, which injects `AZURE_CLIENT_ID` and a federated token; there are no client secrets. Per-partition resources are resolved at request time through the Partition service.
+Two variables the provider reads are not set by the stack and keep their defaults: `CRS_CATALOG_FILENAME` defaults to `/mnt/crs_catalogs/crs_catalog_v2.json`, where the stack mounts the catalog, and `SEARCH_API` defaults to `NOT_FOUND` (see [Service notes](#service-notes)).
+
+The service authenticates to Azure with workload identity, which injects `AZURE_CLIENT_ID` and a federated token; there are no client secrets.
 
 ## Test
 
 | Suite | Where | Runs in CI | Run it yourself |
 |---|---|---|---|
-| Unit | `<service>-core`, `provider/<service>-azure` | Pull requests (Java Build) | `mvn ... install` from [Build](#build) |
-| Acceptance | [`<service>-acceptance-test`](<service>-acceptance-test/README.md) | Pull requests, against SPI Stack (Deploy and Test) | `spi test <service>` |
-| Integration | `testing/<service>-test-azure` | <Yes / No> | <How, or why not> |
+| Unit | `crs-catalog-core` | Pull requests (Java Build) | `mvn ... install` from [Build](#build) |
+| Acceptance | [`crs-catalog_acceptance_test`](crs-catalog_acceptance_test/docs/README.md) | No | See below |
+| Integration | `testing/catalog_test_core`, `testing/catalog_test_azure` | No | See below |
 
-CI runs these on pull requests from this repository that change code. Documentation-only changes skip the build, and pull requests from forks build without deploying.
+CI runs unit tests on pull requests from this repository that change code. Documentation-only changes skip the build.
 
-**Acceptance** proves a change on real infrastructure before it merges. It calls the deployed service through the gateway as a privileged test identity, and the bindings in `.spi/service.yaml` supply its inputs. Against an environment you are connected to:
+**Acceptance** is the upstream pytest suite for the v2 and v3 APIs. The test suite image CI builds runs Maven suites, so Deploy and Test cannot run this one. It accepts a bearer token in `PRIVILEGED_USER_TOKEN`, so `spi token` can supply one, but it has not been proven against SPI Stack, and its v3 cases need Search (see [Service notes](#service-notes)). Against an environment you are connected to:
 
 ```bash
-spi test <service>                   # the image and suite the environment is running
-spi test <service> --source .        # this checkout's suite and descriptor
+cd crs-catalog_acceptance_test
+VIRTUAL_SERVICE_HOST_NAME=<gateway> MY_TENANT=<partition> ENTITLEMENTS_DOMAIN=<domain> \
+  PRIVILEGED_USER_TOKEN="$(spi token)" ./run-acceptance-tests.sh
 ```
 
-**Integration** <state whether it runs against SPI Stack, and if not, what it needs that the stack does not issue.>
+**Integration** is the older suite carried from upstream. `testing/catalog_test_azure/run_test.py` runs the shared v2 cases in `testing/catalog_test_core`, the same cases the acceptance suite carries, and CI does not run it. It accepts a bearer token in `INTEGRATION_TESTER_ACCESS_TOKEN`, so `spi token` can supply one, but it has not been proven against SPI Stack.
 
 To call the API by hand, `spi token` mints a bearer token:
 
 ```bash
 curl -H "Authorization: Bearer $(spi token)" -H "data-partition-id: <partition>" \
-  https://<gateway><api-base-path><endpoint>
+  https://<gateway>/api/crs/catalog/v2/catalog/attributes
 ```
 
 ## Deploy
 
-For a pull request from this repository that changes code, CI publishes the service image and its test suite image, `osdu-spi-<service>-acceptance`, to GHCR, and the Deploy and Test lane borrows an SPI Stack environment, runs the new image there, proves it with the acceptance suite, and restores the environment's own image. When that lane runs and passes, the change is proven on real infrastructure before it merges; the Validation Summary on the pull request shows whether it ran. This repository does not own infrastructure; SPI Stack does.
+For a pull request from this repository that changes code, CI publishes the service image, `osdu-spi-crs-catalog`, to GHCR. The Deploy and Test lane borrows an SPI Stack environment, runs the new image there, proves it with the service's test suite image, and restores the environment's own image. That lane does not run for this service: the test suite image, `osdu-spi-crs-catalog-acceptance`, bakes Maven suites, and both suites here are Python. The Validation Summary on the pull request shows why the lane skipped. This repository does not own infrastructure; SPI Stack does.
 
 To try a build by hand on an environment you are connected to, pin it by digest and release the pin when done:
 
 ```bash
-spi service pin <service> --image ghcr.io/azure/osdu-spi-<service>@sha256:<digest>
-spi service reset <service>
+spi service pin crs-catalog --image ghcr.io/azure/osdu-spi-crs-catalog@sha256:<digest>
+spi service reset crs-catalog
 ```
 
 ## Service notes
 
-<Optional. Azure-specific behavior a reader needs that the upstream docs do not cover: reserved names, data model, feature flags the stack overrides and why. Delete the section if there is nothing.>
+**Catalog data.** The v2 API serves the catalog from a JSON file the service loads at startup, and the service does not start without it. The image does not carry the file. On SPI Stack, an init container downloads `data/crs_catalog_v2.json` from the upstream `master` branch into a volume mounted at `/mnt/crs_catalogs` on every pod start, so the catalog served follows upstream rather than this repository's `data/` folder. Outside SPI Stack, set `CRS_CATALOG_FILENAME` to `data/crs_catalog_v2.json` in this checkout.
+
+**The v3 API and Search.** The v3 endpoints look up CRS and transformation records through Search at the URL in `SEARCH_API`. SPI Stack does not set it, so the Search client is built against the default `NOT_FOUND`, and v3 requests fail on SPI Stack until the stack supplies the Search endpoint. The v2 endpoints do not use Search.
 
 ## License
 
