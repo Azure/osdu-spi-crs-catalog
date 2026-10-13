@@ -12,8 +12,8 @@
 /.release-please-config.json    @Azure/azure-global-energy
 
 # Fork-owned Azure source, descriptor, filter config, contributing guide, and README.
-/provider/crs-catalog-azure/      @Azure/azure-global-energy
-/testing/crs-catalog-test-azure/  @Azure/azure-global-energy
+/provider/crs-catalog-azure/        @Azure/azure-global-energy
+/testing/catalog_test_azure/        @Azure/azure-global-energy
 /.spi/                          @Azure/azure-global-energy
 /.github/upstream-filter.yml    @Azure/azure-global-energy
 /.github/CODEOWNERS             @Azure/azure-global-energy
