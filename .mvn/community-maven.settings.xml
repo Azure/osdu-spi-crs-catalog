@@ -1,0 +1,67 @@
+<settings>
+	<profiles>
+		<profile>
+			<!-- This profile uses the CI-Token to authenticate with the server, and is the default case -->
+			<id>GitLab-Authenticate-With-Job-Token</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<repo.releases.id>community-maven-repo</repo.releases.id>
+				<publish.snapshots.id>community-maven-via-job-token</publish.snapshots.id>
+				<publish.releases.id>community-maven-via-job-token</publish.releases.id>
+
+				<repo.releases.url>https://community.opengroup.org/api/v4/groups/17/-/packages/maven</repo.releases.url>
+				<publish.snapshots.url>https://community.opengroup.org/api/v4/projects/21/packages/maven</publish.snapshots.url>
+				<publish.releases.url>https://community.opengroup.org/api/v4/projects/21/packages/maven</publish.releases.url>
+			</properties>
+		</profile>
+
+		<profile>
+			<!-- This profile uses a personal token to authenticate, which is useful for local or manual runs. The
+           presence of the COMMUNITY_MAVEN_TOKEN variable triggers this and overrides the CI Token
+           based authentication -->
+			<id>GitLab-Authenticate-With-Private-Token</id>
+			<activation>
+				<property>
+					<name>env.COMMUNITY_MAVEN_TOKEN</name>
+				</property>
+			</activation>
+			<properties>
+				<repo.releases.id>community-maven-repo</repo.releases.id>
+				<publish.snapshots.id>community-maven-via-private-token</publish.snapshots.id>
+				<publish.releases.id>community-maven-via-private-token</publish.releases.id>
+
+				<repo.releases.url>https://community.opengroup.org/api/v4/groups/17/-/packages/maven</repo.releases.url>
+				<publish.snapshots.url>https://community.opengroup.org/api/v4/projects/21/packages/maven</publish.snapshots.url>
+				<publish.releases.url>https://community.opengroup.org/api/v4/projects/21/packages/maven</publish.releases.url>
+			</properties>
+		</profile>
+	</profiles>
+
+	<servers>
+		<server>
+			<id>community-maven-via-job-token</id>
+			<configuration>
+				<httpHeaders>
+					<property>
+						<name>Job-Token</name>
+						<value>${env.CI_JOB_TOKEN}</value>
+					</property>
+				</httpHeaders>
+			</configuration>
+		</server>
+
+		<server>
+			<id>community-maven-via-private-token</id>
+			<configuration>
+				<httpHeaders>
+					<property>
+						<name>Private-Token</name>
+						<value>${env.COMMUNITY_MAVEN_TOKEN}</value>
+					</property>
+				</httpHeaders>
+			</configuration>
+		</server>
+	</servers>
+</settings>

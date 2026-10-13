@@ -1,0 +1,32 @@
+{
+    "authCode": {
+     "auth": "MY_COMPANY",
+     "code": "158511693"
+    }, 
+    "name": "Fallback NAD27 to WGS 84 (79)/NAD27 to WGS 84 (33)", 
+    "policy": "Fallback", 
+    "type": "CT", 
+    "cts": [
+     {
+      "authCode": {
+       "auth": "EPSG", 
+       "code": "15851"
+      }, 
+      "name": "NAD_1927_To_WGS_1984_79_CONUS", 
+      "type": "ST", 
+      "ver": "PE_10_3_1", 
+      "wkt": "GEOGTRAN[\"NAD_1927_To_WGS_1984_79_CONUS\",GEOGCS[\"GCS_North_American_1927\",DATUM[\"D_North_American_1927\",SPHEROID[\"Clarke_1866\",6378206.4,294.9786982]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"NADCON\"],PARAMETER[\"Dataset_conus\",0.0],AUTHORITY[\"EPSG\",15851]]"
+     }, 
+     {
+      "authCode": {
+       "auth": "EPSG", 
+       "code": "1693"
+      }, 
+      "name": "NAD_1927_To_WGS_1984_33", 
+      "type": "ST", 
+      "ver": "PE_10_3_1", 
+      "wkt": "GEOGTRAN[\"NAD_1927_To_WGS_1984_33\",GEOGCS[\"GCS_North_American_1927\",DATUM[\"D_North_American_1927\",SPHEROID[\"Clarke_1866\",6378206.4,294.9786982]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"NTv2\"],PARAMETER[\"Dataset_canada/Ntv2_0\",0.0],AUTHORITY[\"EPSG\",1693]]"
+     }
+    ], 
+    "ver": "PE_10_3_1"
+}

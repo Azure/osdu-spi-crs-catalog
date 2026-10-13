@@ -1,0 +1,524 @@
+{
+	"info": {
+		"_postman_id": "ac03ca0e-5caf-4b06-a138-f1de63e4c864",
+		"name": "CRS Catalog Service API V3",
+		"description": "Coordinate Reference System (CRS) Catalog Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18468811"
+	},
+	"item": [
+		{
+			"name": "v3",
+			"item": [
+				{
+					"name": "Get Coordinate Transformation by RecordID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "data-partition-id",
+								"value": "{{data_partition_id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/v3/coordinate-transformation?recordId=osdu:reference-data--CoordinateTransformation:EPSG::1111",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v3",
+								"coordinate-transformation"
+							],
+							"query": [
+								{
+									"key": "recordId",
+									"value": "osdu:reference-data--CoordinateTransformation:EPSG::1111"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Coordinate Transformation by DataID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "data-partition-id",
+								"value": "{{data_partition_id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/v3/coordinate-transformation?dataId=EPSG::1166",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v3",
+								"coordinate-transformation"
+							],
+							"query": [
+								{
+									"key": "dataId",
+									"value": "EPSG::1166"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Coordinate Reference System by RecordID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "data-partition-id",
+								"value": "{{data_partition_id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/v3/coordinate-reference-system?recordId=osdu:reference-data--CoordinateReferenceSystem:Projected:EPSG::3851",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v3",
+								"coordinate-reference-system"
+							],
+							"query": [
+								{
+									"key": "recordId",
+									"value": "osdu:reference-data--CoordinateReferenceSystem:Projected:EPSG::3851"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Coordinate Reference System by DataId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "data-partition-id",
+								"value": "{{data_partition_id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/v3/coordinate-reference-system?dataId=Projected:EPSG::3851",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v3",
+								"coordinate-reference-system"
+							],
+							"query": [
+								{
+									"key": "dataId",
+									"value": "Projected:EPSG::3851"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All Coordinate Transformations",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "data-partition-id",
+								"value": "osdu",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"kind\": \"All\",\n    \"includeDeprecated\": true,\n    \"returnAllFields\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v3/coordinate-transformation",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v3",
+								"coordinate-transformation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Coordinate Transformations",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "data-partition-id",
+								"value": "osdu",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"codeSpace\": \"EPSG\",\n    \"id\": \"1111\",\n    \"code\": \"1111\",\n    \"name\": \"Ain el Abd to WGS 84 (2)\",\n    \"sourceCRS\": \"{{data_partition_id}}:reference-data--CoordinateReferenceSystem:Geographic2D:EPSG::4204:\",\n    \"targetCRS\": \"{{data_partition_id}}:reference-data--CoordinateReferenceSystem:Geographic2D:EPSG::4326:\",\n    \"latitude\": 17.5,\n    \"longitude\": 40.56\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v3/coordinate-transformation",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v3",
+								"coordinate-transformation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All Coordinate Reference Systems",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "data-partition-id",
+								"value": "{{data_partition_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"includeDeprecated\": true,\n    \"returnAllFields\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v3/coordinate-reference-system",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v3",
+								"coordinate-reference-system"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Coordinate Reference Systems",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "data-partition-id",
+								"value": "{{data_partition_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"codeSpace\": \"EPSG\",\n    \"name\": \"Cadastre\",\n    \"id\": \"4472\",\n    \"code\": \"4472\",\n    \"kind\": \"geographic\",\n    \"baseCRS\": {\n        \"id\": \"{{data_partition_id}}:reference-data--CoordinateReferenceSystem:Geocentric:EPSG::4473:\",\n        \"name\": \"Cadastre\"\n    },\n    \"datum\": {\n        \"code\": \"1037\",\n        \"name\": \"Cadastre\",\n        \"codeSpace\": \"EPSG\"\n    },\n    \"extent\": {\n        \"description\": \"Mayotte\"\n    },\n    \"coordinateReferenceSystemType\": \"GeodeticCRS\",\n    \"horizontalAxisUnitId\": \"UnitOfMeasure:dega:\",\n    \"verticalAxisUnitId\": \"UnitOfMeasure:m:\",\n    \"latitude\": -12.8,\n    \"longitude\": 45.2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v3/coordinate-reference-system",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v3",
+								"coordinate-reference-system"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Bound Projected Type or Projected Type Based on wgs84",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "data-partition-id",
+								"value": "{{data_partition_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"returnBoundProjectedAndProjectedBasedOnWgs84\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v3/coordinate-reference-system",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v3",
+								"coordinate-reference-system"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Bound Geopraphic 2d Type",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "data-partition-id",
+								"value": "{{data_partition_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"returnBoundGeographic2DAndWgs84\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v3/coordinate-reference-system",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v3",
+								"coordinate-reference-system"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check If Points Are Within the Bounding Box",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "data-partition-id",
+								"value": "{{data_partition_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"recordId\": \"osdu:reference-data--CoordinateReferenceSystem:Projected:EPSG::3851\",\n  \"points\": [\n    {\n      \"latitude\": -40,\n      \"longitude\": 175\n    },\n    {\n      \"latitude\": -40,\n      \"longitude\": -175\n    },\n    {\n      \"latitude\": -55,\n      \"longitude\": 159.6\n    },\n    {\n      \"latitude\": -40,\n      \"longitude\": -170.2\n    }\n  ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v3/points-in-aou",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v3",
+								"points-in-aou"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Info",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v3/info",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v3",
+								"info"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://ROOT_URL",
+			"type": "string"
+		}
+	]
+}

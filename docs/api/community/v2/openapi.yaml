@@ -1,0 +1,3143 @@
+openapi: 3.1.0
+info:
+  title: CRS Catalog Service API
+  description: Coordinate Reference System (CRS) Catalog Service
+  contact:
+    name: OSDU Data Platform Team
+    email: dps@OSDU.org
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  version: 2.0.0
+servers:
+- url: /api/crs/catalog/
+security:
+- Authorization: []
+tags:
+- name: crs-catalog-api
+  description: CRS catalog API
+- name: cartographic-transformations-api
+  description: Cartographic Transformations API
+- name: areas-of-use-api
+  description: Areas of Use API
+- name: coordinate-reference-systems-api
+  description: Coordinate Reference Systems API
+- name: info-api
+  description: Version info API
+- name: health-check-api
+  description: Health related API
+paths:
+  /v2/singlect:
+    get:
+      tags:
+      - cartographic-transformations-api
+      summary: Get all SingleCTs
+      description: Get all the SingleCTs defined in the catalog.
+      operationId: getSingleCTs
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 100
+      - name: mode
+        in: query
+        required: false
+        schema:
+          type: string
+          default: persistableReference
+      - name: data-partition-id
+        in: header
+        description: Tenant Id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        "200":
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SingleCTResults"
+        "400":
+          description: Bad input format
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "403":
+          description: User not authorized to perform the action.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "409":
+          description: A LegalTag with the given name already exists.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "502":
+          description: Bad Gateway
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "503":
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+      security:
+      - Authorization: []
+    post:
+      tags:
+      - cartographic-transformations-api
+      summary: Get one SingleCT
+      description: Get one SingleCT given its essence.
+      operationId: getSingleCT
+      parameters:
+      - name: mode
+        in: query
+        required: false
+        schema:
+          type: string
+          default: persistableReference
+      - name: data-partition-id
+        in: header
+        description: Tenant Id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SingleCTRequest"
+        required: true
+      responses:
+        "200":
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SingleCT"
+        "400":
+          description: Bad input format
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "403":
+          description: User not authorized to perform the action.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "409":
+          description: A LegalTag with the given name already exists.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "502":
+          description: Bad Gateway
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "503":
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+      security:
+      - Authorization: []
+  /v2/search/ct:
+    post:
+      tags:
+      - cartographic-transformations-api
+      summary: Search Cartographic Transformations
+      description: "Search cartographic transform records (any sub-type) by keywords\
+        \ and/or geographic area. Geographical constraints are passed (optionally)\
+        \ as parameters via the query URL, search keywords are passed via the request\
+        \ body. Query syntax follows Lucene style, default operator for multiple expressions\
+        \ is AND. The following keywords are supported: ''name:'',''description:'',\
+        \ ''type:'', ''authority:'', ''code:'', ''deprecationState:'', ''remarks:'',\
+        \ ''lastModified:'', ''source:'', ''wellKnownText:'', ''fromCRS.authority:'',\
+        \ ''fromCRS.code:'', ''toCRS.authority:'', toCRS.code:'', ''policy:''. followed\
+        \ by a value. Example: ''fromCRS.code:4267''."
+      operationId: searchCTs
+      parameters:
+      - name: longitudeLeft
+        in: query
+        required: false
+        schema:
+          type: number
+          format: double
+          default: -180.0
+      - name: latitudeLower
+        in: query
+        required: false
+        schema:
+          type: number
+          format: double
+          default: -90.0
+      - name: longitudeRight
+        in: query
+        required: false
+        schema:
+          type: number
+          format: double
+          default: 180.0
+      - name: latitudeUpper
+        in: query
+        required: false
+        schema:
+          type: number
+          format: double
+          default: 90.0
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 100
+      - name: mode
+        in: query
+        required: false
+        schema:
+          type: string
+          default: persistableReference
+      - name: data-partition-id
+        in: header
+        description: Tenant Id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SearchRequest"
+        required: true
+      responses:
+        "200":
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CTResults"
+        "400":
+          description: Bad input format
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "403":
+          description: User not authorized to perform the action.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "409":
+          description: A LegalTag with the given name already exists.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "502":
+          description: Bad Gateway
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "503":
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+      security:
+      - Authorization: []
+  /v2/search/crs:
+    post:
+      tags:
+      - coordinate-reference-systems-api
+      summary: Search CRSes
+      description: "Search CRS records (any sub-type) by keywords and/or geographic\
+        \ area. Geographical constraints are passed (optionally) as parameters via\
+        \ the query URL, search keywords are passed via the request body. Query syntax\
+        \ follows Lucene style, default operator for multiple expressions is AND.\
+        \ The following keywords are supported: ''name:'', ''description:'', ''type:'',\
+        \ ''authority:'', ''code:'', ''deprecationState:'', ''remarks:'', ''lastModified:'',\
+        \ ''source:'', ''wellKnownText:'', ''crsType:'', ''baseCRS.authority:'', ''baseCRS.code:'',\
+        \ ''horizontalCRS.authority:'', ''horizontalCRS.code:'', ''verticalCRS.authority:'',\
+        \ ''verticalCRS.code:'', ''lateBoundCRS.authority:'', ''lateBoundCRS.code:'',\
+        \ ''ct.authority:'', ''ct.code:'', ''transformationReady:''. followed by a\
+        \ value. Example: ''transformationReady:true''."
+      operationId: searchCRSes
+      parameters:
+      - name: longitudeLeft
+        in: query
+        required: false
+        schema:
+          type: number
+          format: double
+          default: -180.0
+      - name: latitudeLower
+        in: query
+        required: false
+        schema:
+          type: number
+          format: double
+          default: -90.0
+      - name: longitudeRight
+        in: query
+        required: false
+        schema:
+          type: number
+          format: double
+          default: 180.0
+      - name: latitudeUpper
+        in: query
+        required: false
+        schema:
+          type: number
+          format: double
+          default: 90.0
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 100
+      - name: mode
+        in: query
+        required: false
+        schema:
+          type: string
+          default: persistableReference
+      - name: data-partition-id
+        in: header
+        description: Tenant Id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SearchRequest"
+        required: true
+      responses:
+        "200":
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CRSResults"
+        "400":
+          description: Bad input format
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "403":
+          description: User not authorized to perform the action.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "409":
+          description: A LegalTag with the given name already exists.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "502":
+          description: Bad Gateway
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "503":
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+      security:
+      - Authorization: []
+  /v2/search/area:
+    post:
+      tags:
+      - areas-of-use-api
+      summary: Search Areas of Use
+      description: "Search Area of Use records by keywords and/or geographic area\
+        \ - returning named bounding box definitions in latitude and longitude. Geographical\
+        \ constraints are passed (optionally) as parameters via the query URL, search\
+        \ keywords are passed via the request body. Query syntax follows Lucene style,\
+        \ default operator for multiple expressions is AND. The following keywords\
+        \ are supported: ''name:'', ''description:'', ''authority:'', ''code:'', ''deprecationState:'',\
+        \ ''remarks:'' (deprecationState remarks), ''lastModified:''. Example ''name:*America*''."
+      operationId: searchAreasOfUse
+      parameters:
+      - name: longitudeLeft
+        in: query
+        required: false
+        schema:
+          type: number
+          format: double
+          default: -180.0
+      - name: latitudeLower
+        in: query
+        required: false
+        schema:
+          type: number
+          format: double
+          default: -90.0
+      - name: longitudeRight
+        in: query
+        required: false
+        schema:
+          type: number
+          format: double
+          default: 180.0
+      - name: latitudeUpper
+        in: query
+        required: false
+        schema:
+          type: number
+          format: double
+          default: 90.0
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 100
+      - name: mode
+        in: query
+        required: false
+        schema:
+          type: string
+          default: persistableReference
+      - name: data-partition-id
+        in: header
+        description: Tenant Id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SearchRequest"
+        required: true
+      responses:
+        "200":
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AreaOfUseResults"
+        "400":
+          description: Bad input format
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "403":
+          description: User not authorized to perform the action.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "409":
+          description: A LegalTag with the given name already exists.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "502":
+          description: Bad Gateway
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "503":
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+      security:
+      - Authorization: []
+  /v2/lateboundcrs:
+    get:
+      tags:
+      - coordinate-reference-systems-api
+      summary: Get all LateBoundCRSes
+      description: Get all the LateBoundCRSes defined in the catalog.
+      operationId: getLateBoundCRSes
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 100
+      - name: mode
+        in: query
+        required: false
+        schema:
+          type: string
+          default: persistableReference
+      - name: data-partition-id
+        in: header
+        description: Tenant Id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        "200":
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LateBoundCRSResults"
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "403":
+          description: User not authorized to perform the action.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "409":
+          description: A LegalTag with the given name already exists.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "502":
+          description: Bad Gateway
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "503":
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+      security:
+      - Authorization: []
+    post:
+      tags:
+      - coordinate-reference-systems-api
+      summary: Get one LateBoundCRS
+      description: Get one LateBoundCRS given its persistable reference string or
+        essence structure.
+      operationId: getLateBoundCRS
+      parameters:
+      - name: mode
+        in: query
+        required: false
+        schema:
+          type: string
+          default: persistableReference
+      - name: data-partition-id
+        in: header
+        description: Tenant Id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LateBoundCRSRequest"
+        required: true
+      responses:
+        "200":
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LateBoundCRS"
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "403":
+          description: User not authorized to perform the action.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "409":
+          description: A LegalTag with the given name already exists.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "502":
+          description: Bad Gateway
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "503":
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+      security:
+      - Authorization: []
+  /v2/earlyboundcrs:
+    get:
+      tags:
+      - coordinate-reference-systems-api
+      summary: Get all EarlyBoundCRSes
+      description: Get all the EarlyBoundCRSes defined in the catalog.
+      operationId: getEarlyBoundCRSes
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 100
+      - name: mode
+        in: query
+        required: false
+        schema:
+          type: string
+          default: persistableReference
+      - name: data-partition-id
+        in: header
+        description: Tenant Id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        "200":
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EarlyBoundCRSResults"
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "403":
+          description: User not authorized to perform the action.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "409":
+          description: A LegalTag with the given name already exists.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "502":
+          description: Bad Gateway
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "503":
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+      security:
+      - Authorization: []
+    post:
+      tags:
+      - coordinate-reference-systems-api
+      summary: Get all EarlyBoundCRSes
+      description: Get all the EarlyBoundCRSes defined in the catalog.
+      operationId: getEarlyBoundCRS
+      parameters:
+      - name: mode
+        in: query
+        required: false
+        schema:
+          type: string
+          default: persistableReference
+      - name: data-partition-id
+        in: header
+        description: Tenant Id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EarlyBoundCRSRequest"
+        required: true
+      responses:
+        "200":
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EarlyBoundCRS"
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "403":
+          description: User not authorized to perform the action.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "409":
+          description: A LegalTag with the given name already exists.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "502":
+          description: Bad Gateway
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "503":
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+      security:
+      - Authorization: []
+  /v2/ct:
+    get:
+      tags:
+      - cartographic-transformations-api
+      summary: Get all Cartographic Transformations
+      description: Get all cartographic transformations declared in the catalog.
+      operationId: getAllCTs
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 100
+      - name: mode
+        in: query
+        required: false
+        schema:
+          type: string
+          default: persistableReference
+      - name: data-partition-id
+        in: header
+        description: Tenant Id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        "200":
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CTResults"
+        "400":
+          description: Bad input format
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "403":
+          description: User not authorized to perform the action.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "409":
+          description: A LegalTag with the given name already exists.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "502":
+          description: Bad Gateway
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "503":
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+      security:
+      - Authorization: []
+    post:
+      tags:
+      - cartographic-transformations-api
+      summary: Get one Cartographic Transformation
+      description: Get one cartographic transformation given its essence.
+      operationId: getCT
+      parameters:
+      - name: mode
+        in: query
+        required: false
+        schema:
+          type: string
+          default: persistableReference
+      - name: data-partition-id
+        in: header
+        description: Tenant Id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CTRequest"
+        required: true
+      responses:
+        "200":
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CT"
+        "400":
+          description: Bad input format
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "403":
+          description: User not authorized to perform the action.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "409":
+          description: A LegalTag with the given name already exists.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "502":
+          description: Bad Gateway
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "503":
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+      security:
+      - Authorization: []
+  /v2/crs:
+    get:
+      tags:
+      - coordinate-reference-systems-api
+      summary: Get all CRSes
+      description: Get all the CRSes (any sub-type) defined in the catalog.
+      operationId: getAllCRSes
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 100
+      - name: mode
+        in: query
+        required: false
+        schema:
+          type: string
+          default: persistableReference
+      - name: data-partition-id
+        in: header
+        description: Tenant Id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        "200":
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CRSResults"
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "403":
+          description: User not authorized to perform the action.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "409":
+          description: A LegalTag with the given name already exists.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "502":
+          description: Bad Gateway
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "503":
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+      security:
+      - Authorization: []
+    post:
+      tags:
+      - coordinate-reference-systems-api
+      summary: Get one CRS
+      description: Get one CRS (any sub-type) given its essence
+      operationId: getCRS
+      parameters:
+      - name: mode
+        in: query
+        required: false
+        schema:
+          type: string
+          default: persistableReference
+      - name: data-partition-id
+        in: header
+        description: Tenant Id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CRSRequest"
+        required: true
+      responses:
+        "200":
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CRS"
+        "400":
+          description: Bad Input format
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "403":
+          description: User not authorized to perform the action.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "409":
+          description: A LegalTag with the given name already exists.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "502":
+          description: Bad Gateway
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "503":
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+      security:
+      - Authorization: []
+  /v2/compoundct:
+    get:
+      tags:
+      - cartographic-transformations-api
+      summary: Get all CompoundCTs
+      description: Get all the CompoundCTs defined in the catalog.
+      operationId: getCompoundCTs
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 100
+      - name: mode
+        in: query
+        required: false
+        schema:
+          type: string
+          default: persistableReference
+      - name: data-partition-id
+        in: header
+        description: Tenant Id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        "200":
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CompoundCTResults"
+        "400":
+          description: Bad input format
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "403":
+          description: User not authorized to perform the action.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "409":
+          description: A LegalTag with the given name already exists.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "502":
+          description: Bad Gateway
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "503":
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+      security:
+      - Authorization: []
+    post:
+      tags:
+      - cartographic-transformations-api
+      summary: Get One CompoundCTs
+      description: Get one CompoundCT by its essence.
+      operationId: getCompoundCT
+      parameters:
+      - name: mode
+        in: query
+        required: false
+        schema:
+          type: string
+          default: persistableReference
+      - name: data-partition-id
+        in: header
+        description: Tenant Id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CompoundCTRequest"
+        required: true
+      responses:
+        "200":
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CompoundCT"
+        "400":
+          description: Bad input format
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "403":
+          description: User not authorized to perform the action.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "409":
+          description: A LegalTag with the given name already exists.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "502":
+          description: Bad Gateway
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "503":
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+      security:
+      - Authorization: []
+  /v2/compoundcrs:
+    get:
+      tags:
+      - coordinate-reference-systems-api
+      summary: Get all CompoundCRSes
+      description: Get all the CompoundCRSes defined in the catalog
+      operationId: getCompoundCRSes
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 100
+      - name: mode
+        in: query
+        required: false
+        schema:
+          type: string
+          default: persistableReference
+      - name: data-partition-id
+        in: header
+        description: Tenant Id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json: {}
+      responses:
+        "200":
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CompoundCRSResults"
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "403":
+          description: User not authorized to perform the action.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "409":
+          description: A LegalTag with the given name already exists.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "502":
+          description: Bad Gateway
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "503":
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+      security:
+      - Authorization: []
+    post:
+      tags:
+      - coordinate-reference-systems-api
+      summary: Get One CompoundCRSes
+      description: Get one the CompoundCRS given its essence.
+      operationId: getCompoundCRS
+      parameters:
+      - name: mode
+        in: query
+        required: false
+        schema:
+          type: string
+          default: persistableReference
+      - name: data-partition-id
+        in: header
+        description: Tenant Id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CompoundCRSRequest"
+        required: true
+      responses:
+        "200":
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CompoundCRS"
+        "400":
+          description: Bad input format
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "403":
+          description: User not authorized to perform the action.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "409":
+          description: A LegalTag with the given name already exists.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "502":
+          description: Bad Gateway
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "503":
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+      security:
+      - Authorization: []
+  /v2/area:
+    get:
+      tags:
+      - areas-of-use-api
+      summary: Get Areas of Use
+      description: Get Area of Use records - returning named bounding box definitions
+        in latitude and longitude.
+      operationId: getAreasOfUse
+      parameters:
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 100
+      - name: mode
+        in: query
+        required: false
+        schema:
+          type: string
+          default: persistableReference
+      - name: data-partition-id
+        in: header
+        description: Tenant Id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AreaOfUseResults"
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "403":
+          description: User not authorized to perform the action.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "409":
+          description: A LegalTag with the given name already exists.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "502":
+          description: Bad Gateway
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "503":
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+      security:
+      - Authorization: []
+    post:
+      tags:
+      - areas-of-use-api
+      summary: Get one Area of Use
+      description: Get one Area of Use record by essence - returning a named bounding
+        box definition in latitude and longitude.
+      operationId: getAreaOfUse
+      parameters:
+      - name: mode
+        in: query
+        required: false
+        schema:
+          type: string
+          default: persistableReference
+      - name: data-partition-id
+        in: header
+        description: Tenant Id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AreaOfUseRequest"
+        required: true
+      responses:
+        "200":
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AreaOfUse"
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "403":
+          description: User not authorized to perform the action.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "409":
+          description: A LegalTag with the given name already exists.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "502":
+          description: Bad Gateway
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "503":
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+      security:
+      - Authorization: []
+  /v2/info:
+    get:
+      tags:
+      - info-api
+      summary: info
+      description: "For deployment available public `/info` endpoint, which provides\
+        \ build and git related information."
+      operationId: info
+      parameters:
+      - name: data-partition-id
+        in: header
+        description: Tenant Id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Version info.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VersionInfo"
+        "400":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+  /v2/catalog:
+    get:
+      tags:
+      - crs-catalog-api
+      summary: Get the Catalog summary (without lists)
+      description: "Get the catalog structure with populated number of items per list\
+        \ but empty lists ('lateBoundCRSes',...). It is expected that the lists are\
+        \ individually populated on demand via the specific methods ('CRSV2GetLateBoundCRSes',...)."
+      operationId: getCatalog
+      parameters:
+      - name: data-partition-id
+        in: header
+        description: Tenant Id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Catalog"
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "403":
+          description: User not authorized to perform the action.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "409":
+          description: A LegalTag with the given name already exists.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "502":
+          description: Bad Gateway
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "503":
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+      security:
+      - Authorization: []
+  /v2/catalog/attributes:
+    get:
+      tags:
+      - crs-catalog-api
+      summary: Get Catalog Name and Update Dates
+      description: Get the catalog name and last update date
+      operationId: getCatalogAttributes
+      parameters:
+      - name: data-partition-id
+        in: header
+        description: Tenant Id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CatalogAttributes"
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "403":
+          description: User not authorized to perform the action.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "409":
+          description: A LegalTag with the given name already exists.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "502":
+          description: Bad Gateway
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "503":
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+      security:
+      - Authorization: []
+  /v2/_ah/readiness_check:
+    get:
+      tags:
+      - health-check-api
+      summary: Readiness Check endpoint
+      description: "For deployment available public `/readiness_check` endpoint, which\
+        \ provides `CRS Catalog Service is ready` message."
+      operationId: readinessCheck
+      parameters:
+      - name: data-partition-id
+        in: header
+        description: Tenant Id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: CRS Catalog service is ready
+          content:
+            application/json:
+              schema:
+                type: string
+        "400":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+  /v2/_ah/liveness_check:
+    get:
+      tags:
+      - health-check-api
+      summary: Liveness Check endpoint
+      description: "For deployment available public `/liveness_check` endpoint, which\
+        \ provides `CRS Catalog Service is alive` message."
+      operationId: livenessCheck
+      parameters:
+      - name: data-partition-id
+        in: header
+        description: Tenant Id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: CRS Catalog service is alive
+          content:
+            application/json:
+              schema:
+                type: string
+        "400":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+components:
+  schemas:
+    AuthorityCode:
+      type: object
+      properties:
+        authority:
+          type: string
+        code:
+          type: string
+    SingleCTEssenceImpl:
+      type: object
+      properties:
+        authCode:
+          $ref: "#/components/schemas/AuthorityCode"
+        type:
+          type: string
+        ver:
+          type: string
+        name:
+          type: string
+        wkt:
+          type: string
+    SingleCTRequest:
+      type: object
+      description: "Request to get one SingleCT given its 'persistableReference' (serialized\
+        \ essence) or 'essence' structure. Only one, persistableReference or essence\
+        \ must be provided. If both are provided, essence takes precedence."
+      properties:
+        essence:
+          $ref: "#/components/schemas/SingleCTEssenceImpl"
+          description: Single cartographic transformation.
+        persistableReference:
+          type: string
+          description: "The persistable reference string, either the essence of the\
+            \ SingleCT serialized into a JSON string or an encoded string (version\
+            \ 1)."
+    AreaOfUse:
+      type: object
+      properties:
+        name:
+          type: string
+        areaOfUseEssence:
+          $ref: "#/components/schemas/AreaOfUseEssence"
+        areaOfUseDeprecationInfo:
+          $ref: "#/components/schemas/AreaOfUseDeprecationInfo"
+        lastModified:
+          type: string
+        description:
+          type: string
+        essence:
+          $ref: "#/components/schemas/Essence"
+        deprecationInfo:
+          $ref: "#/components/schemas/DeprecationInfo"
+        namedReference:
+          $ref: "#/components/schemas/NamedReference"
+        aliasNames:
+          type: array
+          items:
+            type: string
+    AreaOfUseDeprecationInfo:
+      type: object
+      properties:
+        supersededByArea:
+          $ref: "#/components/schemas/AreaOfUse"
+        deprecationState:
+          type: string
+        remarks:
+          type: string
+    AreaOfUseEssence:
+      type: object
+      properties:
+        name:
+          type: string
+        boundingBox:
+          $ref: "#/components/schemas/SphericalBoundingBox"
+        type:
+          type: string
+        authorityCode:
+          $ref: "#/components/schemas/AuthorityCode"
+    CT:
+      type: object
+      properties:
+        fromCRSAuthorityCode:
+          $ref: "#/components/schemas/AuthorityCode"
+        toCRSAuthorityCode:
+          $ref: "#/components/schemas/AuthorityCode"
+        ctdeprecationInfo:
+          $ref: "#/components/schemas/CTDeprecationInfo"
+        source:
+          type: string
+        areaOfUse:
+          $ref: "#/components/schemas/AreaOfUse"
+        lastModified:
+          type: string
+        description:
+          type: string
+        essence:
+          $ref: "#/components/schemas/Essence"
+        deprecationInfo:
+          $ref: "#/components/schemas/DeprecationInfo"
+        namedReference:
+          $ref: "#/components/schemas/NamedReference"
+        aliasNames:
+          type: array
+          items:
+            type: string
+    CTDeprecationInfo:
+      type: object
+      properties:
+        supersededByCT:
+          $ref: "#/components/schemas/CT"
+        deprecationState:
+          type: string
+        remarks:
+          type: string
+    DeprecationInfo:
+      type: object
+      properties:
+        deprecationState:
+          type: string
+        remarks:
+          type: string
+    Essence:
+      type: object
+      properties:
+        type:
+          type: string
+        authorityCode:
+          $ref: "#/components/schemas/AuthorityCode"
+    NamedReference:
+      type: object
+      description: Name and Persistable Reference (the essence converted to a JSON
+        string).
+      properties:
+        name:
+          type: string
+          description: The name of the item.
+        persistableReference:
+          type: string
+          description: The item 'essence' serialized into a JSON string..
+    SingleCT:
+      type: object
+      properties:
+        singleCTEssence:
+          $ref: "#/components/schemas/SingleCTEssence"
+        fromCRSAuthorityCode:
+          $ref: "#/components/schemas/AuthorityCode"
+        toCRSAuthorityCode:
+          $ref: "#/components/schemas/AuthorityCode"
+        ctdeprecationInfo:
+          $ref: "#/components/schemas/CTDeprecationInfo"
+        source:
+          type: string
+        areaOfUse:
+          $ref: "#/components/schemas/AreaOfUse"
+        lastModified:
+          type: string
+        description:
+          type: string
+        essence:
+          $ref: "#/components/schemas/Essence"
+        deprecationInfo:
+          $ref: "#/components/schemas/DeprecationInfo"
+        namedReference:
+          $ref: "#/components/schemas/NamedReference"
+        aliasNames:
+          type: array
+          items:
+            type: string
+    SingleCTEssence:
+      type: object
+      properties:
+        wellKnownText:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        engineVersion:
+          type: string
+        authorityCode:
+          $ref: "#/components/schemas/AuthorityCode"
+    SphericalBoundingBox:
+      type: object
+      properties:
+        longitudeLeft:
+          type: number
+          format: double
+        latitudeLower:
+          type: number
+          format: double
+        longitudeRight:
+          type: number
+          format: double
+        latitudeUpper:
+          type: number
+          format: double
+    AppError:
+      type: object
+      description: Standard error response returned by OSDU services.
+      properties:
+        code:
+          type: integer
+          format: int32
+          description: HTTP status code.
+          example: 400
+        reason:
+          type: string
+          description: Short error reason.
+          example: Bad Request
+        message:
+          type: string
+          description: Detailed error message.
+          example: Invalid record format.
+    SearchRequest:
+      type: object
+      description: Request containing a Lucene style query string.
+      properties:
+        query:
+          type: string
+          description: The Lucene style query string with keywords.
+    CTResults:
+      type: object
+      description: A response containing a list of cartographic transformations
+      properties:
+        offset:
+          type: integer
+          format: int32
+          description: The offset of the first item in the list of all AreaOfUse.
+            It is optional and is 0 by default.
+        count:
+          type: integer
+          format: int32
+          description: The maximum number of the AreaOfUse returned. It is optional
+            and is 100 by default.
+        totalCount:
+          type: integer
+          format: int32
+          description: The total number of items matching the query.
+        cts:
+          type: array
+          description: Generic cartographic transformation
+          items:
+            $ref: "#/components/schemas/CT"
+    CRS:
+      type: object
+      properties:
+        baseCRSAuthorityCode:
+          $ref: "#/components/schemas/AuthorityCode"
+        numberOfAxes:
+          type: integer
+          format: int32
+        axisUnits:
+          type: array
+          items:
+            type: string
+        crstype:
+          type: string
+        transformationReady:
+          type: boolean
+        crsdeprecationInfo:
+          $ref: "#/components/schemas/CRSDeprecationInfo"
+        source:
+          type: string
+        areaOfUse:
+          $ref: "#/components/schemas/AreaOfUse"
+        lastModified:
+          type: string
+        description:
+          type: string
+        essence:
+          $ref: "#/components/schemas/Essence"
+        deprecationInfo:
+          $ref: "#/components/schemas/DeprecationInfo"
+        namedReference:
+          $ref: "#/components/schemas/NamedReference"
+        aliasNames:
+          type: array
+          items:
+            type: string
+    CRSDeprecationInfo:
+      type: object
+      properties:
+        supersededByCRS:
+          $ref: "#/components/schemas/CRS"
+        deprecationState:
+          type: string
+        remarks:
+          type: string
+    CRSResults:
+      type: object
+      description: A response containing a list of CRSes.
+      properties:
+        offset:
+          type: integer
+          format: int32
+          description: The offset of the first item in the list of all AreaOfUse.
+            It is optional and is 0 by default.
+        count:
+          type: integer
+          format: int32
+          description: The maximum number of the AreaOfUse returned. It is optional
+            and is 100 by default.
+        totalCount:
+          type: integer
+          format: int32
+          description: The total number of items matching the query.
+        crses:
+          type: array
+          description: A response containing a list of CRSes.
+          items:
+            $ref: "#/components/schemas/CRS"
+    AreaOfUseResults:
+      type: object
+      description: Object to hold the list of `AreaOfUse` objects from a search
+      properties:
+        offset:
+          type: integer
+          format: int32
+          description: The offset of the first item in the list of all AreaOfUse.
+            It is optional and is 0 by default.
+        count:
+          type: integer
+          format: int32
+          description: The maximum number of the AreaOfUse returned. It is optional
+            and is 100 by default.
+        totalCount:
+          type: integer
+          format: int32
+          description: The total number of items matching the query.
+        areasOfUse:
+          type: array
+          items:
+            $ref: "#/components/schemas/AreaOfUse"
+    LateBoundCRSEssenceImpl:
+      type: object
+      properties:
+        authCode:
+          $ref: "#/components/schemas/AuthorityCode"
+        type:
+          type: string
+        ver:
+          type: string
+        name:
+          type: string
+        wkt:
+          type: string
+    LateBoundCRSRequest:
+      type: object
+      description: "Request to get one LateBoundCRS given its 'persistableReference'\
+        \ (serialized essence) or 'essence' structure. Only one, persistableReference\
+        \ or essence must be provided. If both are provided, essence takes precedence."
+      properties:
+        essence:
+          $ref: "#/components/schemas/LateBoundCRSEssenceImpl"
+          description: "Late-bound coordinate reference system, i.e. a CRS without\
+            \ a transformation binding to WGS 84"
+        persistableReference:
+          type: string
+          description: "The persistable reference string, either the essence of the\
+            \ LateBoundCRS serialized into a JSON string or an encoded string (version\
+            \ 1)."
+    LateBoundCRS:
+      type: object
+      properties:
+        source:
+          type: string
+        lateBoundCRSEssence:
+          $ref: "#/components/schemas/LateBoundCRSEssence"
+        baseCRSAuthorityCode:
+          $ref: "#/components/schemas/AuthorityCode"
+        numberOfAxes:
+          type: integer
+          format: int32
+        axisUnits:
+          type: array
+          items:
+            type: string
+        crstype:
+          type: string
+        transformationReady:
+          type: boolean
+        crsdeprecationInfo:
+          $ref: "#/components/schemas/CRSDeprecationInfo"
+        areaOfUse:
+          $ref: "#/components/schemas/AreaOfUse"
+        lastModified:
+          type: string
+        description:
+          type: string
+        essence:
+          $ref: "#/components/schemas/Essence"
+        deprecationInfo:
+          $ref: "#/components/schemas/DeprecationInfo"
+        namedReference:
+          $ref: "#/components/schemas/NamedReference"
+        aliasNames:
+          type: array
+          items:
+            type: string
+    LateBoundCRSEssence:
+      type: object
+      properties:
+        wellKnownText:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        engineVersion:
+          type: string
+        authorityCode:
+          $ref: "#/components/schemas/AuthorityCode"
+    CTEssence:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+        engineVersion:
+          type: string
+        authorityCode:
+          $ref: "#/components/schemas/AuthorityCode"
+    CompoundCTEssenceImpl:
+      type: object
+      properties:
+        authCode:
+          $ref: "#/components/schemas/AuthorityCode"
+        type:
+          type: string
+        ver:
+          type: string
+        name:
+          type: string
+        policy:
+          type: string
+        cts:
+          type: array
+          items:
+            $ref: "#/components/schemas/CTEssence"
+    EarlyBoundCRSEssenceImpl:
+      type: object
+      properties:
+        authCode:
+          $ref: "#/components/schemas/AuthorityCode"
+        type:
+          type: string
+        ver:
+          type: string
+        name:
+          type: string
+        lateBoundCRS:
+          $ref: "#/components/schemas/LateBoundCRSEssence"
+        singleCT:
+          $ref: "#/components/schemas/SingleCTEssenceImpl"
+        compoundCT:
+          $ref: "#/components/schemas/CompoundCTEssenceImpl"
+    EarlyBoundCRSRequest:
+      type: object
+      description: "Request to get one EarlyBoundCRS given its 'persistableReference'\
+        \ (serialized essence) or 'essence' structure. Only one, persistableReference\
+        \ or essence must be provided. If both are provided, essence takes precedence"
+      properties:
+        essence:
+          $ref: "#/components/schemas/EarlyBoundCRSEssenceImpl"
+          description: "Early-bound coordinate reference system, i.e. a CRS with a\
+            \ transformation binding to WGS 84"
+        persistableReference:
+          type: string
+          description: "The persistable reference string, either the essence of the\
+            \ EarlyBoundCRS serialized into a JSON string or an encoded string (version\
+            \ 1)"
+    EarlyBoundCRS:
+      type: object
+      properties:
+        earlyBoundCRSEssence:
+          $ref: "#/components/schemas/EarlyBoundCRSEssence"
+        baseCRSAuthorityCode:
+          $ref: "#/components/schemas/AuthorityCode"
+        numberOfAxes:
+          type: integer
+          format: int32
+        axisUnits:
+          type: array
+          items:
+            type: string
+        crstype:
+          type: string
+        transformationReady:
+          type: boolean
+        crsdeprecationInfo:
+          $ref: "#/components/schemas/CRSDeprecationInfo"
+        source:
+          type: string
+        areaOfUse:
+          $ref: "#/components/schemas/AreaOfUse"
+        lastModified:
+          type: string
+        description:
+          type: string
+        essence:
+          $ref: "#/components/schemas/Essence"
+        deprecationInfo:
+          $ref: "#/components/schemas/DeprecationInfo"
+        namedReference:
+          $ref: "#/components/schemas/NamedReference"
+        aliasNames:
+          type: array
+          items:
+            type: string
+    EarlyBoundCRSEssence:
+      type: object
+      properties:
+        lateBoundCRSEssence:
+          $ref: "#/components/schemas/LateBoundCRSEssence"
+        ctessence:
+          $ref: "#/components/schemas/CTEssence"
+        lateBoundCRSAuthorityCode:
+          $ref: "#/components/schemas/AuthorityCode"
+        ctauthorityCode:
+          $ref: "#/components/schemas/AuthorityCode"
+        name:
+          type: string
+        type:
+          type: string
+        engineVersion:
+          type: string
+        authorityCode:
+          $ref: "#/components/schemas/AuthorityCode"
+    CTEssenceImpl:
+      type: object
+      properties:
+        authCode:
+          $ref: "#/components/schemas/AuthorityCode"
+        type:
+          type: string
+        ver:
+          type: string
+        name:
+          type: string
+    CTRequest:
+      type: object
+      description: "Request to get one cartographic transformation given its 'persistableReference'\
+        \ (serialized essence) or 'essence' structure. Only one, persistableReference\
+        \ or essence must be provided. If both are provided, essence takes precedence."
+      properties:
+        ctessenceJson:
+          $ref: "#/components/schemas/CTEssenceImpl"
+        essence:
+          $ref: "#/components/schemas/CTEssenceImpl"
+          description: Any sub-type of cartographic transformation
+        persistableReference:
+          type: string
+          description: "The persistable reference string, either the essence of the\
+            \ cartographic transform (CT) serialized into a JSON string or an encoded\
+            \ string (version 1)."
+    CRSEssenceImpl:
+      type: object
+      properties:
+        authCode:
+          $ref: "#/components/schemas/AuthorityCode"
+        type:
+          type: string
+        ver:
+          type: string
+        name:
+          type: string
+    CRSRequest:
+      type: object
+      description: "Request to get one CRS (any sub-type) given its 'persistableReference'\
+        \ (serialized essence) or 'essence' structure. Only one, persistableReference\
+        \ or essence must be provided. If both are provided, essence takes precedence.\
+        \ If both are provided, essence takes precedence"
+      properties:
+        crsessenceJson:
+          $ref: "#/components/schemas/CRSEssenceImpl"
+          description: json representation of the CRS essence
+        essence:
+          $ref: "#/components/schemas/CRSEssenceImpl"
+          description: "Any coordinate reference system essence carrying all possible\
+            \ properties for LateBoundCRSEssence, EarlyBoundCRSEssence and CompoundCRSEssence"
+        persistableReference:
+          type: string
+          description: persistable reference string
+    CompoundCTRequest:
+      type: object
+      description: "Request to get one CompoundCT given its 'persistableReference'\
+        \ (serialized essence) or 'essence' structure. Only one, persistableReference\
+        \ or essence must be provided. If both are provided, essence takes precedence."
+      properties:
+        essence:
+          $ref: "#/components/schemas/CompoundCTEssenceImpl"
+          description: Compound cartographic transformation
+        persistableReference:
+          type: string
+          description: "The persistable reference string, either the essence of the\
+            \ CompoundCT serialized into a JSON string or an encoded string (version\
+            \ 1)."
+    CompoundCT:
+      type: object
+      properties:
+        compoundCTEssence:
+          $ref: "#/components/schemas/CompoundCTEssence"
+        cts:
+          type: array
+          items:
+            $ref: "#/components/schemas/SingleCT"
+        fromCRSAuthorityCode:
+          $ref: "#/components/schemas/AuthorityCode"
+        toCRSAuthorityCode:
+          $ref: "#/components/schemas/AuthorityCode"
+        ctdeprecationInfo:
+          $ref: "#/components/schemas/CTDeprecationInfo"
+        source:
+          type: string
+        areaOfUse:
+          $ref: "#/components/schemas/AreaOfUse"
+        lastModified:
+          type: string
+        description:
+          type: string
+        essence:
+          $ref: "#/components/schemas/Essence"
+        deprecationInfo:
+          $ref: "#/components/schemas/DeprecationInfo"
+        namedReference:
+          $ref: "#/components/schemas/NamedReference"
+        aliasNames:
+          type: array
+          items:
+            type: string
+    CompoundCTEssence:
+      type: object
+      properties:
+        ctessences:
+          type: array
+          items:
+            $ref: "#/components/schemas/CTEssence"
+        ctauthorityCodes:
+          type: array
+          items:
+            $ref: "#/components/schemas/AuthorityCode"
+        policy:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        engineVersion:
+          type: string
+        authorityCode:
+          $ref: "#/components/schemas/AuthorityCode"
+    CompoundCRSEssenceImpl:
+      type: object
+      properties:
+        horizontalCRS:
+          $ref: "#/components/schemas/Essence"
+          writeOnly: true
+        verticalCRS:
+          $ref: "#/components/schemas/Essence"
+          writeOnly: true
+        authCode:
+          $ref: "#/components/schemas/AuthorityCode"
+        type:
+          type: string
+        ver:
+          type: string
+        name:
+          type: string
+        horzLateBoundCRS:
+          $ref: "#/components/schemas/LateBoundCRSEssenceImpl"
+        vertLateBoundCRS:
+          $ref: "#/components/schemas/LateBoundCRSEssenceImpl"
+        horzEarlyBoundCRS:
+          $ref: "#/components/schemas/EarlyBoundCRSEssenceImpl"
+        vertEarlyBoundCRS:
+          $ref: "#/components/schemas/EarlyBoundCRSEssenceImpl"
+    CompoundCRSRequest:
+      type: object
+      description: "Request to get one CompoundCRS given its 'persistableReference'\
+        \ (serialized essence) or 'essence' structure. Only one, persistableReference\
+        \ or essence must be provided. If both are provided, essence takes precedence."
+      properties:
+        essence:
+          $ref: "#/components/schemas/CompoundCRSEssenceImpl"
+          description: Compound coordinate reference system aggregating a horizontal
+            to a vertical CRS
+        persistableReference:
+          type: string
+          description: "The persistable reference string, either the essence of the\
+            \ CompoundCRS serialized into a JSON string or an encoded string (version\
+            \ 1)"
+    CRSEssence:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+        engineVersion:
+          type: string
+        authorityCode:
+          $ref: "#/components/schemas/AuthorityCode"
+    CompoundCRS:
+      type: object
+      properties:
+        compoundCRSEssence:
+          $ref: "#/components/schemas/CompoundCRSEssence"
+        baseCRSAuthorityCode:
+          $ref: "#/components/schemas/AuthorityCode"
+        numberOfAxes:
+          type: integer
+          format: int32
+        axisUnits:
+          type: array
+          items:
+            type: string
+        crstype:
+          type: string
+        transformationReady:
+          type: boolean
+        crsdeprecationInfo:
+          $ref: "#/components/schemas/CRSDeprecationInfo"
+        source:
+          type: string
+        areaOfUse:
+          $ref: "#/components/schemas/AreaOfUse"
+        lastModified:
+          type: string
+        description:
+          type: string
+        essence:
+          $ref: "#/components/schemas/Essence"
+        deprecationInfo:
+          $ref: "#/components/schemas/DeprecationInfo"
+        namedReference:
+          $ref: "#/components/schemas/NamedReference"
+        aliasNames:
+          type: array
+          items:
+            type: string
+    CompoundCRSEssence:
+      type: object
+      properties:
+        horizontalCRSEssence:
+          $ref: "#/components/schemas/CRSEssence"
+        verticalCRSEssence:
+          $ref: "#/components/schemas/CRSEssence"
+        horizontalCRSAuthorityCode:
+          $ref: "#/components/schemas/AuthorityCode"
+        verticalCRSAuthorityCode:
+          $ref: "#/components/schemas/AuthorityCode"
+        name:
+          type: string
+        type:
+          type: string
+        engineVersion:
+          type: string
+        authorityCode:
+          $ref: "#/components/schemas/AuthorityCode"
+    AreaOfUseEssenceImpl:
+      type: object
+      properties:
+        name:
+          type: string
+        authCode:
+          $ref: "#/components/schemas/AuthorityCode"
+        type:
+          type: string
+        boundBox:
+          $ref: "#/components/schemas/SphericalBoundingBox"
+    AreaOfUseRequest:
+      type: object
+      description: Request to get area of use
+      properties:
+        essence:
+          $ref: "#/components/schemas/AreaOfUseEssenceImpl"
+          description: the area of use essence
+        persistableReference:
+          type: string
+          description: persistable reference string as passed through the request
+    SingleCTResults:
+      type: object
+      description: A response containing a list of single cartographic transformations.
+      properties:
+        offset:
+          type: integer
+          format: int32
+          description: The offset of the first item in the list of all AreaOfUse.
+            It is optional and is 0 by default.
+        count:
+          type: integer
+          format: int32
+          description: The maximum number of the AreaOfUse returned. It is optional
+            and is 100 by default.
+        totalCount:
+          type: integer
+          format: int32
+          description: The total number of items matching the query.
+        cts:
+          type: array
+          items:
+            $ref: "#/components/schemas/SingleCT"
+    LateBoundCRSResults:
+      type: object
+      description: A response containing a list of late-bound CRSes.
+      properties:
+        offset:
+          type: integer
+          format: int32
+          description: The offset of the first item in the list of all AreaOfUse.
+            It is optional and is 0 by default.
+        count:
+          type: integer
+          format: int32
+          description: The maximum number of the AreaOfUse returned. It is optional
+            and is 100 by default.
+        totalCount:
+          type: integer
+          format: int32
+          description: The total number of items matching the query.
+        crses:
+          type: array
+          description: An array of LateBoundCRS
+          items:
+            $ref: "#/components/schemas/LateBoundCRS"
+    ConnectedOuterService:
+      type: object
+      description: Name and version of an external service that this OSDU service
+        connects to.
+      properties:
+        name:
+          type: string
+          description: Name of the connected external service.
+          example: storage
+        version:
+          type: string
+          description: Version of the connected external service.
+          example: 2.0.0
+    FeatureFlagState:
+      type: object
+      description: State of a feature flag for a given partition and source.
+      properties:
+        name:
+          type: string
+          description: Name of the feature flag.
+          example: collaborations-api
+        enabled:
+          type: boolean
+          description: Whether the feature flag is currently enabled.
+          example: true
+        partition:
+          type: string
+          description: Data partition this flag applies to.
+          example: opendes
+        source:
+          type: string
+          description: Source configuration that provided this flag state.
+          example: runtime
+    VersionInfo:
+      type: object
+      description: Version and build information for an OSDU service.
+      properties:
+        groupId:
+          type: string
+          description: Maven group ID of the service artifact.
+          example: org.opengroup.osdu
+        artifactId:
+          type: string
+          description: Maven artifact ID of the service.
+          example: os-search
+        version:
+          type: string
+          description: Semantic version of the deployed service.
+          example: 0.27.0
+        buildTime:
+          type: string
+          description: ISO 8601 timestamp of the build.
+          example: 2021-01-26T02:24:13.843Z
+        branch:
+          type: string
+          description: Source control branch from which the service was built.
+          example: main
+        commitId:
+          type: string
+          description: Short commit SHA of the build.
+          example: "7777777"
+        commitMessage:
+          type: string
+          description: Commit message of the build.
+          example: initial commit
+        connectedOuterServices:
+          type: array
+          description: List of external services this service depends on.
+          items:
+            $ref: "#/components/schemas/ConnectedOuterService"
+        featureFlagStates:
+          type: array
+          description: "Current feature flag states for this partition, if any."
+          items:
+            $ref: "#/components/schemas/FeatureFlagState"
+    EarlyBoundCRSResults:
+      type: object
+      description: A response containing a list of early-bound CRSes.
+      properties:
+        offset:
+          type: integer
+          format: int32
+          description: The offset of the first item in the list of all AreaOfUse.
+            It is optional and is 0 by default.
+        count:
+          type: integer
+          format: int32
+          description: The maximum number of the AreaOfUse returned. It is optional
+            and is 100 by default.
+        totalCount:
+          type: integer
+          format: int32
+          description: The total number of items matching the query.
+        crses:
+          type: array
+          description: The EarlyBoundCRS class.
+          items:
+            $ref: "#/components/schemas/EarlyBoundCRS"
+    CompoundCTResults:
+      type: object
+      description: A response containing a list of compound cartographic transformations.
+      properties:
+        offset:
+          type: integer
+          format: int32
+          description: The offset of the first item in the list of all AreaOfUse.
+            It is optional and is 0 by default.
+        count:
+          type: integer
+          format: int32
+          description: The maximum number of the AreaOfUse returned. It is optional
+            and is 100 by default.
+        totalCount:
+          type: integer
+          format: int32
+          description: The total number of items matching the query.
+        cts:
+          type: array
+          items:
+            $ref: "#/components/schemas/CompoundCT"
+    CompoundCRSResults:
+      type: object
+      description: A response containing a list of compound CRSes.
+      properties:
+        offset:
+          type: integer
+          format: int32
+          description: The offset of the first item in the list of all AreaOfUse.
+            It is optional and is 0 by default.
+        count:
+          type: integer
+          format: int32
+          description: The maximum number of the AreaOfUse returned. It is optional
+            and is 100 by default.
+        totalCount:
+          type: integer
+          format: int32
+          description: The total number of items matching the query.
+        crses:
+          type: array
+          description: List of CompoundCRS objects.
+          items:
+            $ref: "#/components/schemas/CompoundCRS"
+    Catalog:
+      type: object
+      properties:
+        attributes:
+          $ref: "#/components/schemas/CatalogAttributes"
+        allCTs:
+          type: array
+          items:
+            $ref: "#/components/schemas/CT"
+        singleCTs:
+          type: array
+          items:
+            $ref: "#/components/schemas/SingleCT"
+        compoundCTs:
+          type: array
+          items:
+            $ref: "#/components/schemas/CompoundCT"
+        catalogResponse:
+          $ref: "#/components/schemas/Catalog"
+        areasOfUse:
+          type: array
+          items:
+            $ref: "#/components/schemas/AreaOfUse"
+        allCRSes:
+          type: array
+          items:
+            $ref: "#/components/schemas/CRS"
+        lateBoundCRSes:
+          type: array
+          items:
+            $ref: "#/components/schemas/LateBoundCRS"
+        earlyBoundCRSes:
+          type: array
+          items:
+            $ref: "#/components/schemas/EarlyBoundCRS"
+        compoundCRSes:
+          type: array
+          items:
+            $ref: "#/components/schemas/CompoundCRS"
+        lateBoundCRSesCount:
+          type: integer
+          format: int32
+        earlyBoundCRSesCount:
+          type: integer
+          format: int32
+        compoundCRSesCount:
+          type: integer
+          format: int32
+        singleCTsCount:
+          type: integer
+          format: int32
+        compoundCTsCount:
+          type: integer
+          format: int32
+        areaOfUseCount:
+          type: integer
+          format: int32
+    CatalogAttributes:
+      type: object
+      properties:
+        name:
+          type: string
+        lastModified:
+          type: string
+        description:
+          type: string
+  securitySchemes:
+    Authorization:
+      type: http
+      name: Authorization
+      in: header
+      scheme: bearer
+      bearerFormat: Authorization

@@ -1,0 +1,10 @@
+{
+  "codeSpace": "EPSG",
+  "name": "Ain el Abd to WGS 84 (2)",
+  "id": "EPSG::1111",
+  "code": "1111",
+  "sourceCRS": "{{data_partition_id}}:reference-data--CoordinateReferenceSystem:Geographic2D:EPSG::4204:",
+  "targetCRS": "{{data_partition_id}}:reference-data--CoordinateReferenceSystem:Geographic2D:EPSG::4326:",
+  "latitude": 17.5,
+  "longitude": 40.56
+}

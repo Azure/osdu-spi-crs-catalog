@@ -1,0 +1,5 @@
+{
+  "codeSpace": "EPSG",
+  "kind": "VerticalTransformation",
+  "returnAllFields": true
+}

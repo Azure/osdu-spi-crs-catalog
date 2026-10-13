@@ -1,0 +1,1209 @@
+[
+  {
+    "data": {
+      "BaseCRS": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 4473
+        },
+        "BaseCRSID": "{{data_partition_id}}:reference-data--CoordinateReferenceSystem:Geocentric:EPSG::4473:",
+        "Name": "Cadastre 1997"
+      },
+      "Code": "4472",
+      "CodeAsNumber": 4472,
+      "CodeSpace": "EPSG",
+      "CoordinateReferenceSystemType": "GeodeticCRS",
+      "CoordinateSystem": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 6423
+        },
+        "Name": "Ellipsoidal 3D CS. Axes: latitude, longitude, ellipsoidal height. Orientations: north, east, up. UoM: degree, degree, metre.",
+        "HorizontalAxisUnitID": "{{data_partition_id}}:reference-data--UnitOfMeasure:dega:",
+        "VerticalAxisUnitID": "{{data_partition_id}}:reference-data--UnitOfMeasure:m:"
+      },
+      "Datum": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 1037
+        },
+        "Name": "Cadastre 1997"
+      },
+      "ID": "Geographic3D:EPSG::4472",
+      "Kind": "geographic 3D",
+      "Name": "Cadastre 1997",
+      "PersistableReference": "{\"authCode\":{\"auth\":\"EPSG\",\"code\":\"4472\"},\"name\":\"Cadastre_1997_3D\",\"type\":\"LBC\",\"ver\":\"PE_10_9_1\",\"wkt\":\"GEOGCS[\\\"Cadastre_1997_3D\\\",DATUM[\\\"D_Cadastre_1997\\\",SPHEROID[\\\"International_1924\\\",6378388.0,297.0]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433],LINUNIT[\\\"Meter\\\",1.0],AUTHORITY[\\\"EPSG\\\",4472]]\"}",
+      "PreferredUsage": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 3327
+        },
+        "Extent": {
+          "AuthorityCode": {
+            "Authority": "EPSG",
+            "Code": 3340
+          },
+          "BoundingBoxEastBoundLongitude": 45.35,
+          "BoundingBoxNorthBoundLatitude": -12.61,
+          "BoundingBoxSouthBoundLatitude": -13.05,
+          "BoundingBoxWestBoundLongitude": 44.98,
+          "Description": "Mayotte - onshore.",
+          "Name": "Mayotte - onshore"
+        },
+        "Name": "Mayotte - onshore",
+        "Scope": {
+          "AuthorityCode": {
+            "Authority": "EPSG",
+            "Code": 1027
+          },
+          "Name": "Geodesy."
+        }
+      },
+      "RevisionDate": "2009-10-02T00:00:00+00:00",
+      "Usages": [
+        {
+          "AuthorityCode": {
+            "Authority": "EPSG",
+            "Code": 3327
+          },
+          "Extent": {
+            "AuthorityCode": {
+              "Authority": "EPSG",
+              "Code": 3340
+            },
+            "BoundingBoxEastBoundLongitude": 45.35,
+            "BoundingBoxNorthBoundLatitude": -12.61,
+            "BoundingBoxSouthBoundLatitude": -13.05,
+            "BoundingBoxWestBoundLongitude": 44.98,
+            "Description": "Mayotte - onshore.",
+            "Name": "Mayotte - onshore"
+          },
+          "Name": "Mayotte - onshore",
+          "Scope": {
+            "AuthorityCode": {
+              "Authority": "EPSG",
+              "Code": 1027
+            },
+            "Name": "Geodesy."
+          }
+        }
+      ],
+      "Wgs84Coordinates": {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    44.98,
+                    -13.05
+                  ],
+                  [
+                    45.35,
+                    -13.05
+                  ],
+                  [
+                    45.35,
+                    -12.61
+                  ],
+                  [
+                    44.98,
+                    -12.61
+                  ],
+                  [
+                    44.98,
+                    -13.05
+                  ]
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      "Source": "Workbook Resources/IOGP/Manifests/reference-data/CoordinateReferenceSystem.1.1.0.json; commit SHA a046fbd2.",
+      "CommitDate": "2022-04-02T14:45:12+02:00"
+    },
+    "kind": "{{schema-authority}}:wks:reference-data--CoordinateReferenceSystem:1.1.0",
+    "source": "wks",
+    "acl": {
+      "viewers": [
+        "data.default.viewers@{{acl_domain}}"
+      ],
+      "owners": [
+        "data.default.owners@{{acl_domain}}"
+      ]
+    },
+    "type": "reference-data--CoordinateReferenceSystem",
+    "version": 1648671090409639,
+    "tags": null,
+    "modifyUser": "admin@testing.com",
+    "modifyTime": "2022-03-30T20:11:31.249Z",
+    "createTime": "2022-03-30T20:11:14.714Z",
+    "authority": "{{data_partition_id}}",
+    "namespace": "{{data_partition_id}}:wks",
+    "legal": {
+      "legaltags": [
+        "{{data_partition_id}}-crs-catalog-int-test-legaltag"
+      ],
+      "otherRelevantDataCountries": [
+        "US"
+      ],
+      "status": "compliant"
+    },
+    "id": "{{data_partition_id}}:reference-data--CoordinateReferenceSystem:Geographic3D:EPSG::4472"
+  },
+  {
+    "id": "{{data_partition_id}}:reference-data--CoordinateReferenceSystem:Geographic2D:EPSG::4204",
+    "kind": "{{schema-authority}}:wks:reference-data--CoordinateReferenceSystem:1.1.0",
+    "acl": {
+      "viewers": [
+        "data.default.viewers@{{acl_domain}}"
+      ],
+      "owners": [
+        "data.default.owners@{{acl_domain}}"
+      ]
+    },
+    "legal": {
+      "legaltags": [
+        "{{data_partition_id}}-crs-catalog-int-test-legaltag"
+      ],
+      "otherRelevantDataCountries": [
+        "US"
+      ]
+    },
+    "data": {
+      "Code": "4204",
+      "CodeAsNumber": 4204,
+      "CodeSpace": "EPSG",
+      "CoordinateReferenceSystemType": "GeodeticCRS",
+      "CoordinateSystem": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 6422
+        },
+        "Name": "Ellipsoidal 2D CS. Axes: latitude, longitude. Orientations: north, east. UoM: degree",
+        "HorizontalAxisUnitID": "{{data_partition_id}}:reference-data--UnitOfMeasure:dega:"
+      },
+      "Datum": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 6204
+        },
+        "Name": "Ain el Abd 1970"
+      },
+      "ID": "Geographic2D:EPSG::4204",
+      "Kind": "geographic 2D",
+      "Name": "Ain el Abd",
+      "PersistableReference": "{\"authCode\":{\"auth\":\"EPSG\",\"code\":\"4204\"},\"name\":\"GCS_Ain_el_Abd_1970\",\"type\":\"LBC\",\"ver\":\"PE_10_9_1\",\"wkt\":\"GEOGCS[\\\"GCS_Ain_el_Abd_1970\\\",DATUM[\\\"D_Ain_el_Abd_1970\\\",SPHEROID[\\\"International_1924\\\",6378388.0,297.0]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433],AUTHORITY[\\\"EPSG\\\",4204]]\"}",
+      "PreferredUsage": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 3086
+        },
+        "Extent": {
+          "AuthorityCode": {
+            "Authority": "EPSG",
+            "Code": 1272
+          },
+          "BoundingBoxEastBoundLongitude": 55.67,
+          "BoundingBoxNorthBoundLatitude": 32.16,
+          "BoundingBoxSouthBoundLatitude": 16.37,
+          "BoundingBoxWestBoundLongitude": 34.51,
+          "Description": "Bahrain, Kuwait and Saudi Arabia - onshore.",
+          "Name": "Asia - Middle East - Bahrain, Kuwait and Saudi Arabia"
+        },
+        "Name": "Asia - Middle East - Bahrain, Kuwait and Saudi Arabia",
+        "Scope": {
+          "AuthorityCode": {
+            "Authority": "EPSG",
+            "Code": 1027
+          },
+          "Name": "Geodesy."
+        }
+      },
+      "RevisionDate": "2004-01-06T00:00:00+00:00",
+      "Usages": [
+        {
+          "AuthorityCode": {
+            "Authority": "EPSG",
+            "Code": 3086
+          },
+          "Extent": {
+            "AuthorityCode": {
+              "Authority": "EPSG",
+              "Code": 1272
+            },
+            "BoundingBoxEastBoundLongitude": 55.67,
+            "BoundingBoxNorthBoundLatitude": 32.16,
+            "BoundingBoxSouthBoundLatitude": 16.37,
+            "BoundingBoxWestBoundLongitude": 34.51,
+            "Description": "Bahrain, Kuwait and Saudi Arabia - onshore.",
+            "Name": "Asia - Middle East - Bahrain, Kuwait and Saudi Arabia"
+          },
+          "Name": "Asia - Middle East - Bahrain, Kuwait and Saudi Arabia",
+          "Scope": {
+            "AuthorityCode": {
+              "Authority": "EPSG",
+              "Code": 1027
+            },
+            "Name": "Geodesy."
+          }
+        }
+      ],
+      "Wgs84Coordinates": {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    34.51,
+                    16.37
+                  ],
+                  [
+                    55.67,
+                    16.37
+                  ],
+                  [
+                    55.67,
+                    32.16
+                  ],
+                  [
+                    34.51,
+                    32.16
+                  ],
+                  [
+                    34.51,
+                    16.37
+                  ]
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      "Source": "Workbook Resources/IOGP/Manifests/reference-data/CoordinateReferenceSystem.1.1.0.json; commit SHA a046fbd2.",
+      "CommitDate": "2022-04-02T14:45:12+02:00"
+    }
+  },
+  {
+    "id": "{{data_partition_id}}:reference-data--CoordinateReferenceSystem:BoundProjected:EPSG::24600_EPSG::1059",
+    "kind": "{{schema-authority}}:wks:reference-data--CoordinateReferenceSystem:1.1.0",
+    "acl": {
+      "viewers": [
+        "data.default.viewers@{{acl_domain}}"
+      ],
+      "owners": [
+        "data.default.owners@{{acl_domain}}"
+      ]
+    },
+    "legal": {
+      "legaltags": [
+        "{{data_partition_id}}-crs-catalog-int-test-legaltag"
+      ],
+      "otherRelevantDataCountries": [
+        "US"
+      ]
+    },
+    "data": {
+      "BaseCRS": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 4246
+        },
+        "BaseCRSID": "{{data_partition_id}}:reference-data--CoordinateReferenceSystem:Geographic2D:EPSG::4246:",
+        "Name": "KOC"
+      },
+      "Code": "24600001",
+      "CodeAsNumber": 24600001,
+      "CoordinateReferenceSystemType": "BoundCRS",
+      "CoordinateSystem": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 4400
+        },
+        "Name": "Cartesian 2D CS. Axes: easting, northing (E,N). Orientations: east, north. UoM: m.",
+        "HorizontalAxisUnitID": "{{data_partition_id}}:reference-data--UnitOfMeasure:m:"
+      },
+      "ID": "BoundProjected:EPSG::24600_EPSG::1059",
+      "Kind": "BoundProjected",
+      "Name": "KOC * WGC-Kwt / Iraq zone [24600,1059]",
+      "PersistableReference": "{\"authCode\":{\"auth\":\"{{data_partition_id}}\",\"code\":\"24600001\"},\"lateBoundCRS\":{\"authCode\":{\"auth\":\"EPSG\",\"code\":\"24600\"},\"name\":\"KOC_Lambert\",\"type\":\"LBC\",\"ver\":\"PE_10_9_1\",\"wkt\":\"PROJCS[\\\"KOC_Lambert\\\",GEOGCS[\\\"GCS_Kuwait_Oil_Company\\\",DATUM[\\\"D_Kuwait_Oil_Company\\\",SPHEROID[\\\"Clarke_1880_RGS\\\",6378249.145,293.465]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],PROJECTION[\\\"Lambert_Conformal_Conic\\\"],PARAMETER[\\\"False_Easting\\\",1500000.0],PARAMETER[\\\"False_Northing\\\",1166200.0],PARAMETER[\\\"Central_Meridian\\\",45.0],PARAMETER[\\\"Standard_Parallel_1\\\",32.5],PARAMETER[\\\"Scale_Factor\\\",0.998786407767],PARAMETER[\\\"Latitude_Of_Origin\\\",32.5],UNIT[\\\"Meter\\\",1.0],AUTHORITY[\\\"EPSG\\\",24600]]\"},\"name\":\"KOC * WGC-Kwt / Iraq zone [24600,1059]\",\"singleCT\":{\"authCode\":{\"auth\":\"EPSG\",\"code\":\"1059\"},\"name\":\"KOC_To_WGS_1984_1\",\"type\":\"ST\",\"ver\":\"PE_10_9_1\",\"wkt\":\"GEOGTRAN[\\\"KOC_To_WGS_1984_1\\\",GEOGCS[\\\"GCS_Kuwait_Oil_Company\\\",DATUM[\\\"D_Kuwait_Oil_Company\\\",SPHEROID[\\\"Clarke_1880_RGS\\\",6378249.145,293.465]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],GEOGCS[\\\"GCS_WGS_1984\\\",DATUM[\\\"D_WGS_1984\\\",SPHEROID[\\\"WGS_1984\\\",6378137.0,298.257223563]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],METHOD[\\\"Geocentric_Translation\\\"],PARAMETER[\\\"X_Axis_Translation\\\",-294.7],PARAMETER[\\\"Y_Axis_Translation\\\",-200.1],PARAMETER[\\\"Z_Axis_Translation\\\",525.5],OPERATIONACCURACY[1.0],AUTHORITY[\\\"EPSG\\\",1059]]\"},\"type\":\"EBC\",\"ver\":\"PE_10_9_1\"}",
+      "PreferredUsage": {
+        "Extent": {
+          "AuthorityCode": {
+            "Authority": "EPSG",
+            "Code": 3267
+          },
+          "BoundingBoxEastBoundLongitude": 48.48,
+          "BoundingBoxNorthBoundLatitude": 30.09,
+          "BoundingBoxSouthBoundLatitude": 28.53,
+          "BoundingBoxWestBoundLongitude": 46.54,
+          "Description": "Kuwait - onshore.",
+          "Name": "Kuwait - onshore"
+        },
+        "Name": "Kuwait - onshore (from coordinate reference system (same extent as transformation))",
+        "Scope": {
+          "AuthorityCode": {
+            "Authority": "EPSG",
+            "Code": 1216
+          },
+          "Name": "Oil and gas exploration."
+        }
+      },
+      "Projection": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 19906
+        },
+        "Name": "Iraq zone"
+      },
+      "RevisionDate": "2022-04-04T16:54:46+00:00",
+      "SourceCRS": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 24600
+        },
+        "Name": "KOC Lambert",
+        "SourceCRSID": "{{data_partition_id}}:reference-data--CoordinateReferenceSystem:Projected:EPSG::24600:"
+      },
+      "Transformation": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 1059
+        },
+        "Name": "KOC to WGS 84 (1)",
+        "TransformationID": "{{data_partition_id}}:reference-data--CoordinateTransformation:EPSG::1059:"
+      },
+      "Usages": [
+        {
+          "Extent": {
+            "AuthorityCode": {
+              "Authority": "EPSG",
+              "Code": 3267
+            },
+            "BoundingBoxEastBoundLongitude": 48.48,
+            "BoundingBoxNorthBoundLatitude": 30.09,
+            "BoundingBoxSouthBoundLatitude": 28.53,
+            "BoundingBoxWestBoundLongitude": 46.54,
+            "Description": "Kuwait - onshore.",
+            "Name": "Kuwait - onshore"
+          },
+          "Name": "Kuwait - onshore (from coordinate reference system (same extent as transformation))",
+          "Scope": {
+            "AuthorityCode": {
+              "Authority": "EPSG",
+              "Code": 1216
+            },
+            "Name": "Oil and gas exploration."
+          }
+        }
+      ],
+      "Wgs84Coordinates": {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    46.54,
+                    28.53
+                  ],
+                  [
+                    48.48,
+                    28.53
+                  ],
+                  [
+                    48.48,
+                    30.09
+                  ],
+                  [
+                    46.54,
+                    30.09
+                  ],
+                  [
+                    46.54,
+                    28.53
+                  ]
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      "Source": "Workbook Resources/IOGP/Manifests/reference-data/CoordinateReferenceSystem.1.1.0.json; commit SHA 7c674465.",
+      "CommitDate": "2022-04-05T07:38:10+02:00"
+    }
+  },
+  {
+    "id": "{{data_partition_id}}:reference-data--CoordinateReferenceSystem:BoundGeographic2D:EPSG::4154_EPSG::1514",
+    "kind": "{{schema-authority}}:wks:reference-data--CoordinateReferenceSystem:1.1.0",
+    "acl": {
+      "viewers": [
+        "data.default.viewers@{{acl_domain}}"
+      ],
+      "owners": [
+        "data.default.owners@{{acl_domain}}"
+      ]
+    },
+    "legal": {
+      "legaltags": [
+        "{{data_partition_id}}-crs-catalog-int-test-legaltag"
+      ],
+      "otherRelevantDataCountries": [
+        "US"
+      ]
+    },
+    "data": {
+      "Code": "4154001",
+      "CodeAsNumber": 4154001,
+      "CoordinateReferenceSystemType": "BoundCRS",
+      "CoordinateSystem": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 6422
+        },
+        "Name": "Ellipsoidal 2D CS. Axes: latitude, longitude. Orientations: north, east. UoM: degree",
+        "HorizontalAxisUnitID": "{{data_partition_id}}:reference-data--UnitOfMeasure:dega:"
+      },
+      "ID": "BoundGeographic2D:EPSG::4154_EPSG::1514",
+      "Kind": "BoundGeographic2D",
+      "Name": "ED50(ED77) * NCCI-Irn [4154,1514]",
+      "PersistableReference": "{\"authCode\":{\"auth\":\"{{data_partition_id}}\",\"code\":\"4154001\"},\"lateBoundCRS\":{\"authCode\":{\"auth\":\"EPSG\",\"code\":\"4154\"},\"name\":\"GCS_European_1950_ED77\",\"type\":\"LBC\",\"ver\":\"PE_10_9_1\",\"wkt\":\"GEOGCS[\\\"GCS_European_1950_ED77\\\",DATUM[\\\"D_European_1950_ED77\\\",SPHEROID[\\\"International_1924\\\",6378388.0,297.0]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433],AUTHORITY[\\\"EPSG\\\",4154]]\"},\"name\":\"ED50(ED77) * NCCI-Irn [4154,1514]\",\"singleCT\":{\"authCode\":{\"auth\":\"EPSG\",\"code\":\"1514\"},\"name\":\"ED_1950_ED77_To_WGS_1984\",\"type\":\"ST\",\"ver\":\"PE_10_9_1\",\"wkt\":\"GEOGTRAN[\\\"ED_1950_ED77_To_WGS_1984\\\",GEOGCS[\\\"GCS_European_1950_ED77\\\",DATUM[\\\"D_European_1950_ED77\\\",SPHEROID[\\\"International_1924\\\",6378388.0,297.0]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],GEOGCS[\\\"GCS_WGS_1984\\\",DATUM[\\\"D_WGS_1984\\\",SPHEROID[\\\"WGS_1984\\\",6378137.0,298.257223563]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],METHOD[\\\"Position_Vector\\\"],PARAMETER[\\\"X_Axis_Translation\\\",-110.33],PARAMETER[\\\"Y_Axis_Translation\\\",-97.73],PARAMETER[\\\"Z_Axis_Translation\\\",-119.85],PARAMETER[\\\"X_Axis_Rotation\\\",0.3423],PARAMETER[\\\"Y_Axis_Rotation\\\",1.1634],PARAMETER[\\\"Z_Axis_Rotation\\\",0.2715],PARAMETER[\\\"Scale_Difference\\\",0.063],OPERATIONACCURACY[1.0],AUTHORITY[\\\"EPSG\\\",1514]]\"},\"type\":\"EBC\",\"ver\":\"PE_10_9_1\"}",
+      "PreferredUsage": {
+        "Extent": {
+          "AuthorityCode": {
+            "Authority": "EPSG",
+            "Code": 1123
+          },
+          "BoundingBoxEastBoundLongitude": 63.34,
+          "BoundingBoxNorthBoundLatitude": 39.78,
+          "BoundingBoxSouthBoundLatitude": 23.34,
+          "BoundingBoxWestBoundLongitude": 44.03,
+          "Description": "Iran - onshore and offshore.",
+          "Name": "Iran"
+        },
+        "Name": "Iran (from coordinate reference system (same extent as transformation))",
+        "Scope": {
+          "AuthorityCode": {
+            "Authority": "EPSG",
+            "Code": 1027
+          },
+          "Name": "Geodesy."
+        }
+      },
+      "RevisionDate": "2022-04-04T16:54:46+00:00",
+      "SourceCRS": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 4154
+        },
+        "Name": "ED50(ED77)",
+        "SourceCRSID": "{{data_partition_id}}:reference-data--CoordinateReferenceSystem:Geographic2D:EPSG::4154:"
+      },
+      "Transformation": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 1514
+        },
+        "Name": "ED50(ED77) to WGS 84 (1)",
+        "TransformationID": "{{data_partition_id}}:reference-data--CoordinateTransformation:EPSG::1514:"
+      },
+      "Usages": [
+        {
+          "Extent": {
+            "AuthorityCode": {
+              "Authority": "EPSG",
+              "Code": 1123
+            },
+            "BoundingBoxEastBoundLongitude": 63.34,
+            "BoundingBoxNorthBoundLatitude": 39.78,
+            "BoundingBoxSouthBoundLatitude": 23.34,
+            "BoundingBoxWestBoundLongitude": 44.03,
+            "Description": "Iran - onshore and offshore.",
+            "Name": "Iran"
+          },
+          "Name": "Iran (from coordinate reference system (same extent as transformation))",
+          "Scope": {
+            "AuthorityCode": {
+              "Authority": "EPSG",
+              "Code": 1027
+            },
+            "Name": "Geodesy."
+          }
+        }
+      ],
+      "Wgs84Coordinates": {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    44.03,
+                    23.34
+                  ],
+                  [
+                    63.34,
+                    23.34
+                  ],
+                  [
+                    63.34,
+                    39.78
+                  ],
+                  [
+                    44.03,
+                    39.78
+                  ],
+                  [
+                    44.03,
+                    23.34
+                  ]
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      "Source": "Workbook Resources/IOGP/Manifests/reference-data/CoordinateReferenceSystem.1.1.0.json; commit SHA 7c674465.",
+      "CommitDate": "2022-04-05T07:38:10+02:00"
+    }
+  },
+  {
+    "id": "{{data_partition_id}}:reference-data--CoordinateReferenceSystem:Projected:EPSG::3851",
+    "kind": "{{schema-authority}}:wks:reference-data--CoordinateReferenceSystem:1.1.0",
+    "acl": {
+      "owners": [
+        "data.default.owners@{{acl_domain}}"
+      ],
+      "viewers": [
+        "data.default.viewers@{{acl_domain}}"
+      ]
+    },
+    "legal": {
+      "legaltags": [
+        "{{data_partition_id}}-crs-catalog-int-test-legaltag"
+      ],
+      "otherRelevantDataCountries": [
+        "US"
+      ]
+    },
+    "data": {
+      "BaseCRS": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 4167
+        },
+        "BaseCRSID": "{{{{data_partition_id}}}}:reference-data--CoordinateReferenceSystem:Geographic2D:EPSG::4167:",
+        "Name": "NZGD2000"
+      },
+      "Code": "3851",
+      "CodeAsNumber": 3851,
+      "CodeSpace": "EPSG",
+      "CoordinateReferenceSystemType": "ProjectedCRS",
+      "CoordinateSystem": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 4500
+        },
+        "Name": "Cartesian 2D CS. Axes: northing, easting (N,E). Orientations: north, east. UoM: m.",
+        "HorizontalAxisUnitID": "{{{{data_partition_id}}}}:reference-data--UnitOfMeasure:m:"
+      },
+      "Datum": {},
+      "Description": "See WGS 84 / NIWA Albers (CRS code 9191) for oceanic data statistical analysis.",
+      "ID": "Projected:EPSG::3851",
+      "Kind": "projected",
+      "Name": "NZGD2000 / NZCS2000",
+      "PersistableReference": "{\"authCode\":{\"auth\":\"EPSG\",\"code\":\"3851\"},\"name\":\"NZGD_2000_NZ_Continental_Shelf_2000\",\"type\":\"LBC\",\"ver\":\"PE_10_9_1\",\"wkt\":\"PROJCS[\\\"NZGD_2000_NZ_Continental_Shelf_2000\\\",GEOGCS[\\\"GCS_NZGD_2000\\\",DATUM[\\\"D_NZGD_2000\\\",SPHEROID[\\\"GRS_1980\\\",6378137.0,298.257222101]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],PROJECTION[\\\"Lambert_Conformal_Conic\\\"],PARAMETER[\\\"False_Easting\\\",3000000.0],PARAMETER[\\\"False_Northing\\\",7000000.0],PARAMETER[\\\"Central_Meridian\\\",173.0],PARAMETER[\\\"Standard_Parallel_1\\\",-37.5],PARAMETER[\\\"Standard_Parallel_2\\\",-44.5],PARAMETER[\\\"Latitude_Of_Origin\\\",-41.0],UNIT[\\\"Meter\\\",1.0],AUTHORITY[\\\"EPSG\\\",3851]]\"}",
+      "PreferredUsage": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 2854
+        },
+        "Extent": {
+          "AuthorityCode": {
+            "Authority": "EPSG",
+            "Code": 3593
+          },
+          "BoundingBoxEastBoundLongitude": -171.2,
+          "BoundingBoxNorthBoundLatitude": -25.88,
+          "BoundingBoxSouthBoundLatitude": -55.95,
+          "BoundingBoxWestBoundLongitude": 160.6,
+          "Description": "New Zealand - offshore.",
+          "Name": "New Zealand - offshore"
+        },
+        "Name": "New Zealand - offshore",
+        "Scope": {
+          "AuthorityCode": {
+            "Authority": "EPSG",
+            "Code": 1026
+          },
+          "Name": "Spatial referencing."
+        }
+      },
+      "Projection": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 17964
+        },
+        "Name": "New Zealand Continental Shelf Lambert Conformal 2000"
+      },
+      "RevisionDate": "2019-09-17T00:00:00+00:00",
+      "Usages": [
+        {
+          "AuthorityCode": {
+            "Authority": "EPSG",
+            "Code": 2854
+          },
+          "Extent": {
+            "AuthorityCode": {
+              "Authority": "EPSG",
+              "Code": 3593
+            },
+            "BoundingBoxEastBoundLongitude": -171.2,
+            "BoundingBoxNorthBoundLatitude": -25.88,
+            "BoundingBoxSouthBoundLatitude": -55.95,
+            "BoundingBoxWestBoundLongitude": 160.6,
+            "Description": "New Zealand - offshore.",
+            "Name": "New Zealand - offshore"
+          },
+          "Name": "New Zealand - offshore",
+          "Scope": {
+            "AuthorityCode": {
+              "Authority": "EPSG",
+              "Code": 1026
+            },
+            "Name": "Spatial referencing."
+          }
+        }
+      ],
+      "Wgs84Coordinates": {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+              "type": "MultiPolygon",
+              "coordinates": [
+                [
+                  [
+                    [
+                      160.6,
+                      -55.95
+                    ],
+                    [
+                      180.0,
+                      -55.95
+                    ],
+                    [
+                      180.0,
+                      -25.88
+                    ],
+                    [
+                      160.6,
+                      -25.88
+                    ],
+                    [
+                      160.6,
+                      -55.95
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    [
+                      -180.0,
+                      -55.95
+                    ],
+                    [
+                      -171.2,
+                      -55.95
+                    ],
+                    [
+                      -171.2,
+                      -25.88
+                    ],
+                    [
+                      -180.0,
+                      -25.88
+                    ],
+                    [
+                      -180.0,
+                      -55.95
+                    ]
+                  ]
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      "Source": "Workbook Resources/IOGP/Manifests/reference-data/CoordinateReferenceSystem.1.1.0.json; commit SHA a046fbd2.",
+      "CommitDate": "2022-04-02T14:45:12+02:00"
+    }
+  },
+  {
+    "id": "{{data_partition_id}}:reference-data--CoordinateTransformation:EPSG::1111",
+    "kind": "{{schema-authority}}:wks:reference-data--CoordinateTransformation:1.2.0",
+    "acl": {
+      "viewers": [
+        "data.default.viewers@{{acl_domain}}"
+      ],
+      "owners": [
+        "data.default.owners@{{acl_domain}}"
+      ]
+    },
+    "legal": {
+      "legaltags": [
+        "{{data_partition_id}}-crs-catalog-int-test-legaltag"
+      ],
+      "otherRelevantDataCountries": [
+        "US"
+      ]
+    },
+    "data": {
+      "Accuracy": 18.0,
+      "Code": "1111",
+      "CodeAsNumber": 1111,
+      "CodeSpace": "EPSG",
+      "CoordinateTransformationType": "Transformation",
+      "CoordTfmVersion": "DMA-Sau",
+      "ID": "EPSG::1111",
+      "Kind": "Transformation",
+      "Method": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 9603
+        },
+        "Name": "Geocentric translations (geog2D domain)"
+      },
+      "Name": "Ain el Abd to WGS 84 (2)",
+      "PersistableReference": "{\"authCode\":{\"auth\":\"EPSG\",\"code\":\"1111\"},\"name\":\"Ain_El_Abd_To_WGS_1984_2\",\"type\":\"ST\",\"ver\":\"PE_10_9_1\",\"wkt\":\"GEOGTRAN[\\\"Ain_El_Abd_To_WGS_1984_2\\\",GEOGCS[\\\"GCS_Ain_el_Abd_1970\\\",DATUM[\\\"D_Ain_el_Abd_1970\\\",SPHEROID[\\\"International_1924\\\",6378388.0,297.0]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],GEOGCS[\\\"GCS_WGS_1984\\\",DATUM[\\\"D_WGS_1984\\\",SPHEROID[\\\"WGS_1984\\\",6378137.0,298.257223563]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],METHOD[\\\"Geocentric_Translation\\\"],PARAMETER[\\\"X_Axis_Translation\\\",-143.0],PARAMETER[\\\"Y_Axis_Translation\\\",-236.0],PARAMETER[\\\"Z_Axis_Translation\\\",7.0],OPERATIONACCURACY[18.0],AUTHORITY[\\\"EPSG\\\",1111]]\"}",
+      "PreferredUsage": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 8032
+        },
+        "Extent": {
+          "AuthorityCode": {
+            "Authority": "EPSG",
+            "Code": 3303
+          },
+          "BoundingBoxEastBoundLongitude": 55.67,
+          "BoundingBoxNorthBoundLatitude": 32.16,
+          "BoundingBoxSouthBoundLatitude": 16.37,
+          "BoundingBoxWestBoundLongitude": 34.51,
+          "Description": "Saudi Arabia - onshore.",
+          "Name": "Saudi Arabia - onshore"
+        },
+        "Name": "Saudi Arabia - onshore",
+        "Scope": {
+          "AuthorityCode": {
+            "Authority": "EPSG",
+            "Code": 1160
+          },
+          "Name": "Military survey."
+        }
+      },
+      "RevisionDate": "2020-03-14T00:00:00+00:00",
+      "SourceCRS": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 4204
+        },
+        "Name": "Ain el Abd",
+        "SourceCRSID": "{{data_partition_id}}:reference-data--CoordinateReferenceSystem:Geographic2D:EPSG::4204:"
+      },
+      "TargetCRS": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 4326
+        },
+        "Name": "WGS 84",
+        "TargetCRSID": "{{data_partition_id}}:reference-data--CoordinateReferenceSystem:Geographic2D:EPSG::4326:"
+      },
+      "Usages": [
+        {
+          "AuthorityCode": {
+            "Authority": "EPSG",
+            "Code": 8032
+          },
+          "Extent": {
+            "AuthorityCode": {
+              "Authority": "EPSG",
+              "Code": 3303
+            },
+            "BoundingBoxEastBoundLongitude": 55.67,
+            "BoundingBoxNorthBoundLatitude": 32.16,
+            "BoundingBoxSouthBoundLatitude": 16.37,
+            "BoundingBoxWestBoundLongitude": 34.51,
+            "Description": "Saudi Arabia - onshore.",
+            "Name": "Saudi Arabia - onshore"
+          },
+          "Name": "Saudi Arabia - onshore",
+          "Scope": {
+            "AuthorityCode": {
+              "Authority": "EPSG",
+              "Code": 1160
+            },
+            "Name": "Military survey."
+          }
+        }
+      ],
+      "Variant": 2,
+      "Wgs84Coordinates": {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    34.51,
+                    16.37
+                  ],
+                  [
+                    55.67,
+                    16.37
+                  ],
+                  [
+                    55.67,
+                    32.16
+                  ],
+                  [
+                    34.51,
+                    32.16
+                  ],
+                  [
+                    34.51,
+                    16.37
+                  ]
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      "Source": "Workbook Resources/IOGP/Manifests/reference-data/CoordinateTransformation.1.2.0.json; commit SHA 5443886a.",
+      "CommitDate": "2022-04-13T18:16:39+02:00"
+    }
+  },
+  {
+    "id": "{{data_partition_id}}:reference-data--CoordinateTransformation:EPSG::5429",
+    "kind": "{{schema-authority}}:wks:reference-data--CoordinateTransformation:1.2.0",
+    "acl": {
+      "viewers": [
+        "data.default.viewers@{{acl_domain}}"
+      ],
+      "owners": [
+        "data.default.owners@{{acl_domain}}"
+      ]
+    },
+    "legal": {
+      "legaltags": [
+        "{{data_partition_id}}-crs-catalog-int-test-legaltag"
+      ],
+      "otherRelevantDataCountries": [
+        "US"
+      ]
+    },
+    "data": {
+      "Accuracy": 0.1,
+      "Code": "5429",
+      "CodeAsNumber": 5429,
+      "CodeSpace": "EPSG",
+      "CoordinateTransformationType": "Transformation",
+      "CoordTfmVersion": "EuG-Esp",
+      "ID": "EPSG::5429",
+      "Kind": "VerticalTransformation",
+      "Method": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 1046
+        },
+        "Name": "Vertical Offset and Slope"
+      },
+      "Name": "Alicante height to EVRF2000 height (1)",
+      "PreferredUsage": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 9397
+        },
+        "Extent": {
+          "AuthorityCode": {
+            "Authority": "EPSG",
+            "Code": 4188
+          },
+          "BoundingBoxEastBoundLongitude": 3.39,
+          "BoundingBoxNorthBoundLatitude": 43.82,
+          "BoundingBoxSouthBoundLatitude": 35.95,
+          "BoundingBoxWestBoundLongitude": -9.37,
+          "Description": "Gibraltar - onshore; Spain - mainland onshore.",
+          "Name": "Spain and Gibraltar - onshore"
+        },
+        "Name": "Spain and Gibraltar - onshore",
+        "Scope": {
+          "AuthorityCode": {
+            "Authority": "EPSG",
+            "Code": 1059
+          },
+          "Name": "Change of height to a different vertical reference surface."
+        }
+      },
+      "RevisionDate": "2020-03-14T00:00:00+00:00",
+      "SourceCRS": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 5782
+        },
+        "Name": "Alicante height",
+        "SourceCRSID": "{{data_partition_id}}:reference-data--CoordinateReferenceSystem:Vertical:EPSG::5782:"
+      },
+      "TargetCRS": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 5730
+        },
+        "Name": "EVRF2000 height",
+        "TargetCRSID": "{{data_partition_id}}:reference-data--CoordinateReferenceSystem:Vertical:EPSG::5730:"
+      },
+      "Usages": [
+        {
+          "AuthorityCode": {
+            "Authority": "EPSG",
+            "Code": 9397
+          },
+          "Extent": {
+            "AuthorityCode": {
+              "Authority": "EPSG",
+              "Code": 4188
+            },
+            "BoundingBoxEastBoundLongitude": 3.39,
+            "BoundingBoxNorthBoundLatitude": 43.82,
+            "BoundingBoxSouthBoundLatitude": 35.95,
+            "BoundingBoxWestBoundLongitude": -9.37,
+            "Description": "Gibraltar - onshore; Spain - mainland onshore.",
+            "Name": "Spain and Gibraltar - onshore"
+          },
+          "Name": "Spain and Gibraltar - onshore",
+          "Scope": {
+            "AuthorityCode": {
+              "Authority": "EPSG",
+              "Code": 1059
+            },
+            "Name": "Change of height to a different vertical reference surface."
+          }
+        }
+      ],
+      "Variant": 1,
+      "Wgs84Coordinates": {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    -9.37,
+                    35.95
+                  ],
+                  [
+                    3.39,
+                    35.95
+                  ],
+                  [
+                    3.39,
+                    43.82
+                  ],
+                  [
+                    -9.37,
+                    43.82
+                  ],
+                  [
+                    -9.37,
+                    35.95
+                  ]
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      "Source": "Workbook Resources/IOGP/Manifests/reference-data/CoordinateTransformation.1.2.0.json; commit SHA 5443886a.",
+      "CommitDate": "2022-04-13T18:16:39+02:00"
+    }
+  },
+  {
+    "id": "{{data_partition_id}}:reference-data--CoordinateTransformation:EPSG::147000000",
+    "kind": "{{schema-authority}}:wks:reference-data--CoordinateTransformation:1.2.0",
+    "acl": {
+      "viewers": [
+        "data.default.viewers@{{acl_domain}}"
+      ],
+      "owners": [
+        "data.default.owners@{{acl_domain}}"
+      ]
+    },
+    "legal": {
+      "legaltags": [
+        "{{data_partition_id}}-crs-catalog-int-test-legaltag"
+      ],
+      "otherRelevantDataCountries": [
+        "US"
+      ]
+    },
+    "data": {
+      "Accuracy": 2.0,
+      "Code": "1470",
+      "CodeAsNumber": 1470,
+      "CodeSpace": "EPSG",
+      "CoordinateTransformationType": "Transformation",
+      "CoordTfmVersion": "IGN-Civ",
+      "ID": "EPSG::1470",
+      "Kind": "Transformation",
+      "InactiveIndicator": true,
+      "Method": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 9603
+        },
+        "Name": "Geocentric translations (geog2D domain)"
+      },
+      "Name": "Abidjan 1987 to WGS 84 (1)",
+      "PersistableReference": "{\"authCode\":{\"auth\":\"EPSG\",\"code\":\"1470\"},\"name\":\"Abidjan_1987_To_WGS_1984\",\"type\":\"ST\",\"ver\":\"PE_10_9_1\",\"wkt\":\"GEOGTRAN[\\\"Abidjan_1987_To_WGS_1984\\\",GEOGCS[\\\"GCS_Abidjan_1987\\\",DATUM[\\\"D_Abidjan_1987\\\",SPHEROID[\\\"Clarke_1880_RGS\\\",6378249.145,293.465]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],GEOGCS[\\\"GCS_WGS_1984\\\",DATUM[\\\"D_WGS_1984\\\",SPHEROID[\\\"WGS_1984\\\",6378137.0,298.257223563]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],METHOD[\\\"Geocentric_Translation\\\"],PARAMETER[\\\"X_Axis_Translation\\\",-124.76],PARAMETER[\\\"Y_Axis_Translation\\\",53.0],PARAMETER[\\\"Z_Axis_Translation\\\",466.79],OPERATIONACCURACY[2.0],AUTHORITY[\\\"EPSG\\\",1470]]\"}",
+      "PreferredUsage": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 8391
+        },
+        "Extent": {
+          "AuthorityCode": {
+            "Authority": "EPSG",
+            "Code": 1075
+          },
+          "BoundingBoxEastBoundLongitude": -2.48,
+          "BoundingBoxNorthBoundLatitude": 10.74,
+          "BoundingBoxSouthBoundLatitude": 1.02,
+          "BoundingBoxWestBoundLongitude": -8.61,
+          "Description": "C\u00f4te d'Ivoire (Ivory Coast) - onshore and offshore.",
+          "Name": "Cote d'Ivoire (Ivory Coast)"
+        },
+        "Name": "Cote d'Ivoire (Ivory Coast)",
+        "Scope": {
+          "AuthorityCode": {
+            "Authority": "EPSG",
+            "Code": 1216
+          },
+          "Name": "Oil and gas exploration."
+        }
+      },
+      "RevisionDate": "2020-03-14T00:00:00+00:00",
+      "SourceCRS": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 4143
+        },
+        "Name": "Abidjan 1987",
+        "SourceCRSID": "{{data_partition_id}}:reference-data--CoordinateReferenceSystem:Geographic2D:EPSG::4143:"
+      },
+      "TargetCRS": {
+        "AuthorityCode": {
+          "Authority": "EPSG",
+          "Code": 4326
+        },
+        "Name": "WGS 84",
+        "TargetCRSID": "{{data_partition_id}}:reference-data--CoordinateReferenceSystem:Geographic2D:EPSG::4326:"
+      },
+      "Usages": [
+        {
+          "AuthorityCode": {
+            "Authority": "EPSG",
+            "Code": 8391
+          },
+          "Extent": {
+            "AuthorityCode": {
+              "Authority": "EPSG",
+              "Code": 1075
+            },
+            "BoundingBoxEastBoundLongitude": -2.48,
+            "BoundingBoxNorthBoundLatitude": 10.74,
+            "BoundingBoxSouthBoundLatitude": 1.02,
+            "BoundingBoxWestBoundLongitude": -8.61,
+            "Description": "C\u00f4te d'Ivoire (Ivory Coast) - onshore and offshore.",
+            "Name": "Cote d'Ivoire (Ivory Coast)"
+          },
+          "Name": "Cote d'Ivoire (Ivory Coast)",
+          "Scope": {
+            "AuthorityCode": {
+              "Authority": "EPSG",
+              "Code": 1216
+            },
+            "Name": "Oil and gas exploration."
+          }
+        }
+      ],
+      "Variant": 1,
+      "Wgs84Coordinates": {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    -8.61,
+                    1.02
+                  ],
+                  [
+                    -2.48,
+                    1.02
+                  ],
+                  [
+                    -2.48,
+                    10.74
+                  ],
+                  [
+                    -8.61,
+                    10.74
+                  ],
+                  [
+                    -8.61,
+                    1.02
+                  ]
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      "Source": "Workbook Resources/IOGP/Manifests/reference-data/CoordinateTransformation.1.2.0.json; commit SHA 5443886a.",
+      "CommitDate": "2022-04-13T18:16:39+02:00"
+    }
+  }
+]

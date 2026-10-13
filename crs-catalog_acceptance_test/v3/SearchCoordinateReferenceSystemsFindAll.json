@@ -1,0 +1,7 @@
+[
+  {"codeSpace": "EPSG", "code": "4472"},
+  {"codeSpace": "EPSG", "code": "4204"},
+  {"returnBoundProjectedAndProjectedBasedOnWgs84": true, "code": "24600001"},
+  {"returnBoundGeographic2DAndWgs84": true, "code": "4154001"},
+  {"codeSpace": "EPSG", "code": "3851"}
+]

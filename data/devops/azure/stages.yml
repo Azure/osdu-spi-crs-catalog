@@ -1,0 +1,48 @@
+parameters:
+  environments: []
+
+stages:
+  - ${{ each environment in parameters.environments }}:
+    - stage: 'Build_${{ environment.name }}'
+
+      variables:
+      - group: 'Infrastructure Pipeline Variables - ${{environment.name}}'
+      - group: 'Azure Target Env Secrets - ${{environment.name}}'
+      - group: 'Azure Target Env - ${{environment.name}}' 
+
+      jobs:
+        - deployment: MavenPackageAndPublishArtifacts
+          displayName: Build Package and Publish Artifacts
+          environment: ${{ environment.name }}
+          pool: $(AGENT_POOL)
+          strategy:
+            runOnce:
+              deploy:
+                  steps:
+                  - download: none
+
+                  - checkout: self
+                    path: s
+
+                  - task: AzureCLI@1
+                    displayName: 'Docker Build + ACR Push'
+                    # condition: and(succeeded(), eq('${{ parameters.providerName }}', 'Azure'))
+                    env:
+                      IMAGE: $(CONTAINER_REGISTRY_NAME).azurecr.io/crs-catalog-data:v2
+                    inputs:
+                      azureSubscription: '$(SERVICE_CONNECTION_NAME)'
+                      addSpnToEnvironment: true
+                      scriptLocation: inlineScript
+                      inlineScript: |
+                        #!/usr/bin/env bash
+                        set -euo pipefail
+
+                        curl -L https://aka.ms/acr/installaad/bash | /bin/bash
+                        echo "Logging in to the ACR Registry"
+                        echo "------------------------------------"
+                        az acr login -n $(CONTAINER_REGISTRY_NAME)
+
+                        pushd data
+                        docker build -t $IMAGE .
+                        docker push $IMAGE
+                        popd

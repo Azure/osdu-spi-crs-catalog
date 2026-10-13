@@ -1,0 +1,24 @@
+{
+  "codeSpace": "EPSG",
+  "name": "Cadastre",
+  "id": "4472",
+  "code": "4472",
+  "kind": "geographic",
+  "baseCRS": {
+    "id": "{{data_partition_id}}:reference-data--CoordinateReferenceSystem:Geocentric:EPSG::4473:",
+    "name": "Cadastre"
+  },
+  "datum": {
+    "code": "1037",
+    "name": "Cadastre",
+    "codeSpace": "EPSG"
+  },
+  "extent": {
+    "description": "Mayotte"
+  },
+  "coordinateReferenceSystemType": "GeodeticCRS",
+  "horizontalAxisUnitId": "UnitOfMeasure:dega:",
+  "verticalAxisUnitId": "UnitOfMeasure:m:",
+  "latitude": -12.8,
+  "longitude": 45.2
+}

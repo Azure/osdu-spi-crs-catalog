@@ -1,0 +1,32 @@
+trigger:
+  branches:
+    include:
+      - master
+  paths:
+    include:
+      - /data
+    exclude:
+      - README.md
+      - .gitignore
+      - LICENSE
+      - NOTICE
+      - pom.xml
+      - skaffold.yaml
+      - /crs-catalog-core
+      - /devops
+      - /maven
+      - /provider
+      - /testing
+
+variables:
+  - group: 'Azure - OSDU'
+
+stages:
+  - template: stages.yml
+    parameters:
+      environments:
+        - name: 'dev'
+        # - ${{ if eq(variables['Build.SourceBranchName'], 'master') }}:
+        #   - name: 'qa'
+        #   - name: 'prod'
+

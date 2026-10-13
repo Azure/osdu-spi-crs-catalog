@@ -1,0 +1,25 @@
+{
+  "codeSpace": "EPSG",
+  "name": "Cadastre 1997",
+  "id": "Geographic3D:EPSG::4472",
+  "code": "4472",
+  "kind": "geographic 3D",
+  "baseCRS": {
+    "id": "{{data_partition_id}}:reference-data--CoordinateReferenceSystem:Geocentric:EPSG::4473:",
+    "name": "Cadastre 1997"
+  },
+  "datum": {
+    "code": "1037",
+    "name": "Cadastre 1997",
+    "codeSpace": "EPSG"
+  },
+  "extent": {
+    "description": "Mayotte"
+  },
+  "coordinateReferenceSystemType": "GeodeticCRS",
+  "horizontalAxisUnitId": "{{data_partition_id}}:reference-data--UnitOfMeasure:dega:",
+  "verticalAxisUnitId": "{{data_partition_id}}:reference-data--UnitOfMeasure:m:",
+  "latitude": -12.8,
+  "longitude": 45.2,
+  "includeDeprecated": true
+}

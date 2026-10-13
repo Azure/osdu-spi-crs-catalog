@@ -1,0 +1,2115 @@
+{
+ "description": "Catalog containing selected ESRI's standard EPSG coordinate reference systems and cartographic transforms, and limited early-bound coordinate reference systems where the CRS and TRF area-of-use intersect", 
+ "lastModified": "2018-08-06T11:12:32.9535505Z", 
+ "listOfAreaOfUses": [
+  {
+   "description": "North America - between 96\u00b0W and 90\u00b0W. Canada - Manitoba; Nunavut; Ontario. Guatemala. Mexico. United States (USA) - Arkansas; Illinois; Iowa; Kansas; Louisiana; Michigan; Minnesota; Mississippi; Missouri; Nebraska; Oklahoma; Tennessee; Texas; Wisconsin. Onshore for Canadian Arctic and Central America, onshore and offshore for Gulf of Mexico (both US and Mexican sectors).", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "2145"
+    }, 
+    "boundBox": {
+     "latMax": 81.96, 
+     "latMin": 13.63, 
+     "lonMax": -90.0, 
+     "lonMin": -96.0
+    }, 
+    "type": "AOU"
+   }, 
+   "id": "AoU00000000", 
+   "lastModified": "20140501", 
+   "name": "North America - 96\u00b0W to 90\u00b0W and NAD27 by country"
+  }, 
+  {
+   "description": "Between 0\u00b0E and 6\u00b0E, northern hemisphere between equator and 84\u00b0N, onshore and offshore. Algeria. Andorra. Belgium. Benin. Burkina Faso. Denmark - North Sea. France. Germany - North Sea. Ghana. Luxembourg. Mali. Netherlands. Niger. Nigeria. Norway. Spain. Togo. United Kingdom (UK) - North Sea.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "2060"
+    }, 
+    "boundBox": {
+     "latMax": 84.0, 
+     "latMin": 0.0, 
+     "lonMax": 6.0, 
+     "lonMin": 0.0
+    }, 
+    "type": "AOU"
+   }, 
+   "id": "AoU00000001", 
+   "lastModified": "20150104", 
+   "name": "World - N hemisphere - 0\u00b0E to 6\u00b0E - by country"
+  }, 
+  {
+   "description": "Canada - onshore - Alberta; British Columbia; Manitoba; New Brunswick; Newfoundland and Labrador; Northwest Territories; Nova Scotia; Nunavut; Ontario; Prince Edward Island; Quebec; Saskatchewan; Yukon; offshore east coast.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "4517"
+    }, 
+    "boundBox": {
+     "latMax": 83.17, 
+     "latMin": 40.04, 
+     "lonMax": -47.74, 
+     "lonMin": -141.01
+    }, 
+    "type": "AOU"
+   }, 
+   "id": "AoU00000002", 
+   "lastModified": "20180419", 
+   "name": "Canada - NAD27"
+  }, 
+  {
+   "description": "Europe - between 0\u00b0E and 6\u00b0E - Andorra; Denmark (North Sea); Germany offshore; Netherlands offshore; Norway including Svalbard - onshore and offshore; Spain - onshore (mainland and Balearic Islands); United Kingdom (UKCS) offshore.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "1634"
+    }, 
+    "boundBox": {
+     "latMax": 82.41, 
+     "latMin": 38.56, 
+     "lonMax": 6.01, 
+     "lonMin": 0.0
+    }, 
+    "type": "AOU"
+   }, 
+   "id": "AoU00000003", 
+   "lastModified": "20140501", 
+   "name": "Europe - 0\u00b0E to 6\u00b0E and ED50 by country"
+  }, 
+  {
+   "description": "Norway - offshore north of 62\u00b0N. Also Svalbard.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "2601"
+    }, 
+    "boundBox": {
+     "latMax": 84.17, 
+     "latMin": 62.0, 
+     "lonMax": 39.65, 
+     "lonMin": -3.7
+    }, 
+    "type": "AOU"
+   }, 
+   "id": "AoU00000004", 
+   "lastModified": "20140501", 
+   "name": "Norway - offshore north of 62\u00b0N; Svalbard"
+  }, 
+  {
+   "description": "Intersection of USA - CONUS including EEZ [2374] and Canada - NAD27 [4517]", 
+   "essence": {
+    "authCode": {
+     "auth": "MY_COMPANY",
+     "code": "23744517"
+    }, 
+    "boundBox": {
+     "latMax": 86.46, 
+     "latMin": 23.81, 
+     "lonMax": -65.69, 
+     "lonMin": -129.17
+    }, 
+    "type": "AOU"
+   }, 
+   "id": "AoU00000005", 
+   "lastModified": "20180806", 
+   "name": "USA - CONUS including EEZ + Canada - NAD27"
+  }, 
+  {
+   "description": "North and central America: Antigua and Barbuda - onshore. Bahamas - onshore plus offshore over internal continental shelf only. Belize - onshore. British Virgin Islands - onshore. Canada onshore - Alberta, British Columbia, Manitoba, New Brunswick, Newfoundland and Labrador, Northwest Territories, Nova Scotia, Nunavut, Ontario, Prince Edward Island, Quebec, Saskatchewan and Yukon - plus offshore east coast. Cuba - onshore and offshore. El Salvador - onshore. Guatemala - onshore. Honduras - onshore. Panama - onshore. Puerto Rico - onshore. Mexico - onshore plus offshore east coast. Nicaragua - onshore. United States (USA) onshore and offshore - Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware, Florida, Georgia, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana, Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana, Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina, North Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, South Carolina, South Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, West Virginia, Wisconsin and Wyoming - plus offshore . US Virgin Islands - onshore.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "1349"
+    }, 
+    "boundBox": {
+     "latMax": 83.17, 
+     "latMin": 7.15, 
+     "lonMax": -47.74, 
+     "lonMin": 167.65
+    }, 
+    "type": "AOU"
+   }, 
+   "id": "AoU00000006", 
+   "lastModified": "20180420", 
+   "name": "North America - NAD27"
+  }, 
+  {
+   "description": "Europe - west: Andorra; Cyprus; Denmark - onshore and offshore; Faroe Islands - onshore; France - offshore; Germany - offshore North Sea; Gibraltar; Greece - offshore; Israel - offshore; Italy including San Marino and Vatican City State; Ireland offshore; Malta; Netherlands - offshore; North Sea; Norway including Svalbard - onshore and offshore; Portugal - mainland - offshore; Spain - onshore; Turkey - onshore and offshore; United Kingdom UKCS offshore east of 6\u00b0W including Channel Islands (Guernsey and Jersey). Egypt - Western Desert; Iraq - onshore; Jordan.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "1296"
+    }, 
+    "boundBox": {
+     "latMax": 84.17, 
+     "latMin": 25.71, 
+     "lonMax": 48.61, 
+     "lonMin": -16.1
+    }, 
+    "type": "AOU"
+   }, 
+   "id": "AoU00000007", 
+   "lastModified": "20140501", 
+   "name": "Europe - ED50 by country"
+  }, 
+  {
+   "description": "United States (USA) - offshore Gulf of Mexico (GoM) east of approximately 87\u00b015'W - protraction areas Gainesville, Tarpon Springs, St Petersburg, Charlotte Harbor, Pulley Ridge, Dry Tortugas, Tortugas Valley, Miami, Key West, Apalachicola, Florida Middle Ground, The Elbow, Vernon Basin, Howell Hook, Rankin and Campeche Escarpment. Also for protraction areas Pensacola, Destin Dome, Desoto Canyon, Lloyd Ridge, Henderson and Florida Plain - east of 87\u00b015'W.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "3358"
+    }, 
+    "boundBox": {
+     "latMax": 30.25, 
+     "latMin": 23.82, 
+     "lonMax": -81.17, 
+     "lonMin": -87.25
+    }, 
+    "type": "AOU"
+   }, 
+   "id": "AoU00000008", 
+   "lastModified": "20110817", 
+   "name": "USA - GoM - east of 87.25\u00b0W"
+  }, 
+  {
+   "description": "World between 80\u00b0S and 84\u00b0N.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "3391"
+    }, 
+    "boundBox": {
+     "latMax": 84.0, 
+     "latMin": -80.0, 
+     "lonMax": 180.0, 
+     "lonMin": -180.0
+    }, 
+    "type": "AOU"
+   }, 
+   "id": "AoU00000009", 
+   "lastModified": "20080623", 
+   "name": "World - between 80\u00b0S and 84\u00b0N"
+  }, 
+  {
+   "description": "Austria; Belgium; Denmark; Finland; Faroe islands; France; Germany (west); Gibraltar; Greece; Italy; Luxembourg; Netherlands; Norway; Portugal; Spain; Sweden; Switzerland.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "2420"
+    }, 
+    "boundBox": {
+     "latMax": 71.21, 
+     "latMin": 34.88, 
+     "lonMax": 31.59, 
+     "lonMin": -9.56
+    }, 
+    "type": "AOU"
+   }, 
+   "id": "AoU00000010", 
+   "lastModified": "20140501", 
+   "name": "Europe - west (DMA ED50 mean)"
+  }, 
+  {
+   "description": "Intersection of Brazil - 42\u00b0W to 36\u00b0W and Aratu [1574] and Brazil - Potiguar, Ceara and Barreirinhas [3698]", 
+   "essence": {
+    "authCode": {
+     "auth": "MY_COMPANY",
+     "code": "15743698"
+    }, 
+    "boundBox": {
+     "latMax": 0.01, 
+     "latMin": -6.5, 
+     "lonMax": -36.0, 
+     "lonMin": -42.01
+    }, 
+    "type": "AOU"
+   }, 
+   "id": "AoU00000011", 
+   "lastModified": "20180806", 
+   "name": "Brazil - 42\u00b0W to 36\u00b0W and Aratu, Brazil - Potiguar, Ceara and Barreirinhas"
+  }, 
+  {
+   "description": "Intersection of Europe - 0\u00b0E to 6\u00b0E and ED50 by country [1634] and Europe - common offshore [2342]", 
+   "essence": {
+    "authCode": {
+     "auth": "MY_COMPANY",
+     "code": "16342342"
+    }, 
+    "boundBox": {
+     "latMax": 63.89, 
+     "latMin": 47.42, 
+     "lonMax": 6.01, 
+     "lonMin": 0.0
+    }, 
+    "type": "AOU"
+   }, 
+   "id": "AoU00000012", 
+   "lastModified": "20180806", 
+   "name": "Europe - 0\u00b0E to 6\u00b0E and ED50 by country, Europe - common offshore"
+  }, 
+  {
+   "description": "United States (USA) - CONUS including EEZ -onshore and offshore - Alabama; Arizona; Arkansas; California; Colorado; Connecticut; Delaware; Florida; Georgia; Idaho; Illinois; Indiana; Iowa; Kansas; Kentucky; Louisiana; Maine; Maryland; Massachusetts; Michigan; Minnesota; Mississippi; Missouri; Montana; Nebraska; Nevada; New Hampshire; New Jersey; New Mexico; New York; North Carolina; North Dakota; Ohio; Oklahoma; Oregon; Pennsylvania; Rhode Island; South Carolina; South Dakota; Tennessee; Texas; Utah; Vermont; Virginia; Washington; West Virginia; Wisconsin; Wyoming. US Gulf of Mexico (GoM) OCS.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "2374"
+    }, 
+    "boundBox": {
+     "latMax": 49.38, 
+     "latMin": 23.81, 
+     "lonMax": -65.69, 
+     "lonMin": -129.17
+    }, 
+    "type": "AOU"
+   }, 
+   "id": "AoU00000013", 
+   "lastModified": "20140501", 
+   "name": "USA - CONUS including EEZ"
+  }, 
+  {
+   "description": "Intersection of North America - 96\u00b0W to 90\u00b0W and NAD27 by country [2145] and USA - CONUS including EEZ + Canada - NAD27 [23744517]", 
+   "essence": {
+    "authCode": {
+     "auth": "MY_COMPANY",
+     "code": "45194517"
+    }, 
+    "boundBox": {
+     "latMax": 81.96, 
+     "latMin": 23.81, 
+     "lonMax": -90.0, 
+     "lonMin": -96.0
+    }, 
+    "type": "AOU"
+   }, 
+   "id": "AoU00000014", 
+   "lastModified": "20180806", 
+   "name": "North America - 96\u00b0W to 90\u00b0W and NAD27 by country, USA - CONUS including EEZ + Canada - NAD27"
+  }, 
+  {
+   "description": "Intersection of Europe - 0\u00b0E to 6\u00b0E and ED50 by country [1634] and Norway - North Sea - offshore south of 62\u00b0N [2334]", 
+   "essence": {
+    "authCode": {
+     "auth": "MY_COMPANY",
+     "code": "16342334"
+    }, 
+    "boundBox": {
+     "latMax": 62.0, 
+     "latMin": 56.08, 
+     "lonMax": 6.01, 
+     "lonMin": 1.37
+    }, 
+    "type": "AOU"
+   }, 
+   "id": "AoU00000015", 
+   "lastModified": "20180806", 
+   "name": "Europe - 0\u00b0E to 6\u00b0E and ED50 by country, Norway - North Sea - offshore south of 62\u00b0N"
+  }, 
+  {
+   "description": "United States (USA) - between 96\u00b0W and 90\u00b0W - Arkansas; Illinois; Iowa; Kansas; Louisiana; Michigan; Minnesota; Mississippi; Missouri; Nebraska; Oklahoma; Tennessee; Texas; Wisconsin; Gulf of Mexico outer continental shelf (GoM OCS) between approximately 96\u00b0W and 90\u00b0W - protraction areas East Breaks; Alaminos Canyon; Garden Banks; Keathley Canyon; Sigsbee Escarpment; Ewing Bank; Green Canyon; Walker Ridge; Amery Terrace.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "3640"
+    }, 
+    "boundBox": {
+     "latMax": 49.38, 
+     "latMin": 25.61, 
+     "lonMax": -89.86, 
+     "lonMin": -96.01
+    }, 
+    "type": "AOU"
+   }, 
+   "id": "AoU00000016", 
+   "lastModified": "20140501", 
+   "name": "USA - 96\u00b0W to 90\u00b0W and GoM OCS"
+  }, 
+  {
+   "description": "Australia - Queensland, South Australia, Western Australia, federal areas offshore west of 129\u00b0E.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "2576"
+    }, 
+    "boundBox": {
+     "latMax": -9.37, 
+     "latMin": -38.53, 
+     "lonMax": 153.61, 
+     "lonMin": 109.23
+    }, 
+    "type": "AOU"
+   }, 
+   "id": "AoU00000017", 
+   "lastModified": "20180216", 
+   "name": "Australia - AGD84"
+  }, 
+  {
+   "description": "Australia including Lord Howe Island, Macquarie Islands, Ashmore and Cartier Islands, Christmas Island, Cocos (Keeling) Islands, Norfolk Island. All onshore and offshore.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "4177"
+    }, 
+    "boundBox": {
+     "latMax": -8.47, 
+     "latMin": -60.56, 
+     "lonMax": 173.35, 
+     "lonMin": 93.41
+    }, 
+    "type": "AOU"
+   }, 
+   "id": "AoU00000018", 
+   "lastModified": "20161215", 
+   "name": "Australia - GDA"
+  }, 
+  {
+   "description": "Brazil - between 42\u00b0W and 36\u00b0W, southern hemisphere offshore including Campos and Espirito Santo basins; onshore Tucano basin area.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "1574"
+    }, 
+    "boundBox": {
+     "latMax": 0.01, 
+     "latMin": -26.35, 
+     "lonMax": -36.0, 
+     "lonMin": -42.01
+    }, 
+    "type": "AOU"
+   }, 
+   "id": "AoU00000019", 
+   "lastModified": "20140501", 
+   "name": "Brazil - 42\u00b0W to 36\u00b0W and Aratu"
+  }, 
+  {
+   "description": "Intersection of Europe - 0\u00b0E to 6\u00b0E and ED50 by country [1634] and Europe - west (DMA ED50 mean) [2420]", 
+   "essence": {
+    "authCode": {
+     "auth": "MY_COMPANY",
+     "code": "16342420"
+    }, 
+    "boundBox": {
+     "latMax": 71.21, 
+     "latMin": 38.56, 
+     "lonMax": 6.01, 
+     "lonMin": 0.0
+    }, 
+    "type": "AOU"
+   }, 
+   "id": "AoU00000020", 
+   "lastModified": "20180806", 
+   "name": "Europe - 0\u00b0E to 6\u00b0E and ED50 by country, Europe - west (DMA ED50 mean)"
+  }, 
+  {
+   "description": "Norway - offshore south of 62\u00b0N - North Sea.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "2334"
+    }, 
+    "boundBox": {
+     "latMax": 62.0, 
+     "latMin": 56.08, 
+     "lonMax": 11.14, 
+     "lonMin": 1.37
+    }, 
+    "type": "AOU"
+   }, 
+   "id": "AoU00000021", 
+   "lastModified": "20140501", 
+   "name": "Norway - North Sea - offshore south of 62\u00b0N"
+  }, 
+  {
+   "description": "Intersection of Europe - 0\u00b0E to 6\u00b0E and ED50 by country [1634] and Norway - offshore north of 62\u00b0N; Svalbard [2601]", 
+   "essence": {
+    "authCode": {
+     "auth": "MY_COMPANY",
+     "code": "16342601"
+    }, 
+    "boundBox": {
+     "latMax": 82.41, 
+     "latMin": 62.0, 
+     "lonMax": 6.01, 
+     "lonMin": 0.0
+    }, 
+    "type": "AOU"
+   }, 
+   "id": "AoU00000022", 
+   "lastModified": "20180806", 
+   "name": "Europe - 0\u00b0E to 6\u00b0E and ED50 by country, Norway - offshore north of 62\u00b0N; Svalbard"
+  }, 
+  {
+   "description": "World.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "1262"
+    }, 
+    "boundBox": {
+     "latMax": 90.0, 
+     "latMin": -90.0, 
+     "lonMax": 180.0, 
+     "lonMin": -180.0
+    }, 
+    "type": "AOU"
+   }, 
+   "id": "AoU00000023", 
+   "lastModified": "20010605", 
+   "name": "World"
+  }, 
+  {
+   "description": "Brazil - offshore - Potiguar, Ceara and Barreirinhas basins.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "3698"
+    }, 
+    "boundBox": {
+     "latMax": 4.26, 
+     "latMin": -6.5, 
+     "lonMax": -26.0, 
+     "lonMin": -44.79
+    }, 
+    "type": "AOU"
+   }, 
+   "id": "AoU00000024", 
+   "lastModified": "20140501", 
+   "name": "Brazil - Potiguar, Ceara and Barreirinhas"
+  }, 
+  {
+   "description": "World between 85.06\u00b0S and 85.06\u00b0N.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "3544"
+    }, 
+    "boundBox": {
+     "latMax": 85.06, 
+     "latMin": -85.06, 
+     "lonMax": 180.0, 
+     "lonMin": -180.0
+    }, 
+    "type": "AOU"
+   }, 
+   "id": "AoU00000025", 
+   "lastModified": "20140501", 
+   "name": "World - 85\u00b0S to 85\u00b0N"
+  }, 
+  {
+   "description": "Denmark - offshore North Sea; Ireland - offshore; Netherlands - offshore; United Kingdom - UKCS offshore.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "2342"
+    }, 
+    "boundBox": {
+     "latMax": 63.89, 
+     "latMin": 47.42, 
+     "lonMax": 10.86, 
+     "lonMin": -16.1
+    }, 
+    "type": "AOU"
+   }, 
+   "id": "AoU00000026", 
+   "lastModified": "20120105", 
+   "name": "Europe - common offshore"
+  }, 
+  {
+   "description": "Brazil - offshore south and east of a line intersecting the coast at 2\u00b055'S; onshore Tucano basin.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "1274"
+    }, 
+    "boundBox": {
+     "latMax": 4.26, 
+     "latMin": -35.71, 
+     "lonMax": -26.0, 
+     "lonMin": -53.38
+    }, 
+    "type": "AOU"
+   }, 
+   "id": "AoU00000027", 
+   "lastModified": "20140501", 
+   "name": "Brazil - Aratu"
+  }
+ ], 
+ "listOfCompoundCRSs": [
+  {
+   "aliasNames": [], 
+   "aouId": "AoU00000001", 
+   "axisUnits": [
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}", 
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}", 
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}"
+   ], 
+   "baseCRSId": "LCRS00000031", 
+   "crsType": "Compound Projected Vertical", 
+   "description": "Horizontal CRS: CRS Scope: Large and medium scale topographic mapping and engineering survey.; Vertical CRS: CRS Scope: Hydrography. | Remarks: Not specific to any location or epoch. | Information Source: OGP", 
+   "essence": {
+    "authCode": {
+     "auth": "MY_COMPANY",
+     "code": "326315714"
+    }, 
+    "horzLateBoundCRS": {
+     "authCode": {
+      "auth": "EPSG", 
+      "code": "32631"
+     }, 
+     "name": "WGS_1984_UTM_Zone_31N", 
+     "type": "LBC", 
+     "ver": "PE_10_3_1", 
+     "wkt": "PROJCS[\"WGS_1984_UTM_Zone_31N\",GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"False_Easting\",500000.0],PARAMETER[\"False_Northing\",0.0],PARAMETER[\"Central_Meridian\",3.0],PARAMETER[\"Scale_Factor\",0.9996],PARAMETER[\"Latitude_Of_Origin\",0.0],UNIT[\"Meter\",1.0],AUTHORITY[\"EPSG\",32631]]"
+    }, 
+    "name": "WGS 84 / UTM zone 31N + MSL height", 
+    "type": "CC", 
+    "ver": "PE_10_3_1", 
+    "vertLateBoundCRS": {
+     "authCode": {
+      "auth": "EPSG", 
+      "code": "5714"
+     }, 
+     "name": "MSL_Height", 
+     "type": "LBC", 
+     "ver": "PE_10_3_1", 
+     "wkt": "VERTCS[\"MSL_Height\",VDATUM[\"Mean_Sea_Level\"],PARAMETER[\"Vertical_Shift\",0.0],PARAMETER[\"Direction\",1.0],UNIT[\"Meter\",1.0],AUTHORITY[\"EPSG\",5714]]"
+    }
+   }, 
+   "id": "CCRS00000072", 
+   "lastModified": "20180806", 
+   "numberOfAxes": 3, 
+   "readyToTransform": false, 
+   "source": "Ocean catalog"
+  }
+ ], 
+ "listOfCompoundCTs": [
+  {
+   "aliasNames": [], 
+   "aouId": "AoU00000005", 
+   "description": "Fallback Coord Op Scope: Recommended for oil industry use in US Gulf of Mexico (GoM). Accuracy at 67% confidence level is 0.15m onshore, 5m nearshore and undetermined farther offshore. | Tfm Accuracy: 5 | Remarks: Transformation taken from NAD27 to NAD83 (1) (code 1241) assuming that NAD83 is equivalent to WGS 84 within the accuracy of this tfm. Uses NADCON method which expects longitudes positive west; EPSG CRS codes 4267 and 4326 have longitudes positive east. | Information Source: OGP/Coord Op Scope: Approximation at the +/- 1m level. | Tfm Accuracy: 1 | Remarks: Parameter file is from NAD27 to NAD83 (4) (code 1313) assuming that NAD83 is equivalent to WGS 84 within the accuracy of the transformation. | Information Source: OGP", 
+   "essence": {
+    "authCode": {
+     "auth": "MY_COMPANY",
+     "code": "158511693"
+    }, 
+    "cts": [
+     {
+      "authCode": {
+       "auth": "EPSG", 
+       "code": "15851"
+      }, 
+      "name": "NAD_1927_To_WGS_1984_79_CONUS", 
+      "type": "ST", 
+      "ver": "PE_10_3_1", 
+      "wkt": "GEOGTRAN[\"NAD_1927_To_WGS_1984_79_CONUS\",GEOGCS[\"GCS_North_American_1927\",DATUM[\"D_North_American_1927\",SPHEROID[\"Clarke_1866\",6378206.4,294.9786982]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"NADCON\"],PARAMETER[\"Dataset_conus\",0.0],AUTHORITY[\"EPSG\",15851]]"
+     }, 
+     {
+      "authCode": {
+       "auth": "EPSG", 
+       "code": "1693"
+      }, 
+      "name": "NAD_1927_To_WGS_1984_33", 
+      "type": "ST", 
+      "ver": "PE_10_3_1", 
+      "wkt": "GEOGTRAN[\"NAD_1927_To_WGS_1984_33\",GEOGCS[\"GCS_North_American_1927\",DATUM[\"D_North_American_1927\",SPHEROID[\"Clarke_1866\",6378206.4,294.9786982]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"NTv2\"],PARAMETER[\"Dataset_canada/Ntv2_0\",0.0],AUTHORITY[\"EPSG\",1693]]"
+     }
+    ], 
+    "name": "Fallback NAD27 to WGS 84 (79)/NAD27 to WGS 84 (33)", 
+    "policy": "Fallback", 
+    "type": "CT", 
+    "ver": "PE_10_3_1"
+   }, 
+   "fromCRSId": "LCRS00000028", 
+   "id": "CTRF00000055", 
+   "lastModified": "20180806", 
+   "source": "Ocean catalog", 
+   "toCRSId": "LCRS00000031"
+  }, 
+  {
+   "aliasNames": [], 
+   "aouId": "AoU00000018", 
+   "description": "Concatenated transform AGD84 to GDA94 to WGS 84", 
+   "essence": {
+    "authCode": {
+     "auth": "Experimental", 
+     "code": "12361150"
+    }, 
+    "cts": [
+     {
+      "authCode": {
+       "auth": "EPSG", 
+       "code": "1236"
+      }, 
+      "name": "AGD_1984_To_WGS_1984_2", 
+      "type": "ST", 
+      "ver": "PE_10_3_1", 
+      "wkt": "GEOGTRAN[\"AGD_1984_To_WGS_1984_2\",GEOGCS[\"GCS_Australian_1984\",DATUM[\"D_Australian_1984\",SPHEROID[\"Australian\",6378160.0,298.25]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"Coordinate_Frame\"],PARAMETER[\"X_Axis_Translation\",-116.0],PARAMETER[\"Y_Axis_Translation\",-50.47],PARAMETER[\"Z_Axis_Translation\",141.69],PARAMETER[\"X_Axis_Rotation\",-0.23],PARAMETER[\"Y_Axis_Rotation\",-0.39],PARAMETER[\"Z_Axis_Rotation\",-0.344],PARAMETER[\"Scale_Difference\",0.0983],AUTHORITY[\"EPSG\",1236]]"
+     }, 
+     {
+      "authCode": {
+       "auth": "EPSG", 
+       "code": "1150"
+      }, 
+      "name": "GDA_1994_To_WGS_1984", 
+      "type": "ST", 
+      "ver": "PE_10_3_1", 
+      "wkt": "GEOGTRAN[\"GDA_1994_To_WGS_1984\",GEOGCS[\"GCS_GDA_1994\",DATUM[\"D_GDA_1994\",SPHEROID[\"GRS_1980\",6378137.0,298.257222101]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"Position_Vector\"],PARAMETER[\"X_Axis_Translation\",0.0],PARAMETER[\"Y_Axis_Translation\",0.0],PARAMETER[\"Z_Axis_Translation\",0.0],PARAMETER[\"X_Axis_Rotation\",0.0],PARAMETER[\"Y_Axis_Rotation\",0.0],PARAMETER[\"Z_Axis_Rotation\",0.0],PARAMETER[\"Scale_Difference\",0.0],AUTHORITY[\"EPSG\",1150]]"
+     }
+    ], 
+    "name": "AGD84 to GDA94 to WGS 84 [1236,1150]", 
+    "policy": "Concatenated", 
+    "type": "CT", 
+    "ver": "PE_10_3_1"
+   }, 
+   "fromCRSId": "LCRS00000029", 
+   "id": "CTRF00000056", 
+   "lastModified": "20180806", 
+   "source": "Ocean catalog", 
+   "toCRSId": "LCRS00000032"
+  }
+ ], 
+ "listOfEarlyBoundCRSs": [
+  {
+   "aliasNames": [], 
+   "aouId": "AoU00000015", 
+   "axisUnits": [
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}", 
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}"
+   ], 
+   "baseCRSId": "LCRS00000033", 
+   "crsType": "Projected", 
+   "description": "ED_1950_UTM_Zone_31N bound to ED_1950_To_WGS_1984_24 [23031,1613]", 
+   "essence": {
+    "authCode": {
+     "auth": "MY_COMPANY",
+     "code": "23031024"
+    }, 
+    "lateBoundCRS": {
+     "authCode": {
+      "auth": "EPSG", 
+      "code": "23031"
+     }, 
+     "name": "ED_1950_UTM_Zone_31N", 
+     "type": "LBC", 
+     "ver": "PE_10_3_1", 
+     "wkt": "PROJCS[\"ED_1950_UTM_Zone_31N\",GEOGCS[\"GCS_European_1950\",DATUM[\"D_European_1950\",SPHEROID[\"International_1924\",6378388.0,297.0]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"False_Easting\",500000.0],PARAMETER[\"False_Northing\",0.0],PARAMETER[\"Central_Meridian\",3.0],PARAMETER[\"Scale_Factor\",0.9996],PARAMETER[\"Latitude_Of_Origin\",0.0],UNIT[\"Meter\",1.0],AUTHORITY[\"EPSG\",23031]]"
+    }, 
+    "name": "ED50 * EPSG-Nor S62 2001 / UTM zone 31N [23031,1613]", 
+    "singleCT": {
+     "authCode": {
+      "auth": "EPSG", 
+      "code": "1613"
+     }, 
+     "name": "ED_1950_To_WGS_1984_24", 
+     "type": "ST", 
+     "ver": "PE_10_3_1", 
+     "wkt": "GEOGTRAN[\"ED_1950_To_WGS_1984_24\",GEOGCS[\"GCS_European_1950\",DATUM[\"D_European_1950\",SPHEROID[\"International_1924\",6378388.0,297.0]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"Position_Vector\"],PARAMETER[\"X_Axis_Translation\",-90.365],PARAMETER[\"Y_Axis_Translation\",-101.13],PARAMETER[\"Z_Axis_Translation\",-123.384],PARAMETER[\"X_Axis_Rotation\",0.333],PARAMETER[\"Y_Axis_Rotation\",0.077],PARAMETER[\"Z_Axis_Rotation\",0.894],PARAMETER[\"Scale_Difference\",1.994],AUTHORITY[\"EPSG\",1613]]"
+    }, 
+    "type": "EBC", 
+    "ver": "PE_10_3_1"
+   }, 
+   "id": "ECRS00000057", 
+   "lastModified": "20180806", 
+   "numberOfAxes": 2, 
+   "readyToTransform": true, 
+   "source": "Ocean catalog"
+  }, 
+  {
+   "aliasNames": [], 
+   "aouId": "AoU00000022", 
+   "axisUnits": [
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}", 
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}"
+   ], 
+   "baseCRSId": "LCRS00000033", 
+   "crsType": "Projected", 
+   "description": "ED_1950_UTM_Zone_31N bound to ED_1950_To_WGS_1984_23 [23031,1612]", 
+   "essence": {
+    "authCode": {
+     "auth": "MY_COMPANY",
+     "code": "23031023"
+    }, 
+    "lateBoundCRS": {
+     "authCode": {
+      "auth": "EPSG", 
+      "code": "23031"
+     }, 
+     "name": "ED_1950_UTM_Zone_31N", 
+     "type": "LBC", 
+     "ver": "PE_10_3_1", 
+     "wkt": "PROJCS[\"ED_1950_UTM_Zone_31N\",GEOGCS[\"GCS_European_1950\",DATUM[\"D_European_1950\",SPHEROID[\"International_1924\",6378388.0,297.0]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"False_Easting\",500000.0],PARAMETER[\"False_Northing\",0.0],PARAMETER[\"Central_Meridian\",3.0],PARAMETER[\"Scale_Factor\",0.9996],PARAMETER[\"Latitude_Of_Origin\",0.0],UNIT[\"Meter\",1.0],AUTHORITY[\"EPSG\",23031]]"
+    }, 
+    "name": "ED50 * EPSG-Nor N62 2001 / UTM zone 31N [23031,1612]", 
+    "singleCT": {
+     "authCode": {
+      "auth": "EPSG", 
+      "code": "1612"
+     }, 
+     "name": "ED_1950_To_WGS_1984_23", 
+     "type": "ST", 
+     "ver": "PE_10_3_1", 
+     "wkt": "GEOGTRAN[\"ED_1950_To_WGS_1984_23\",GEOGCS[\"GCS_European_1950\",DATUM[\"D_European_1950\",SPHEROID[\"International_1924\",6378388.0,297.0]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"Position_Vector\"],PARAMETER[\"X_Axis_Translation\",-116.641],PARAMETER[\"Y_Axis_Translation\",-56.931],PARAMETER[\"Z_Axis_Translation\",-110.559],PARAMETER[\"X_Axis_Rotation\",0.893],PARAMETER[\"Y_Axis_Rotation\",0.921],PARAMETER[\"Z_Axis_Rotation\",-0.917],PARAMETER[\"Scale_Difference\",-3.52],AUTHORITY[\"EPSG\",1612]]"
+    }, 
+    "type": "EBC", 
+    "ver": "PE_10_3_1"
+   }, 
+   "id": "ECRS00000058", 
+   "lastModified": "20180806", 
+   "numberOfAxes": 2, 
+   "readyToTransform": true, 
+   "source": "Ocean catalog"
+  }, 
+  {
+   "aliasNames": [], 
+   "aouId": "AoU00000002", 
+   "axisUnits": [
+    "{\"measurement\":{\"ancestry\":\"Plane_Angle\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":0.0174532925199433},\"symbol\":\"dega\",\"type\":\"USO\"}", 
+    "{\"measurement\":{\"ancestry\":\"Plane_Angle\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":0.0174532925199433},\"symbol\":\"dega\",\"type\":\"USO\"}"
+   ], 
+   "baseCRSId": "LCRS00000028", 
+   "crsType": "Geographic2D", 
+   "description": "GCS_North_American_1927 bound to NAD_1927_To_WGS_1984_3 [4267,1172]", 
+   "essence": {
+    "authCode": {
+     "auth": "MY_COMPANY",
+     "code": "4267003"
+    }, 
+    "lateBoundCRS": {
+     "authCode": {
+      "auth": "EPSG", 
+      "code": "4267"
+     }, 
+     "name": "GCS_North_American_1927", 
+     "type": "LBC", 
+     "ver": "PE_10_3_1", 
+     "wkt": "GEOGCS[\"GCS_North_American_1927\",DATUM[\"D_North_American_1927\",SPHEROID[\"Clarke_1866\",6378206.4,294.9786982]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433],AUTHORITY[\"EPSG\",4267]]"
+    }, 
+    "name": "NAD27 * DMA-Can [4267,1172]", 
+    "singleCT": {
+     "authCode": {
+      "auth": "EPSG", 
+      "code": "1172"
+     }, 
+     "name": "NAD_1927_To_WGS_1984_3", 
+     "type": "ST", 
+     "ver": "PE_10_3_1", 
+     "wkt": "GEOGTRAN[\"NAD_1927_To_WGS_1984_3\",GEOGCS[\"GCS_North_American_1927\",DATUM[\"D_North_American_1927\",SPHEROID[\"Clarke_1866\",6378206.4,294.9786982]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"Geocentric_Translation\"],PARAMETER[\"X_Axis_Translation\",-10.0],PARAMETER[\"Y_Axis_Translation\",158.0],PARAMETER[\"Z_Axis_Translation\",187.0],AUTHORITY[\"EPSG\",1172]]"
+    }, 
+    "type": "EBC", 
+    "ver": "PE_10_3_1"
+   }, 
+   "id": "ECRS00000059", 
+   "lastModified": "20180806", 
+   "numberOfAxes": 2, 
+   "readyToTransform": true, 
+   "source": "Ocean catalog"
+  }, 
+  {
+   "aliasNames": [], 
+   "aouId": "AoU00000024", 
+   "axisUnits": [
+    "{\"measurement\":{\"ancestry\":\"Plane_Angle\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":0.0174532925199433},\"symbol\":\"dega\",\"type\":\"USO\"}", 
+    "{\"measurement\":{\"ancestry\":\"Plane_Angle\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":0.0174532925199433},\"symbol\":\"dega\",\"type\":\"USO\"}"
+   ], 
+   "baseCRSId": "LCRS00000030", 
+   "crsType": "Geographic2D", 
+   "description": "GCS_Aratu bound to Aratu_To_WGS_1984_21 [4208,5067]", 
+   "essence": {
+    "authCode": {
+     "auth": "MY_COMPANY",
+     "code": "4208021"
+    }, 
+    "lateBoundCRS": {
+     "authCode": {
+      "auth": "EPSG", 
+      "code": "4208"
+     }, 
+     "name": "GCS_Aratu", 
+     "type": "LBC", 
+     "ver": "PE_10_3_1", 
+     "wkt": "GEOGCS[\"GCS_Aratu\",DATUM[\"D_Aratu\",SPHEROID[\"International_1924\",6378388.0,297.0]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433],AUTHORITY[\"EPSG\",4208]]"
+    }, 
+    "name": "Aratu * PB-Bra RNCE 2002 [4208,5067]", 
+    "singleCT": {
+     "authCode": {
+      "auth": "EPSG", 
+      "code": "5067"
+     }, 
+     "name": "Aratu_To_WGS_1984_21", 
+     "type": "ST", 
+     "ver": "PE_10_3_1", 
+     "wkt": "GEOGTRAN[\"Aratu_To_WGS_1984_21\",GEOGCS[\"GCS_Aratu\",DATUM[\"D_Aratu\",SPHEROID[\"International_1924\",6378388.0,297.0]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"Geocentric_Translation\"],PARAMETER[\"X_Axis_Translation\",-151.99],PARAMETER[\"Y_Axis_Translation\",287.04],PARAMETER[\"Z_Axis_Translation\",-147.45],AUTHORITY[\"EPSG\",5067]]"
+    }, 
+    "type": "EBC", 
+    "ver": "PE_10_3_1"
+   }, 
+   "id": "ECRS00000060", 
+   "lastModified": "20180806", 
+   "numberOfAxes": 2, 
+   "readyToTransform": true, 
+   "source": "Ocean catalog"
+  }, 
+  {
+   "aliasNames": [], 
+   "aouId": "AoU00000008", 
+   "axisUnits": [
+    "{\"measurement\":{\"ancestry\":\"Plane_Angle\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":0.0174532925199433},\"symbol\":\"dega\",\"type\":\"USO\"}", 
+    "{\"measurement\":{\"ancestry\":\"Plane_Angle\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":0.0174532925199433},\"symbol\":\"dega\",\"type\":\"USO\"}"
+   ], 
+   "baseCRSId": "LCRS00000028", 
+   "crsType": "Geographic2D", 
+   "description": "GCS_North_American_1927 bound to NAD_1927_To_WGS_1984_80 [4267,15852]", 
+   "essence": {
+    "authCode": {
+     "auth": "MY_COMPANY",
+     "code": "4267080"
+    }, 
+    "lateBoundCRS": {
+     "authCode": {
+      "auth": "EPSG", 
+      "code": "4267"
+     }, 
+     "name": "GCS_North_American_1927", 
+     "type": "LBC", 
+     "ver": "PE_10_3_1", 
+     "wkt": "GEOGCS[\"GCS_North_American_1927\",DATUM[\"D_North_American_1927\",SPHEROID[\"Clarke_1866\",6378206.4,294.9786982]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433],AUTHORITY[\"EPSG\",4267]]"
+    }, 
+    "name": "NAD27 * JECA-Usa GoM E [4267,15852]", 
+    "singleCT": {
+     "authCode": {
+      "auth": "EPSG", 
+      "code": "15852"
+     }, 
+     "name": "NAD_1927_To_WGS_1984_80", 
+     "type": "ST", 
+     "ver": "PE_10_3_1", 
+     "wkt": "GEOGTRAN[\"NAD_1927_To_WGS_1984_80\",GEOGCS[\"GCS_North_American_1927\",DATUM[\"D_North_American_1927\",SPHEROID[\"Clarke_1866\",6378206.4,294.9786982]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"Geocentric_Translation\"],PARAMETER[\"X_Axis_Translation\",-3.0],PARAMETER[\"Y_Axis_Translation\",154.0],PARAMETER[\"Z_Axis_Translation\",177.0],AUTHORITY[\"EPSG\",15852]]"
+    }, 
+    "type": "EBC", 
+    "ver": "PE_10_3_1"
+   }, 
+   "id": "ECRS00000061", 
+   "lastModified": "20180806", 
+   "numberOfAxes": 2, 
+   "readyToTransform": true, 
+   "source": "Ocean catalog"
+  }, 
+  {
+   "aliasNames": [], 
+   "aouId": "AoU00000017", 
+   "axisUnits": [
+    "{\"measurement\":{\"ancestry\":\"Plane_Angle\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":0.0174532925199433},\"symbol\":\"dega\",\"type\":\"USO\"}", 
+    "{\"measurement\":{\"ancestry\":\"Plane_Angle\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":0.0174532925199433},\"symbol\":\"dega\",\"type\":\"USO\"}"
+   ], 
+   "baseCRSId": "LCRS00000029", 
+   "crsType": "Geographic2D", 
+   "description": "GCS_Australian_1984 bound to AGD_1984_To_WGS_1984_2 [4203,1236]", 
+   "essence": {
+    "authCode": {
+     "auth": "MY_COMPANY",
+     "code": "4203002"
+    }, 
+    "lateBoundCRS": {
+     "authCode": {
+      "auth": "EPSG", 
+      "code": "4203"
+     }, 
+     "name": "GCS_Australian_1984", 
+     "type": "LBC", 
+     "ver": "PE_10_3_1", 
+     "wkt": "GEOGCS[\"GCS_Australian_1984\",DATUM[\"D_Australian_1984\",SPHEROID[\"Australian\",6378160.0,298.25]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433],AUTHORITY[\"EPSG\",4203]]"
+    }, 
+    "name": "AGD84 * Auslig-Aus old [4203,1236]", 
+    "singleCT": {
+     "authCode": {
+      "auth": "EPSG", 
+      "code": "1236"
+     }, 
+     "name": "AGD_1984_To_WGS_1984_2", 
+     "type": "ST", 
+     "ver": "PE_10_3_1", 
+     "wkt": "GEOGTRAN[\"AGD_1984_To_WGS_1984_2\",GEOGCS[\"GCS_Australian_1984\",DATUM[\"D_Australian_1984\",SPHEROID[\"Australian\",6378160.0,298.25]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"Coordinate_Frame\"],PARAMETER[\"X_Axis_Translation\",-116.0],PARAMETER[\"Y_Axis_Translation\",-50.47],PARAMETER[\"Z_Axis_Translation\",141.69],PARAMETER[\"X_Axis_Rotation\",-0.23],PARAMETER[\"Y_Axis_Rotation\",-0.39],PARAMETER[\"Z_Axis_Rotation\",-0.344],PARAMETER[\"Scale_Difference\",0.0983],AUTHORITY[\"EPSG\",1236]]"
+    }, 
+    "type": "EBC", 
+    "ver": "PE_10_3_1"
+   }, 
+   "id": "ECRS00000062", 
+   "lastModified": "20180806", 
+   "numberOfAxes": 2, 
+   "readyToTransform": true, 
+   "source": "Ocean catalog"
+  }, 
+  {
+   "aliasNames": [], 
+   "aouId": "AoU00000012", 
+   "axisUnits": [
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}", 
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}"
+   ], 
+   "baseCRSId": "LCRS00000033", 
+   "crsType": "Projected", 
+   "description": "ED_1950_UTM_Zone_31N bound to ED_1950_To_WGS_1984_18 [23031,1311]", 
+   "essence": {
+    "authCode": {
+     "auth": "MY_COMPANY",
+     "code": "23031018"
+    }, 
+    "lateBoundCRS": {
+     "authCode": {
+      "auth": "EPSG", 
+      "code": "23031"
+     }, 
+     "name": "ED_1950_UTM_Zone_31N", 
+     "type": "LBC", 
+     "ver": "PE_10_3_1", 
+     "wkt": "PROJCS[\"ED_1950_UTM_Zone_31N\",GEOGCS[\"GCS_European_1950\",DATUM[\"D_European_1950\",SPHEROID[\"International_1924\",6378388.0,297.0]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"False_Easting\",500000.0],PARAMETER[\"False_Northing\",0.0],PARAMETER[\"Central_Meridian\",3.0],PARAMETER[\"Scale_Factor\",0.9996],PARAMETER[\"Latitude_Of_Origin\",0.0],UNIT[\"Meter\",1.0],AUTHORITY[\"EPSG\",23031]]"
+    }, 
+    "name": "ED50 * UKOOA-CO / UTM zone 31N [23031,1311]", 
+    "singleCT": {
+     "authCode": {
+      "auth": "EPSG", 
+      "code": "1311"
+     }, 
+     "name": "ED_1950_To_WGS_1984_18", 
+     "type": "ST", 
+     "ver": "PE_10_3_1", 
+     "wkt": "GEOGTRAN[\"ED_1950_To_WGS_1984_18\",GEOGCS[\"GCS_European_1950\",DATUM[\"D_European_1950\",SPHEROID[\"International_1924\",6378388.0,297.0]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"Position_Vector\"],PARAMETER[\"X_Axis_Translation\",-89.5],PARAMETER[\"Y_Axis_Translation\",-93.8],PARAMETER[\"Z_Axis_Translation\",-123.1],PARAMETER[\"X_Axis_Rotation\",0.0],PARAMETER[\"Y_Axis_Rotation\",0.0],PARAMETER[\"Z_Axis_Rotation\",-0.156],PARAMETER[\"Scale_Difference\",1.2],AUTHORITY[\"EPSG\",1311]]"
+    }, 
+    "type": "EBC", 
+    "ver": "PE_10_3_1"
+   }, 
+   "id": "ECRS00000063", 
+   "lastModified": "20180806", 
+   "numberOfAxes": 2, 
+   "readyToTransform": true, 
+   "source": "Ocean catalog"
+  }, 
+  {
+   "aliasNames": [], 
+   "aouId": "AoU00000020", 
+   "axisUnits": [
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}", 
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}"
+   ], 
+   "baseCRSId": "LCRS00000033", 
+   "crsType": "Projected", 
+   "description": "ED_1950_UTM_Zone_31N bound to ED_1950_To_WGS_1984_1 [23031,1133]", 
+   "essence": {
+    "authCode": {
+     "auth": "MY_COMPANY",
+     "code": "23031001"
+    }, 
+    "lateBoundCRS": {
+     "authCode": {
+      "auth": "EPSG", 
+      "code": "23031"
+     }, 
+     "name": "ED_1950_UTM_Zone_31N", 
+     "type": "LBC", 
+     "ver": "PE_10_3_1", 
+     "wkt": "PROJCS[\"ED_1950_UTM_Zone_31N\",GEOGCS[\"GCS_European_1950\",DATUM[\"D_European_1950\",SPHEROID[\"International_1924\",6378388.0,297.0]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"False_Easting\",500000.0],PARAMETER[\"False_Northing\",0.0],PARAMETER[\"Central_Meridian\",3.0],PARAMETER[\"Scale_Factor\",0.9996],PARAMETER[\"Latitude_Of_Origin\",0.0],UNIT[\"Meter\",1.0],AUTHORITY[\"EPSG\",23031]]"
+    }, 
+    "name": "ED50 * DMA-mean / UTM zone 31N [23031,1133]", 
+    "singleCT": {
+     "authCode": {
+      "auth": "EPSG", 
+      "code": "1133"
+     }, 
+     "name": "ED_1950_To_WGS_1984_1", 
+     "type": "ST", 
+     "ver": "PE_10_3_1", 
+     "wkt": "GEOGTRAN[\"ED_1950_To_WGS_1984_1\",GEOGCS[\"GCS_European_1950\",DATUM[\"D_European_1950\",SPHEROID[\"International_1924\",6378388.0,297.0]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"Geocentric_Translation\"],PARAMETER[\"X_Axis_Translation\",-87.0],PARAMETER[\"Y_Axis_Translation\",-98.0],PARAMETER[\"Z_Axis_Translation\",-121.0],AUTHORITY[\"EPSG\",1133]]"
+    }, 
+    "type": "EBC", 
+    "ver": "PE_10_3_1"
+   }, 
+   "id": "ECRS00000064", 
+   "lastModified": "20180806", 
+   "numberOfAxes": 2, 
+   "readyToTransform": true, 
+   "source": "Ocean catalog"
+  }, 
+  {
+   "aliasNames": [], 
+   "aouId": "AoU00000018", 
+   "axisUnits": [
+    "{\"measurement\":{\"ancestry\":\"Plane_Angle\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":0.0174532925199433},\"symbol\":\"dega\",\"type\":\"USO\"}", 
+    "{\"measurement\":{\"ancestry\":\"Plane_Angle\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":0.0174532925199433},\"symbol\":\"dega\",\"type\":\"USO\"}"
+   ], 
+   "baseCRSId": "LCRS00000032", 
+   "crsType": "Geographic2D", 
+   "description": "GCS_GDA_1994 bound to GDA_1994_To_WGS_1984 [4283,1150]", 
+   "essence": {
+    "authCode": {
+     "auth": "MY_COMPANY",
+     "code": "4283001"
+    }, 
+    "lateBoundCRS": {
+     "authCode": {
+      "auth": "EPSG", 
+      "code": "4283"
+     }, 
+     "name": "GCS_GDA_1994", 
+     "type": "LBC", 
+     "ver": "PE_10_3_1", 
+     "wkt": "GEOGCS[\"GCS_GDA_1994\",DATUM[\"D_GDA_1994\",SPHEROID[\"GRS_1980\",6378137.0,298.257222101]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433],AUTHORITY[\"EPSG\",4283]]"
+    }, 
+    "name": "GDA94 * EPSG-Aus [4283,1150]", 
+    "singleCT": {
+     "authCode": {
+      "auth": "EPSG", 
+      "code": "1150"
+     }, 
+     "name": "GDA_1994_To_WGS_1984", 
+     "type": "ST", 
+     "ver": "PE_10_3_1", 
+     "wkt": "GEOGTRAN[\"GDA_1994_To_WGS_1984\",GEOGCS[\"GCS_GDA_1994\",DATUM[\"D_GDA_1994\",SPHEROID[\"GRS_1980\",6378137.0,298.257222101]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"Position_Vector\"],PARAMETER[\"X_Axis_Translation\",0.0],PARAMETER[\"Y_Axis_Translation\",0.0],PARAMETER[\"Z_Axis_Translation\",0.0],PARAMETER[\"X_Axis_Rotation\",0.0],PARAMETER[\"Y_Axis_Rotation\",0.0],PARAMETER[\"Z_Axis_Rotation\",0.0],PARAMETER[\"Scale_Difference\",0.0],AUTHORITY[\"EPSG\",1150]]"
+    }, 
+    "type": "EBC", 
+    "ver": "PE_10_3_1"
+   }, 
+   "id": "ECRS00000065", 
+   "lastModified": "20180806", 
+   "numberOfAxes": 2, 
+   "readyToTransform": true, 
+   "source": "Ocean catalog"
+  }, 
+  {
+   "aliasNames": [], 
+   "aouId": "AoU00000011", 
+   "axisUnits": [
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}", 
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}"
+   ], 
+   "baseCRSId": "LCRS00000030", 
+   "crsType": "Projected", 
+   "deprecationInfo": {
+    "deprecationState": "corrected", 
+    "remarks": "Deprecated", 
+    "supersededByCRSId": "ECRS00000070"
+   }, 
+   "description": "Aratu_UTM_Zone_24S bound to Aratu_To_WGS_1984_21 [20824,9995067]", 
+   "essence": {
+    "authCode": {
+     "auth": "MY_COMPANY",
+     "code": "99920824021"
+    }, 
+    "lateBoundCRS": {
+     "authCode": {
+      "auth": "EPSG", 
+      "code": "20824"
+     }, 
+     "name": "Aratu_UTM_Zone_24S", 
+     "type": "LBC", 
+     "ver": "PE_10_3_1", 
+     "wkt": "PROJCS[\"Aratu_UTM_Zone_24S\",GEOGCS[\"GCS_Aratu\",DATUM[\"D_Aratu\",SPHEROID[\"International_1924\",6378388.0,297.0]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"False_Easting\",500000.0],PARAMETER[\"False_Northing\",10000000.0],PARAMETER[\"Central_Meridian\",-39.0],PARAMETER[\"Scale_Factor\",0.9996],PARAMETER[\"Latitude_Of_Origin\",0.0],UNIT[\"Meter\",1.0],AUTHORITY[\"EPSG\",20824]]"
+    }, 
+    "name": "Aratu * SIS:PE_10_1_0,9995067 / UTM zone 24S [20824,9995067]", 
+    "singleCT": {
+     "authCode": {
+      "auth": "PE_10_1_0", 
+      "code": "9995067"
+     }, 
+     "name": "Aratu_To_WGS_1984_21", 
+     "type": "ST", 
+     "ver": "PE_10_3_1", 
+     "wkt": "GEOGTRAN[\"Aratu_To_WGS_1984_21\",GEOGCS[\"GCS_Aratu\",DATUM[\"D_Aratu\",SPHEROID[\"International_1924\",6378388.0,297.0]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"Geocentric_Translation\"],PARAMETER[\"X_Axis_Translation\",-151.99],PARAMETER[\"Y_Axis_Translation\",287.04],PARAMETER[\"Z_Axis_Translation\",147.45]]"
+    }, 
+    "type": "EBC", 
+    "ver": "PE_10_3_1"
+   }, 
+   "id": "ECRS00000066", 
+   "lastModified": "20180806", 
+   "numberOfAxes": 2, 
+   "readyToTransform": true, 
+   "source": "Ocean catalog"
+  }, 
+  {
+   "aliasNames": [], 
+   "aouId": "AoU00000016", 
+   "axisUnits": [
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":0.3048006096012192},\"symbol\":\"ftUS\",\"type\":\"USO\"}", 
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":0.3048006096012192},\"symbol\":\"ftUS\",\"type\":\"USO\"}"
+   ], 
+   "baseCRSId": "LCRS00000028", 
+   "crsType": "Projected", 
+   "description": "NAD_1927_BLM_Zone_15N bound to Fallback NAD27 to WGS 84 (79)/NAD27 to WGS 84 (33) [32065,158511693]", 
+   "essence": {
+    "authCode": {
+     "auth": "MY_COMPANY",
+     "code": "32065100"
+    }, 
+    "compoundCT": {
+     "authCode": {
+      "auth": "MY_COMPANY",
+      "code": "158511693"
+     }, 
+     "cts": [
+      {
+       "authCode": {
+        "auth": "EPSG", 
+        "code": "15851"
+       }, 
+       "name": "NAD_1927_To_WGS_1984_79_CONUS", 
+       "type": "ST", 
+       "ver": "PE_10_3_1", 
+       "wkt": "GEOGTRAN[\"NAD_1927_To_WGS_1984_79_CONUS\",GEOGCS[\"GCS_North_American_1927\",DATUM[\"D_North_American_1927\",SPHEROID[\"Clarke_1866\",6378206.4,294.9786982]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"NADCON\"],PARAMETER[\"Dataset_conus\",0.0],AUTHORITY[\"EPSG\",15851]]"
+      }, 
+      {
+       "authCode": {
+        "auth": "EPSG", 
+        "code": "1693"
+       }, 
+       "name": "NAD_1927_To_WGS_1984_33", 
+       "type": "ST", 
+       "ver": "PE_10_3_1", 
+       "wkt": "GEOGTRAN[\"NAD_1927_To_WGS_1984_33\",GEOGCS[\"GCS_North_American_1927\",DATUM[\"D_North_American_1927\",SPHEROID[\"Clarke_1866\",6378206.4,294.9786982]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"NTv2\"],PARAMETER[\"Dataset_canada/Ntv2_0\",0.0],AUTHORITY[\"EPSG\",1693]]"
+      }
+     ], 
+     "name": "Fallback NAD27 to WGS 84 (79)/NAD27 to WGS 84 (33)", 
+     "policy": "Fallback", 
+     "type": "CT", 
+     "ver": "PE_10_3_1"
+    }, 
+    "lateBoundCRS": {
+     "authCode": {
+      "auth": "EPSG", 
+      "code": "32065"
+     }, 
+     "name": "NAD_1927_BLM_Zone_15N", 
+     "type": "LBC", 
+     "ver": "PE_10_3_1", 
+     "wkt": "PROJCS[\"NAD_1927_BLM_Zone_15N\",GEOGCS[\"GCS_North_American_1927\",DATUM[\"D_North_American_1927\",SPHEROID[\"Clarke_1866\",6378206.4,294.9786982]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"False_Easting\",1640416.66666667],PARAMETER[\"False_Northing\",0.0],PARAMETER[\"Central_Meridian\",-93.0],PARAMETER[\"Scale_Factor\",0.9996],PARAMETER[\"Latitude_Of_Origin\",0.0],UNIT[\"Foot_US\",0.304800609601219],AUTHORITY[\"EPSG\",32065]]"
+    }, 
+    "name": "NAD27 * SIS: Fallback,15851,1693 / BLM 15N (ftUS) [32065,158511693]", 
+    "type": "EBC", 
+    "ver": "PE_10_3_1"
+   }, 
+   "id": "ECRS00000067", 
+   "lastModified": "20180806", 
+   "numberOfAxes": 2, 
+   "readyToTransform": true, 
+   "source": "Ocean catalog"
+  }, 
+  {
+   "aliasNames": [], 
+   "aouId": "AoU00000014", 
+   "axisUnits": [
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}", 
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}"
+   ], 
+   "baseCRSId": "LCRS00000028", 
+   "crsType": "Projected", 
+   "description": "NAD_1927_UTM_Zone_15N bound to Fallback NAD27 to WGS 84 (79)/NAD27 to WGS 84 (33) [26715,158511693]", 
+   "essence": {
+    "authCode": {
+     "auth": "MY_COMPANY",
+     "code": "26715100"
+    }, 
+    "compoundCT": {
+     "authCode": {
+      "auth": "MY_COMPANY",
+      "code": "158511693"
+     }, 
+     "cts": [
+      {
+       "authCode": {
+        "auth": "EPSG", 
+        "code": "15851"
+       }, 
+       "name": "NAD_1927_To_WGS_1984_79_CONUS", 
+       "type": "ST", 
+       "ver": "PE_10_3_1", 
+       "wkt": "GEOGTRAN[\"NAD_1927_To_WGS_1984_79_CONUS\",GEOGCS[\"GCS_North_American_1927\",DATUM[\"D_North_American_1927\",SPHEROID[\"Clarke_1866\",6378206.4,294.9786982]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"NADCON\"],PARAMETER[\"Dataset_conus\",0.0],AUTHORITY[\"EPSG\",15851]]"
+      }, 
+      {
+       "authCode": {
+        "auth": "EPSG", 
+        "code": "1693"
+       }, 
+       "name": "NAD_1927_To_WGS_1984_33", 
+       "type": "ST", 
+       "ver": "PE_10_3_1", 
+       "wkt": "GEOGTRAN[\"NAD_1927_To_WGS_1984_33\",GEOGCS[\"GCS_North_American_1927\",DATUM[\"D_North_American_1927\",SPHEROID[\"Clarke_1866\",6378206.4,294.9786982]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"NTv2\"],PARAMETER[\"Dataset_canada/Ntv2_0\",0.0],AUTHORITY[\"EPSG\",1693]]"
+      }
+     ], 
+     "name": "Fallback NAD27 to WGS 84 (79)/NAD27 to WGS 84 (33)", 
+     "policy": "Fallback", 
+     "type": "CT", 
+     "ver": "PE_10_3_1"
+    }, 
+    "lateBoundCRS": {
+     "authCode": {
+      "auth": "EPSG", 
+      "code": "26715"
+     }, 
+     "name": "NAD_1927_UTM_Zone_15N", 
+     "type": "LBC", 
+     "ver": "PE_10_3_1", 
+     "wkt": "PROJCS[\"NAD_1927_UTM_Zone_15N\",GEOGCS[\"GCS_North_American_1927\",DATUM[\"D_North_American_1927\",SPHEROID[\"Clarke_1866\",6378206.4,294.9786982]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"False_Easting\",500000.0],PARAMETER[\"False_Northing\",0.0],PARAMETER[\"Central_Meridian\",-93.0],PARAMETER[\"Scale_Factor\",0.9996],PARAMETER[\"Latitude_Of_Origin\",0.0],UNIT[\"Meter\",1.0],AUTHORITY[\"EPSG\",26715]]"
+    }, 
+    "name": "NAD27 * SIS: Fallback,15851,1693 / UTM zone 15N [26715,158511693]", 
+    "type": "EBC", 
+    "ver": "PE_10_3_1"
+   }, 
+   "id": "ECRS00000068", 
+   "lastModified": "20180806", 
+   "numberOfAxes": 2, 
+   "readyToTransform": true, 
+   "source": "Ocean catalog"
+  }, 
+  {
+   "aliasNames": [], 
+   "aouId": "AoU00000017", 
+   "axisUnits": [
+    "{\"measurement\":{\"ancestry\":\"Plane_Angle\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":0.0174532925199433},\"symbol\":\"dega\",\"type\":\"USO\"}", 
+    "{\"measurement\":{\"ancestry\":\"Plane_Angle\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":0.0174532925199433},\"symbol\":\"dega\",\"type\":\"USO\"}"
+   ], 
+   "baseCRSId": "LCRS00000029", 
+   "crsType": "Geographic2D", 
+   "description": "GCS_Australian_1984 bound to Concatenated 1236,1150 [4203,12361150]", 
+   "essence": {
+    "authCode": {
+     "auth": "Experimental", 
+     "code": "4203100"
+    }, 
+    "compoundCT": {
+     "authCode": {
+      "auth": "Experimental", 
+      "code": "12361150"
+     }, 
+     "cts": [
+      {
+       "authCode": {
+        "auth": "EPSG", 
+        "code": "1236"
+       }, 
+       "name": "AGD_1984_To_WGS_1984_2", 
+       "type": "ST", 
+       "ver": "PE_10_3_1", 
+       "wkt": "GEOGTRAN[\"AGD_1984_To_WGS_1984_2\",GEOGCS[\"GCS_Australian_1984\",DATUM[\"D_Australian_1984\",SPHEROID[\"Australian\",6378160.0,298.25]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"Coordinate_Frame\"],PARAMETER[\"X_Axis_Translation\",-116.0],PARAMETER[\"Y_Axis_Translation\",-50.47],PARAMETER[\"Z_Axis_Translation\",141.69],PARAMETER[\"X_Axis_Rotation\",-0.23],PARAMETER[\"Y_Axis_Rotation\",-0.39],PARAMETER[\"Z_Axis_Rotation\",-0.344],PARAMETER[\"Scale_Difference\",0.0983],AUTHORITY[\"EPSG\",1236]]"
+      }, 
+      {
+       "authCode": {
+        "auth": "EPSG", 
+        "code": "1150"
+       }, 
+       "name": "GDA_1994_To_WGS_1984", 
+       "type": "ST", 
+       "ver": "PE_10_3_1", 
+       "wkt": "GEOGTRAN[\"GDA_1994_To_WGS_1984\",GEOGCS[\"GCS_GDA_1994\",DATUM[\"D_GDA_1994\",SPHEROID[\"GRS_1980\",6378137.0,298.257222101]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"Position_Vector\"],PARAMETER[\"X_Axis_Translation\",0.0],PARAMETER[\"Y_Axis_Translation\",0.0],PARAMETER[\"Z_Axis_Translation\",0.0],PARAMETER[\"X_Axis_Rotation\",0.0],PARAMETER[\"Y_Axis_Rotation\",0.0],PARAMETER[\"Z_Axis_Rotation\",0.0],PARAMETER[\"Scale_Difference\",0.0],AUTHORITY[\"EPSG\",1150]]"
+      }
+     ], 
+     "name": "AGD84 to GDA94 to WGS 84 [1236,1150]", 
+     "policy": "Concatenated", 
+     "type": "CT", 
+     "ver": "PE_10_3_1"
+    }, 
+    "lateBoundCRS": {
+     "authCode": {
+      "auth": "EPSG", 
+      "code": "4203"
+     }, 
+     "name": "GCS_Australian_1984", 
+     "type": "LBC", 
+     "ver": "PE_10_3_1", 
+     "wkt": "GEOGCS[\"GCS_Australian_1984\",DATUM[\"D_Australian_1984\",SPHEROID[\"Australian\",6378160.0,298.25]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433],AUTHORITY[\"EPSG\",4203]]"
+    }, 
+    "name": "AGD84 * Experimental: Concatenated,1236,1150 [4203,12361150]", 
+    "type": "EBC", 
+    "ver": "PE_10_3_1"
+   }, 
+   "id": "ECRS00000069", 
+   "lastModified": "20180806", 
+   "numberOfAxes": 2, 
+   "readyToTransform": false, 
+   "source": "Ocean catalog"
+  }, 
+  {
+   "aliasNames": [], 
+   "aouId": "AoU00000011", 
+   "axisUnits": [
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}", 
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}"
+   ], 
+   "baseCRSId": "LCRS00000030", 
+   "crsType": "Projected", 
+   "description": "Aratu_UTM_Zone_24S bound to Aratu_To_WGS_1984_21 [20824,5067]", 
+   "essence": {
+    "authCode": {
+     "auth": "MY_COMPANY",
+     "code": "20824021"
+    }, 
+    "lateBoundCRS": {
+     "authCode": {
+      "auth": "EPSG", 
+      "code": "20824"
+     }, 
+     "name": "Aratu_UTM_Zone_24S", 
+     "type": "LBC", 
+     "ver": "PE_10_3_1", 
+     "wkt": "PROJCS[\"Aratu_UTM_Zone_24S\",GEOGCS[\"GCS_Aratu\",DATUM[\"D_Aratu\",SPHEROID[\"International_1924\",6378388.0,297.0]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"False_Easting\",500000.0],PARAMETER[\"False_Northing\",10000000.0],PARAMETER[\"Central_Meridian\",-39.0],PARAMETER[\"Scale_Factor\",0.9996],PARAMETER[\"Latitude_Of_Origin\",0.0],UNIT[\"Meter\",1.0],AUTHORITY[\"EPSG\",20824]]"
+    }, 
+    "name": "Aratu * PB-Bra RNCE 2002 / UTM zone 24S [20824,5067]", 
+    "singleCT": {
+     "authCode": {
+      "auth": "EPSG", 
+      "code": "5067"
+     }, 
+     "name": "Aratu_To_WGS_1984_21", 
+     "type": "ST", 
+     "ver": "PE_10_3_1", 
+     "wkt": "GEOGTRAN[\"Aratu_To_WGS_1984_21\",GEOGCS[\"GCS_Aratu\",DATUM[\"D_Aratu\",SPHEROID[\"International_1924\",6378388.0,297.0]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"Geocentric_Translation\"],PARAMETER[\"X_Axis_Translation\",-151.99],PARAMETER[\"Y_Axis_Translation\",287.04],PARAMETER[\"Z_Axis_Translation\",-147.45],AUTHORITY[\"EPSG\",5067]]"
+    }, 
+    "type": "EBC", 
+    "ver": "PE_10_3_1"
+   }, 
+   "id": "ECRS00000070", 
+   "lastModified": "20180806", 
+   "numberOfAxes": 2, 
+   "readyToTransform": true, 
+   "source": "Ocean catalog"
+  }, 
+  {
+   "aliasNames": [], 
+   "aouId": "AoU00000011", 
+   "axisUnits": [
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}", 
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}"
+   ], 
+   "baseCRSId": "LCRS00000030", 
+   "crsType": "Projected", 
+   "description": "Aratu_UTM_Zone_24S bound to Aratu_To_WGS_1984_21 [20824,5067]", 
+   "essence": {
+    "authCode": {
+     "auth": "MY_COMPANY",
+     "code": "20824021"
+    }, 
+    "lateBoundCRS": {
+     "authCode": {
+      "auth": "EPSG", 
+      "code": "20824"
+     }, 
+     "name": "Aratu_UTM_Zone_24S", 
+     "type": "LBC", 
+     "ver": "PE_10_3_1", 
+     "wkt": "PROJCS[\"Aratu_UTM_Zone_24S\",GEOGCS[\"GCS_Aratu\",DATUM[\"D_Aratu\",SPHEROID[\"International_1924\",6378388.0,297.0]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"False_Easting\",500000.0],PARAMETER[\"False_Northing\",10000000.0],PARAMETER[\"Central_Meridian\",-39.0],PARAMETER[\"Scale_Factor\",0.9996],PARAMETER[\"Latitude_Of_Origin\",0.0],UNIT[\"Meter\",1.0],AUTHORITY[\"EPSG\",20824]]"
+    }, 
+    "name": "Aratu * PB-Bra RNCE 2002 / UTM zone 24S [20824,5067]", 
+    "singleCT": {
+     "authCode": {
+      "auth": "EPSG", 
+      "code": "5067"
+     }, 
+     "name": "Aratu_To_WGS_1984_21", 
+     "type": "ST", 
+     "ver": "PE_10_3_1", 
+     "wkt": "GEOGTRAN[\"Aratu_To_WGS_1984_21\",GEOGCS[\"GCS_Aratu\",DATUM[\"D_Aratu\",SPHEROID[\"International_1924\",6378388.0,297.0]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"Geocentric_Translation\"],PARAMETER[\"X_Axis_Translation\",-151.99],PARAMETER[\"Y_Axis_Translation\",287.04],PARAMETER[\"Z_Axis_Translation\",-147.45],AUTHORITY[\"EPSG\",5067]]"
+    }, 
+    "type": "EBC", 
+    "ver": "PE_10_3_1"
+   }, 
+   "id": "ECRS00000071", 
+   "lastModified": "20180806", 
+   "numberOfAxes": 2, 
+   "readyToTransform": true, 
+   "source": "Ocean catalog"
+  }
+ ], 
+ "listOfLateBoundCRSs": [
+  {
+   "aliasNames": [
+    "NAD27"
+   ], 
+   "aouId": "AoU00000006", 
+   "axisUnits": [
+    "{\"measurement\":{\"ancestry\":\"Plane_Angle\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":0.0174532925199433},\"symbol\":\"dega\",\"type\":\"USO\"}", 
+    "{\"measurement\":{\"ancestry\":\"Plane_Angle\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":0.0174532925199433},\"symbol\":\"dega\",\"type\":\"USO\"}"
+   ], 
+   "crsType": "Geographic2D", 
+   "description": "CRS Scope: Geodetic survey. | Remarks: Note: this CRS includes longitudes which are POSITIVE EAST. Replaced by NAD27(76) (code 4608) in Ontario, CGQ77 (code 4609) in Quebec, Mexican Datum of  1993 (code 4483) in Mexico, NAD83 (code 4279) in Canada (excl. Ontario & Quebec) & USA.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "4267"
+    }, 
+    "name": "GCS_North_American_1927", 
+    "type": "LBC", 
+    "ver": "PE_10_3_1", 
+    "wkt": "GEOGCS[\"GCS_North_American_1927\",DATUM[\"D_North_American_1927\",SPHEROID[\"Clarke_1866\",6378206.4,294.9786982]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433],AUTHORITY[\"EPSG\",4267]]"
+   }, 
+   "id": "LCRS00000028", 
+   "lastModified": "20140520", 
+   "numberOfAxes": 2, 
+   "readyToTransform": false, 
+   "source": ""
+  }, 
+  {
+   "aliasNames": [
+    "AGD84"
+   ], 
+   "aouId": "AoU00000017", 
+   "axisUnits": [
+    "{\"measurement\":{\"ancestry\":\"Plane_Angle\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":0.0174532925199433},\"symbol\":\"dega\",\"type\":\"USO\"}", 
+    "{\"measurement\":{\"ancestry\":\"Plane_Angle\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":0.0174532925199433},\"symbol\":\"dega\",\"type\":\"USO\"}"
+   ], 
+   "crsType": "Geographic2D", 
+   "description": "CRS Scope: Geodetic survey. | Remarks: National system replacing AGD 66 but officially adopted only in Queensland, South Australia and Western Australia. Replaced by GDA94. | Information Source: \"\"\"GDA technical manual v2_2\"\", Intergovernmental Committee on Surveying and Mapping. www.anzlic.org.au/icsm/gdtm/\"", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "4203"
+    }, 
+    "name": "GCS_Australian_1984", 
+    "type": "LBC", 
+    "ver": "PE_10_3_1", 
+    "wkt": "GEOGCS[\"GCS_Australian_1984\",DATUM[\"D_Australian_1984\",SPHEROID[\"Australian\",6378160.0,298.25]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433],AUTHORITY[\"EPSG\",4203]]"
+   }, 
+   "id": "LCRS00000029", 
+   "lastModified": "20100330", 
+   "numberOfAxes": 2, 
+   "readyToTransform": false, 
+   "source": "\"\"\"GDA technical manual v2_2\"\", Intergovernmental Committee on Surveying and Mapping. www.anzlic.org.au/icsm/gdtm/\""
+  }, 
+  {
+   "aliasNames": [
+    "Aratu"
+   ], 
+   "aouId": "AoU00000027", 
+   "axisUnits": [
+    "{\"measurement\":{\"ancestry\":\"Plane_Angle\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":0.0174532925199433},\"symbol\":\"dega\",\"type\":\"USO\"}", 
+    "{\"measurement\":{\"ancestry\":\"Plane_Angle\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":0.0174532925199433},\"symbol\":\"dega\",\"type\":\"USO\"}"
+   ], 
+   "crsType": "Geographic2D", 
+   "description": "CRS Scope: Geodetic survey.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "4208"
+    }, 
+    "name": "GCS_Aratu", 
+    "type": "LBC", 
+    "ver": "PE_10_3_1", 
+    "wkt": "GEOGCS[\"GCS_Aratu\",DATUM[\"D_Aratu\",SPHEROID[\"International_1924\",6378388.0,297.0]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433],AUTHORITY[\"EPSG\",4208]]"
+   }, 
+   "id": "LCRS00000030", 
+   "lastModified": "20040106", 
+   "numberOfAxes": 2, 
+   "readyToTransform": false, 
+   "source": ""
+  }, 
+  {
+   "aliasNames": [
+    "WGS 84"
+   ], 
+   "aouId": "AoU00000023", 
+   "axisUnits": [
+    "{\"measurement\":{\"ancestry\":\"Plane_Angle\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":0.0174532925199433},\"symbol\":\"dega\",\"type\":\"USO\"}", 
+    "{\"measurement\":{\"ancestry\":\"Plane_Angle\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":0.0174532925199433},\"symbol\":\"dega\",\"type\":\"USO\"}"
+   ], 
+   "crsType": "Geographic2D", 
+   "description": "CRS Scope: Horizontal component of 3D system. Used by the GPS satellite navigation system and for NATO military geodetic surveying. | Information Source: EPSG. See 3D CRS for original information source.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "4326"
+    }, 
+    "name": "GCS_WGS_1984", 
+    "type": "LBC", 
+    "ver": "PE_10_3_1", 
+    "wkt": "GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433],AUTHORITY[\"EPSG\",4326]]"
+   }, 
+   "id": "LCRS00000031", 
+   "lastModified": "20070827", 
+   "numberOfAxes": 2, 
+   "readyToTransform": true, 
+   "source": "EPSG. See 3D CRS for original information source."
+  }, 
+  {
+   "aliasNames": [
+    "GDA94"
+   ], 
+   "aouId": "AoU00000018", 
+   "axisUnits": [
+    "{\"measurement\":{\"ancestry\":\"Plane_Angle\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":0.0174532925199433},\"symbol\":\"dega\",\"type\":\"USO\"}", 
+    "{\"measurement\":{\"ancestry\":\"Plane_Angle\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":0.0174532925199433},\"symbol\":\"dega\",\"type\":\"USO\"}"
+   ], 
+   "crsType": "Geographic2D", 
+   "description": "CRS Scope: Horizontal component of 3D system. | Information Source: EPSG. See 3D CRS for original information source.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "4283"
+    }, 
+    "name": "GCS_GDA_1994", 
+    "type": "LBC", 
+    "ver": "PE_10_3_1", 
+    "wkt": "GEOGCS[\"GCS_GDA_1994\",DATUM[\"D_GDA_1994\",SPHEROID[\"GRS_1980\",6378137.0,298.257222101]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433],AUTHORITY[\"EPSG\",4283]]"
+   }, 
+   "id": "LCRS00000032", 
+   "lastModified": "20140215", 
+   "numberOfAxes": 2, 
+   "readyToTransform": false, 
+   "source": "EPSG. See 3D CRS for original information source."
+  }, 
+  {
+   "aliasNames": [
+    "ED50"
+   ], 
+   "aouId": "AoU00000007", 
+   "axisUnits": [
+    "{\"measurement\":{\"ancestry\":\"Plane_Angle\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":0.0174532925199433},\"symbol\":\"dega\",\"type\":\"USO\"}", 
+    "{\"measurement\":{\"ancestry\":\"Plane_Angle\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":0.0174532925199433},\"symbol\":\"dega\",\"type\":\"USO\"}"
+   ], 
+   "crsType": "Geographic2D", 
+   "description": "CRS Scope: Geodetic survey. Minerals management in Germany.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "4230"
+    }, 
+    "name": "GCS_European_1950", 
+    "type": "LBC", 
+    "ver": "PE_10_3_1", 
+    "wkt": "GEOGCS[\"GCS_European_1950\",DATUM[\"D_European_1950\",SPHEROID[\"International_1924\",6378388.0,297.0]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433],AUTHORITY[\"EPSG\",4230]]"
+   }, 
+   "id": "LCRS00000033", 
+   "lastModified": "20041023", 
+   "numberOfAxes": 2, 
+   "readyToTransform": false, 
+   "source": ""
+  }, 
+  {
+   "aliasNames": [
+    "NAD27 / BLM 15N (ftUS)", 
+    "NAD27 / UTM zone 15N (ftUS)"
+   ], 
+   "aouId": "AoU00000016", 
+   "axisUnits": [
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":0.3048006096012192},\"symbol\":\"ftUS\",\"type\":\"USO\"}", 
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":0.3048006096012192},\"symbol\":\"ftUS\",\"type\":\"USO\"}"
+   ], 
+   "baseCRSId": "LCRS00000028", 
+   "crsType": "Projected", 
+   "description": "CRS Scope: Minerals (including oil) management, exploration and production. | Information Source: OGP", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "32065"
+    }, 
+    "name": "NAD_1927_BLM_Zone_15N", 
+    "type": "LBC", 
+    "ver": "PE_10_3_1", 
+    "wkt": "PROJCS[\"NAD_1927_BLM_Zone_15N\",GEOGCS[\"GCS_North_American_1927\",DATUM[\"D_North_American_1927\",SPHEROID[\"Clarke_1866\",6378206.4,294.9786982]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"False_Easting\",1640416.66666667],PARAMETER[\"False_Northing\",0.0],PARAMETER[\"Central_Meridian\",-93.0],PARAMETER[\"Scale_Factor\",0.9996],PARAMETER[\"Latitude_Of_Origin\",0.0],UNIT[\"Foot_US\",0.304800609601219],AUTHORITY[\"EPSG\",32065]]"
+   }, 
+   "id": "LCRS00000034", 
+   "lastModified": "20100305", 
+   "numberOfAxes": 2, 
+   "readyToTransform": false, 
+   "source": "OGP"
+  }, 
+  {
+   "aliasNames": [], 
+   "aouId": "AoU00000023", 
+   "axisUnits": [
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}", 
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}"
+   ], 
+   "baseCRSId": "LCRS00000031", 
+   "crsType": "Projected", 
+   "description": "", 
+   "essence": {
+    "authCode": {
+     "auth": "ESRI", 
+     "code": "54001"
+    }, 
+    "name": "World_Plate_Carree", 
+    "type": "LBC", 
+    "ver": "PE_10_3_1", 
+    "wkt": "PROJCS[\"World_Plate_Carree\",GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"Plate_Carree\"],PARAMETER[\"False_Easting\",0.0],PARAMETER[\"False_Northing\",0.0],PARAMETER[\"Central_Meridian\",0.0],UNIT[\"Meter\",1.0],AUTHORITY[\"ESRI\",54001]]"
+   }, 
+   "id": "LCRS00000035", 
+   "lastModified": "20180806", 
+   "numberOfAxes": 2, 
+   "readyToTransform": true, 
+   "source": "Ocean catalog"
+  }, 
+  {
+   "aliasNames": [
+    "mean sea level height", 
+    "msl height"
+   ], 
+   "aouId": "AoU00000023", 
+   "axisUnits": [
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}"
+   ], 
+   "crsType": "Vertical", 
+   "description": "", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "5714"
+    }, 
+    "name": "MSL_Height", 
+    "type": "LBC", 
+    "ver": "PE_10_3_1", 
+    "wkt": "VERTCS[\"MSL_Height\",VDATUM[\"Mean_Sea_Level\"],PARAMETER[\"Vertical_Shift\",0.0],PARAMETER[\"Direction\",1.0],UNIT[\"Meter\",1.0],AUTHORITY[\"EPSG\",5714]]"
+   }, 
+   "id": "LCRS00000036", 
+   "lastModified": "20120810", 
+   "numberOfAxes": 1, 
+   "readyToTransform": false, 
+   "source": "OGP"
+  }, 
+  {
+   "aliasNames": [
+    "NAD27 / UTM zone 15N"
+   ], 
+   "aouId": "AoU00000000", 
+   "axisUnits": [
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}", 
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}"
+   ], 
+   "baseCRSId": "LCRS00000028", 
+   "crsType": "Projected", 
+   "description": "CRS Scope: Large and medium scale topographic mapping and engineering survey. | Remarks: Replaced by NAD27(76) / UTM 15N (code 2027) in Ontario, by NAD83 / UTM 15N (code 26915) elsewhere in Canada & USA, & by Mexican Datum of 1993 / UTM 15N (code 4488) in Mexico. See NAD27 / BLM 15N (ftUS) (code 32065) for ftUS equivalent used in US GoM.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "26715"
+    }, 
+    "name": "NAD_1927_UTM_Zone_15N", 
+    "type": "LBC", 
+    "ver": "PE_10_3_1", 
+    "wkt": "PROJCS[\"NAD_1927_UTM_Zone_15N\",GEOGCS[\"GCS_North_American_1927\",DATUM[\"D_North_American_1927\",SPHEROID[\"Clarke_1866\",6378206.4,294.9786982]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"False_Easting\",500000.0],PARAMETER[\"False_Northing\",0.0],PARAMETER[\"Central_Meridian\",-93.0],PARAMETER[\"Scale_Factor\",0.9996],PARAMETER[\"Latitude_Of_Origin\",0.0],UNIT[\"Meter\",1.0],AUTHORITY[\"EPSG\",26715]]"
+   }, 
+   "id": "LCRS00000037", 
+   "lastModified": "20091124", 
+   "numberOfAxes": 2, 
+   "readyToTransform": false, 
+   "source": ""
+  }, 
+  {
+   "aliasNames": [
+    "ED50 / UTM zone 31N", 
+    "(ES_ED50 / UTM - see alias remarks)"
+   ], 
+   "aouId": "AoU00000003", 
+   "axisUnits": [
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}", 
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}"
+   ], 
+   "baseCRSId": "LCRS00000033", 
+   "crsType": "Projected", 
+   "description": "CRS Scope: Large and medium scale topographic mapping and engineering survey.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "23031"
+    }, 
+    "name": "ED_1950_UTM_Zone_31N", 
+    "type": "LBC", 
+    "ver": "PE_10_3_1", 
+    "wkt": "PROJCS[\"ED_1950_UTM_Zone_31N\",GEOGCS[\"GCS_European_1950\",DATUM[\"D_European_1950\",SPHEROID[\"International_1924\",6378388.0,297.0]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"False_Easting\",500000.0],PARAMETER[\"False_Northing\",0.0],PARAMETER[\"Central_Meridian\",3.0],PARAMETER[\"Scale_Factor\",0.9996],PARAMETER[\"Latitude_Of_Origin\",0.0],UNIT[\"Meter\",1.0],AUTHORITY[\"EPSG\",23031]]"
+   }, 
+   "id": "LCRS00000038", 
+   "lastModified": "20050527", 
+   "numberOfAxes": 2, 
+   "readyToTransform": false, 
+   "source": ""
+  }, 
+  {
+   "aliasNames": [
+    "WGS 84 / World Mercator"
+   ], 
+   "aouId": "AoU00000009", 
+   "axisUnits": [
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}", 
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}"
+   ], 
+   "baseCRSId": "LCRS00000031", 
+   "crsType": "Projected", 
+   "description": "CRS Scope: Very small scale mapping. | Remarks: Euro-centric view of world excluding polar areas. | Information Source: OGP", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "3395"
+    }, 
+    "name": "WGS_1984_World_Mercator", 
+    "type": "LBC", 
+    "ver": "PE_10_3_1", 
+    "wkt": "PROJCS[\"WGS_1984_World_Mercator\",GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"Mercator\"],PARAMETER[\"False_Easting\",0.0],PARAMETER[\"False_Northing\",0.0],PARAMETER[\"Central_Meridian\",0.0],PARAMETER[\"Standard_Parallel_1\",0.0],UNIT[\"Meter\",1.0],AUTHORITY[\"EPSG\",3395]]"
+   }, 
+   "id": "LCRS00000039", 
+   "lastModified": "20060602", 
+   "numberOfAxes": 2, 
+   "readyToTransform": true, 
+   "source": "OGP"
+  }, 
+  {
+   "aliasNames": [
+    "WGS 84 / Pseudo-Mercator", 
+    "WGS 84 / Popular Visualisation Pseudo-Mercator", 
+    "Web Mercator"
+   ], 
+   "aouId": "AoU00000025", 
+   "axisUnits": [
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}", 
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}"
+   ], 
+   "baseCRSId": "LCRS00000031", 
+   "crsType": "Projected", 
+   "description": "CRS Scope: Certain Web mapping and visualisation applications. It is not a recognised geodetic system: for that see ellipsoidal Mercator CRS code 3395 (WGS 84 / World Mercator). | Remarks: Uses spherical development of ellipsoidal coordinates. Relative to WGS 84 / World Mercator (CRS code 3395) errors of 0.7 percent in scale and differences in northing of up to 43km in the map (equivalent to 21km on the ground) may arise. | Information Source: Microsoft.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "3857"
+    }, 
+    "name": "WGS_1984_Web_Mercator_Auxiliary_Sphere", 
+    "type": "LBC", 
+    "ver": "PE_10_3_1", 
+    "wkt": "PROJCS[\"WGS_1984_Web_Mercator_Auxiliary_Sphere\",GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"Mercator_Auxiliary_Sphere\"],PARAMETER[\"False_Easting\",0.0],PARAMETER[\"False_Northing\",0.0],PARAMETER[\"Central_Meridian\",0.0],PARAMETER[\"Standard_Parallel_1\",0.0],PARAMETER[\"Auxiliary_Sphere_Type\",0.0],UNIT[\"Meter\",1.0],AUTHORITY[\"EPSG\",3857]]"
+   }, 
+   "id": "LCRS00000040", 
+   "lastModified": "20151125", 
+   "numberOfAxes": 2, 
+   "readyToTransform": true, 
+   "source": "Microsoft."
+  }, 
+  {
+   "aliasNames": [
+    "WGS 84 / UTM zone 31N"
+   ], 
+   "aouId": "AoU00000001", 
+   "axisUnits": [
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}", 
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}"
+   ], 
+   "baseCRSId": "LCRS00000031", 
+   "crsType": "Projected", 
+   "description": "CRS Scope: Large and medium scale topographic mapping and engineering survey.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "32631"
+    }, 
+    "name": "WGS_1984_UTM_Zone_31N", 
+    "type": "LBC", 
+    "ver": "PE_10_3_1", 
+    "wkt": "PROJCS[\"WGS_1984_UTM_Zone_31N\",GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"False_Easting\",500000.0],PARAMETER[\"False_Northing\",0.0],PARAMETER[\"Central_Meridian\",3.0],PARAMETER[\"Scale_Factor\",0.9996],PARAMETER[\"Latitude_Of_Origin\",0.0],UNIT[\"Meter\",1.0],AUTHORITY[\"EPSG\",32631]]"
+   }, 
+   "id": "LCRS00000041", 
+   "lastModified": "19950602", 
+   "numberOfAxes": 2, 
+   "readyToTransform": true, 
+   "source": ""
+  }, 
+  {
+   "aliasNames": [
+    "Aratu / UTM zone 24S"
+   ], 
+   "aouId": "AoU00000019", 
+   "axisUnits": [
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}", 
+    "{\"measurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"scaleOffset\":{\"offset\":0.0,\"scale\":1.0},\"symbol\":\"m\",\"type\":\"USO\"}"
+   ], 
+   "baseCRSId": "LCRS00000030", 
+   "crsType": "Projected", 
+   "description": "CRS Scope: Oil exploration and production.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "20824"
+    }, 
+    "name": "Aratu_UTM_Zone_24S", 
+    "type": "LBC", 
+    "ver": "PE_10_3_1", 
+    "wkt": "PROJCS[\"Aratu_UTM_Zone_24S\",GEOGCS[\"GCS_Aratu\",DATUM[\"D_Aratu\",SPHEROID[\"International_1924\",6378388.0,297.0]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"False_Easting\",500000.0],PARAMETER[\"False_Northing\",10000000.0],PARAMETER[\"Central_Meridian\",-39.0],PARAMETER[\"Scale_Factor\",0.9996],PARAMETER[\"Latitude_Of_Origin\",0.0],UNIT[\"Meter\",1.0],AUTHORITY[\"EPSG\",20824]]"
+   }, 
+   "id": "LCRS00000042", 
+   "lastModified": "19950721", 
+   "numberOfAxes": 2, 
+   "readyToTransform": false, 
+   "source": ""
+  }
+ ], 
+ "listOfSingleCTs": [
+  {
+   "aliasNames": [
+    "ED50 to WGS 84 (1)", 
+    "EUR-M"
+   ], 
+   "aouId": "AoU00000010", 
+   "description": "Coord Op Scope: For military purposes. Accepted for minerals management in Germany. Accuracy 3m, 8m and 5m in X, Y and Z axes. | Tfm Accuracy: 10 | Remarks: Derived at 85 stations. In Germany will be accepted by LBA for minerals management purposes as alternative to tfm 1052 or 1998. | Information Source: U.S. Defense Mapping Agency TR8350.2 September 1987.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "1133"
+    }, 
+    "name": "ED_1950_To_WGS_1984_1", 
+    "type": "ST", 
+    "ver": "PE_10_3_1", 
+    "wkt": "GEOGTRAN[\"ED_1950_To_WGS_1984_1\",GEOGCS[\"GCS_European_1950\",DATUM[\"D_European_1950\",SPHEROID[\"International_1924\",6378388.0,297.0]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"Geocentric_Translation\"],PARAMETER[\"X_Axis_Translation\",-87.0],PARAMETER[\"Y_Axis_Translation\",-98.0],PARAMETER[\"Z_Axis_Translation\",-121.0],AUTHORITY[\"EPSG\",1133]]"
+   }, 
+   "fromCRSId": "LCRS00000033", 
+   "id": "STRF00000043", 
+   "lastModified": "20141119", 
+   "source": "U.S. Defense Mapping Agency TR8350.2 September 1987.", 
+   "toCRSId": "LCRS00000031"
+  }, 
+  {
+   "aliasNames": [
+    "Aratu to WGS 84 (21)", 
+    "Aratu-RNCE"
+   ], 
+   "aouId": "AoU00000024", 
+   "deprecationInfo": {
+    "deprecationState": "corrected", 
+    "remarks": "Deprecated after PE_10_1_0", 
+    "supersededByCTId": "STRF00000049"
+   }, 
+   "description": "Coord Op Scope: Oil exploration. | Tfm Accuracy: 1 | Remarks: Parameters from Aratu to SIRGAS 2000 (9) (tfm code 5066) assuming that SIRGAS 2000 and WGS 84 are equal within the accuracy of the transformation. Petrobras preferred parameters for all purposes in the area. | Information Source: Petrobras", 
+   "essence": {
+    "authCode": {
+     "auth": "PE_10_1_0", 
+     "code": "9995067"
+    }, 
+    "name": "Aratu_To_WGS_1984_21", 
+    "type": "ST", 
+    "ver": "PE_10_3_1", 
+    "wkt": "GEOGTRAN[\"Aratu_To_WGS_1984_21\",GEOGCS[\"GCS_Aratu\",DATUM[\"D_Aratu\",SPHEROID[\"International_1924\",6378388.0,297.0]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"Geocentric_Translation\"],PARAMETER[\"X_Axis_Translation\",-151.99],PARAMETER[\"Y_Axis_Translation\",287.04],PARAMETER[\"Z_Axis_Translation\",147.45]]"
+   }, 
+   "fromCRSId": "LCRS00000030", 
+   "id": "STRF00000044", 
+   "lastModified": "20180806", 
+   "source": "Ocean catalog", 
+   "toCRSId": "LCRS00000031"
+  }, 
+  {
+   "aliasNames": [
+    "NAD27 to WGS 84 (80)"
+   ], 
+   "aouId": "AoU00000008", 
+   "description": "Coord Op Scope: Oil exploration and production. Horizontal transformation accuracy (1 sigma) is considered to be at the +/- 5 meter level. | Tfm Accuracy: 5 | Remarks: Developed by John E Chance and Associates. Replaced by NAD27 to WGS 84 (79) (tfm code 15851). | Information Source: Fugro Chance", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "15852"
+    }, 
+    "name": "NAD_1927_To_WGS_1984_80", 
+    "type": "ST", 
+    "ver": "PE_10_3_1", 
+    "wkt": "GEOGTRAN[\"NAD_1927_To_WGS_1984_80\",GEOGCS[\"GCS_North_American_1927\",DATUM[\"D_North_American_1927\",SPHEROID[\"Clarke_1866\",6378206.4,294.9786982]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"Geocentric_Translation\"],PARAMETER[\"X_Axis_Translation\",-3.0],PARAMETER[\"Y_Axis_Translation\",154.0],PARAMETER[\"Z_Axis_Translation\",177.0],AUTHORITY[\"EPSG\",15852]]"
+   }, 
+   "fromCRSId": "LCRS00000028", 
+   "id": "STRF00000045", 
+   "lastModified": "20171016", 
+   "source": "Fugro Chance", 
+   "toCRSId": "LCRS00000031"
+  }, 
+  {
+   "aliasNames": [
+    "AGD84 to WGS 84 (2)"
+   ], 
+   "aouId": "AoU00000017", 
+   "description": "Coord Op Scope: Preliminary estimate. | Tfm Accuracy: 5 | Remarks: \"\"\"Higgins parameters\"\". Replaced by AGD84 to GDA94 (2) (code 1280) and AGD84 to WGS 84 (7) (code 1669). Note: AGD84 officially adopted only in Queensland, South Australia and Western Australia.\" | Information Source: Australian Surveying and Land Information Group - www.auslig.gov.au/geodesy", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "1236"
+    }, 
+    "name": "AGD_1984_To_WGS_1984_2", 
+    "type": "ST", 
+    "ver": "PE_10_3_1", 
+    "wkt": "GEOGTRAN[\"AGD_1984_To_WGS_1984_2\",GEOGCS[\"GCS_Australian_1984\",DATUM[\"D_Australian_1984\",SPHEROID[\"Australian\",6378160.0,298.25]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"Coordinate_Frame\"],PARAMETER[\"X_Axis_Translation\",-116.0],PARAMETER[\"Y_Axis_Translation\",-50.47],PARAMETER[\"Z_Axis_Translation\",141.69],PARAMETER[\"X_Axis_Rotation\",-0.23],PARAMETER[\"Y_Axis_Rotation\",-0.39],PARAMETER[\"Z_Axis_Rotation\",-0.344],PARAMETER[\"Scale_Difference\",0.0983],AUTHORITY[\"EPSG\",1236]]"
+   }, 
+   "fromCRSId": "LCRS00000029", 
+   "id": "STRF00000046", 
+   "lastModified": "20180420", 
+   "source": "Australian Surveying and Land Information Group - www.auslig.gov.au/geodesy", 
+   "toCRSId": "LCRS00000031"
+  }, 
+  {
+   "aliasNames": [
+    "NAD27 to WGS 84 (33)"
+   ], 
+   "aouId": "AoU00000002", 
+   "description": "Coord Op Scope: Approximation at the +/- 1m level. | Tfm Accuracy: 1 | Remarks: Parameter file is from NAD27 to NAD83 (4) (code 1313) assuming that NAD83 is equivalent to WGS 84 within the accuracy of the transformation. | Information Source: OGP", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "1693"
+    }, 
+    "name": "NAD_1927_To_WGS_1984_33", 
+    "type": "ST", 
+    "ver": "PE_10_3_1", 
+    "wkt": "GEOGTRAN[\"NAD_1927_To_WGS_1984_33\",GEOGCS[\"GCS_North_American_1927\",DATUM[\"D_North_American_1927\",SPHEROID[\"Clarke_1866\",6378206.4,294.9786982]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"NTv2\"],PARAMETER[\"Dataset_canada/Ntv2_0\",0.0],AUTHORITY[\"EPSG\",1693]]"
+   }, 
+   "fromCRSId": "LCRS00000028", 
+   "id": "STRF00000047", 
+   "lastModified": "20180420", 
+   "source": "OGP", 
+   "toCRSId": "LCRS00000031"
+  }, 
+  {
+   "aliasNames": [
+    "GDA94 to WGS 84 (1)"
+   ], 
+   "aouId": "AoU00000018", 
+   "description": "Coord Op Scope: Spatial referencing with 3-metre accuracy. | Tfm Accuracy: 3 | Remarks: Approximation at the +/- 3m level using inappropriate assumption that GDA94 is equivalent to WGS 84. Accuracy changed from 1m to 3m due to tectonic plate motion over more than 15 years. | Information Source: OGP", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "1150"
+    }, 
+    "name": "GDA_1994_To_WGS_1984", 
+    "type": "ST", 
+    "ver": "PE_10_3_1", 
+    "wkt": "GEOGTRAN[\"GDA_1994_To_WGS_1984\",GEOGCS[\"GCS_GDA_1994\",DATUM[\"D_GDA_1994\",SPHEROID[\"GRS_1980\",6378137.0,298.257222101]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"Position_Vector\"],PARAMETER[\"X_Axis_Translation\",0.0],PARAMETER[\"Y_Axis_Translation\",0.0],PARAMETER[\"Z_Axis_Translation\",0.0],PARAMETER[\"X_Axis_Rotation\",0.0],PARAMETER[\"Y_Axis_Rotation\",0.0],PARAMETER[\"Z_Axis_Rotation\",0.0],PARAMETER[\"Scale_Difference\",0.0],AUTHORITY[\"EPSG\",1150]]"
+   }, 
+   "fromCRSId": "LCRS00000032", 
+   "id": "STRF00000048", 
+   "lastModified": "20180420", 
+   "source": "OGP", 
+   "toCRSId": "LCRS00000031"
+  }, 
+  {
+   "aliasNames": [
+    "Aratu to WGS 84 (21)", 
+    "Aratu-RNCE"
+   ], 
+   "aouId": "AoU00000024", 
+   "description": "Coord Op Scope: Oil exploration. | Tfm Accuracy: 1 | Remarks: Parameters from Aratu to SIRGAS 2000 (9) (tfm code 5066) assuming that SIRGAS 2000 and WGS 84 are equal within the accuracy of the transformation. Petrobras preferred parameters for all purposes in the area. | Information Source: Petrobras", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "5067"
+    }, 
+    "name": "Aratu_To_WGS_1984_21", 
+    "type": "ST", 
+    "ver": "PE_10_3_1", 
+    "wkt": "GEOGTRAN[\"Aratu_To_WGS_1984_21\",GEOGCS[\"GCS_Aratu\",DATUM[\"D_Aratu\",SPHEROID[\"International_1924\",6378388.0,297.0]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"Geocentric_Translation\"],PARAMETER[\"X_Axis_Translation\",-151.99],PARAMETER[\"Y_Axis_Translation\",287.04],PARAMETER[\"Z_Axis_Translation\",-147.45],AUTHORITY[\"EPSG\",5067]]"
+   }, 
+   "fromCRSId": "LCRS00000030", 
+   "id": "STRF00000049", 
+   "lastModified": "20100330", 
+   "source": "Petrobras", 
+   "toCRSId": "LCRS00000031"
+  }, 
+  {
+   "aliasNames": [
+    "NAD27 to WGS 84 (79)"
+   ], 
+   "aouId": "AoU00000013", 
+   "description": "Coord Op Scope: Recommended for oil industry use in US Gulf of Mexico (GoM). Accuracy at 67% confidence level is 0.15m onshore, 5m nearshore and undetermined farther offshore. | Tfm Accuracy: 5 | Remarks: Transformation taken from NAD27 to NAD83 (1) (code 1241) assuming that NAD83 is equivalent to WGS 84 within the accuracy of this tfm. Uses NADCON method which expects longitudes positive west; EPSG CRS codes 4267 and 4326 have longitudes positive east. | Information Source: OGP", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "15851"
+    }, 
+    "name": "NAD_1927_To_WGS_1984_79_CONUS", 
+    "type": "ST", 
+    "ver": "PE_10_3_1", 
+    "wkt": "GEOGTRAN[\"NAD_1927_To_WGS_1984_79_CONUS\",GEOGCS[\"GCS_North_American_1927\",DATUM[\"D_North_American_1927\",SPHEROID[\"Clarke_1866\",6378206.4,294.9786982]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"NADCON\"],PARAMETER[\"Dataset_conus\",0.0],AUTHORITY[\"EPSG\",15851]]"
+   }, 
+   "fromCRSId": "LCRS00000028", 
+   "id": "STRF00000050", 
+   "lastModified": "20060306", 
+   "source": "OGP", 
+   "toCRSId": "LCRS00000031"
+  }, 
+  {
+   "aliasNames": [
+    "ED50 to WGS 84 (24)"
+   ], 
+   "aouId": "AoU00000021", 
+   "description": "Coord Op Scope: Approximation to 1 metre for oil industry use. | Tfm Accuracy: 1 | Remarks: Approximation to 1 metre of concatenated transformation ED50 to WGS 84 (14), code 8653. 8653 remains the transformation promulgated by Statens Kartverk but 1613 recommended by EPSG for practical oil industry usage. | Information Source: EPSG Guidance Note #10", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "1613"
+    }, 
+    "name": "ED_1950_To_WGS_1984_24", 
+    "type": "ST", 
+    "ver": "PE_10_3_1", 
+    "wkt": "GEOGTRAN[\"ED_1950_To_WGS_1984_24\",GEOGCS[\"GCS_European_1950\",DATUM[\"D_European_1950\",SPHEROID[\"International_1924\",6378388.0,297.0]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"Position_Vector\"],PARAMETER[\"X_Axis_Translation\",-90.365],PARAMETER[\"Y_Axis_Translation\",-101.13],PARAMETER[\"Z_Axis_Translation\",-123.384],PARAMETER[\"X_Axis_Rotation\",0.333],PARAMETER[\"Y_Axis_Rotation\",0.077],PARAMETER[\"Z_Axis_Rotation\",0.894],PARAMETER[\"Scale_Difference\",1.994],AUTHORITY[\"EPSG\",1613]]"
+   }, 
+   "fromCRSId": "LCRS00000033", 
+   "id": "STRF00000051", 
+   "lastModified": "20010605", 
+   "source": "EPSG Guidance Note #10", 
+   "toCRSId": "LCRS00000031"
+  }, 
+  {
+   "aliasNames": [
+    "NAD27 to WGS 84 (3)", 
+    "NAS-E"
+   ], 
+   "aouId": "AoU00000002", 
+   "description": "Coord Op Scope: For military purposes only. Accuracy 15m, 11m and 6m in X, Y and Z axes. | Tfm Accuracy: 20 | Remarks: Derived at 112 stations. | Information Source: U.S. Defense Mapping Agency TR8350.2 September 1987.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "1172"
+    }, 
+    "name": "NAD_1927_To_WGS_1984_3", 
+    "type": "ST", 
+    "ver": "PE_10_3_1", 
+    "wkt": "GEOGTRAN[\"NAD_1927_To_WGS_1984_3\",GEOGCS[\"GCS_North_American_1927\",DATUM[\"D_North_American_1927\",SPHEROID[\"Clarke_1866\",6378206.4,294.9786982]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"Geocentric_Translation\"],PARAMETER[\"X_Axis_Translation\",-10.0],PARAMETER[\"Y_Axis_Translation\",158.0],PARAMETER[\"Z_Axis_Translation\",187.0],AUTHORITY[\"EPSG\",1172]]"
+   }, 
+   "fromCRSId": "LCRS00000028", 
+   "id": "STRF00000052", 
+   "lastModified": "20180420", 
+   "source": "U.S. Defense Mapping Agency TR8350.2 September 1987.", 
+   "toCRSId": "LCRS00000031"
+  }, 
+  {
+   "aliasNames": [
+    "ED50 to WGS 84 (23)"
+   ], 
+   "aouId": "AoU00000004", 
+   "description": "Coord Op Scope: Oil industry offshore. | Tfm Accuracy: 1 | Remarks: Parameter values are taken from ED50 to ETRS89 (1), code 1588. Adopted for ED50 to WGS84 transformations offshore Norway north of 62N from April 2001 when it replaced code 1590. Included in Statens Kartverk programme wsktrans from v4.0. | Information Source: EPSG Guidance Note #10", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "1612"
+    }, 
+    "name": "ED_1950_To_WGS_1984_23", 
+    "type": "ST", 
+    "ver": "PE_10_3_1", 
+    "wkt": "GEOGTRAN[\"ED_1950_To_WGS_1984_23\",GEOGCS[\"GCS_European_1950\",DATUM[\"D_European_1950\",SPHEROID[\"International_1924\",6378388.0,297.0]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"Position_Vector\"],PARAMETER[\"X_Axis_Translation\",-116.641],PARAMETER[\"Y_Axis_Translation\",-56.931],PARAMETER[\"Z_Axis_Translation\",-110.559],PARAMETER[\"X_Axis_Rotation\",0.893],PARAMETER[\"Y_Axis_Rotation\",0.921],PARAMETER[\"Z_Axis_Rotation\",-0.917],PARAMETER[\"Scale_Difference\",-3.52],AUTHORITY[\"EPSG\",1612]]"
+   }, 
+   "fromCRSId": "LCRS00000033", 
+   "id": "STRF00000053", 
+   "lastModified": "20070322", 
+   "source": "EPSG Guidance Note #10", 
+   "toCRSId": "LCRS00000031"
+  }, 
+  {
+   "aliasNames": [
+    "ED50 to WGS 84 (18)", 
+    "ED50 to WGS 84 (Common Offshore)"
+   ], 
+   "aouId": "AoU00000026", 
+   "description": "Coord Op Scope: Recommended transformation for UKCS and IrishCS petroleum purposes. | Tfm Accuracy: 1 | Remarks: Based on ED50 to WGS72 (precise ephemeris) 6-nations agreement of 1981 to which precise to broadcast and broadcast to WGS 84 transformations have been concatenated. | Information Source: The Hydrographic Journal; vol 52 page 50.", 
+   "essence": {
+    "authCode": {
+     "auth": "EPSG", 
+     "code": "1311"
+    }, 
+    "name": "ED_1950_To_WGS_1984_18", 
+    "type": "ST", 
+    "ver": "PE_10_3_1", 
+    "wkt": "GEOGTRAN[\"ED_1950_To_WGS_1984_18\",GEOGCS[\"GCS_European_1950\",DATUM[\"D_European_1950\",SPHEROID[\"International_1924\",6378388.0,297.0]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],METHOD[\"Position_Vector\"],PARAMETER[\"X_Axis_Translation\",-89.5],PARAMETER[\"Y_Axis_Translation\",-93.8],PARAMETER[\"Z_Axis_Translation\",-123.1],PARAMETER[\"X_Axis_Rotation\",0.0],PARAMETER[\"Y_Axis_Rotation\",0.0],PARAMETER[\"Z_Axis_Rotation\",-0.156],PARAMETER[\"Scale_Difference\",1.2],AUTHORITY[\"EPSG\",1311]]"
+   }, 
+   "fromCRSId": "LCRS00000033", 
+   "id": "STRF00000054", 
+   "lastModified": "20061013", 
+   "source": "The Hydrographic Journal; vol 52 page 50.", 
+   "toCRSId": "LCRS00000031"
+  }
+ ], 
+ "name": "Minimal test catalog", 
+ "nextId": 73
+}

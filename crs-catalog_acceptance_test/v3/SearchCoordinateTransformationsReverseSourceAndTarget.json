@@ -1,0 +1,4 @@
+{
+  "sourceCRS": "{{data_partition_id}}:reference-data--CoordinateReferenceSystem:Geographic2D:EPSG::4326:",
+  "targetCRS": "{{data_partition_id}}:reference-data--CoordinateReferenceSystem:Geographic2D:EPSG::4204:"
+}

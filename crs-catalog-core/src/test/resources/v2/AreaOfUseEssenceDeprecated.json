@@ -1,0 +1,13 @@
+{
+    "authCode": {
+     "auth": "TEST", 
+     "code": "2145"
+    }, 
+    "boundBox": {
+     "latMin": 13.63, 
+     "latMax": 81.96, 
+     "lonMin": -96.0, 
+     "lonMax": -90.0
+    }, 
+    "type": "AOU"
+}

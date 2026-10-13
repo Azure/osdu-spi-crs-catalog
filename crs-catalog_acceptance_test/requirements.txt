@@ -1,0 +1,4 @@
+python-dotenv
+allure-pytest>=2.13.0
+allure-python-commons>=2.13.0
+pytest-html>=4.1.1

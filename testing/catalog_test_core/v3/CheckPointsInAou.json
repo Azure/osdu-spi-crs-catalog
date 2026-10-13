@@ -1,0 +1,21 @@
+{
+  "recordId": "{{data_partition_id}}:reference-data--CoordinateReferenceSystem:Geographic2D:EPSG::4204",
+  "points": [
+    {
+      "latitude": 16,
+      "longitude": 34
+    },
+    {
+      "latitude": 16.5,
+      "longitude": 34.1
+    },
+    {
+      "latitude": 16.5,
+      "longitude": 35.8
+    },
+    {
+      "latitude": 80.1,
+      "longitude": 90
+    }
+  ]
+}

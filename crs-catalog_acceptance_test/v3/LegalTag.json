@@ -1,0 +1,14 @@
+{
+  "name": "{{legal_tag_name}}",
+  "properties": {
+    "countryOfOrigin":["US"],
+    "contractId":"A1234",
+    "expirationDate":2222222222222,
+    "originator":"Default",
+    "dataType":"Public Domain Data",
+    "securityClassification":"Public",
+    "personalData":"No Personal Data",
+    "exportClassification":"EAR99"
+  },
+  "description": "A default legal tag"
+}
