@@ -1,0 +1,130 @@
+name: Build and Test
+
+# Push-only: PR events belong to validate.yml and dependabot-validation.yml, whose builds
+# generate the same coverage, so one commit is never built twice.
+on:
+  push:
+    branches: 
+      - '**'
+      - '!main'
+      - '!fork_integration'
+      - '!fork_upstream'
+      - '!sync/**'
+      - '!dependabot/**'
+    paths-ignore:
+      - '.github/workflows/**'
+      - '.github/template-workflows/**'
+      - '.github/ISSUE_TEMPLATE/**'
+      - '.github/actions/**'
+      - '.github/*.md'
+      - '.github/*.json'
+      - '.github/*.yml'
+      - '.github/*.yaml'
+      - '.github/.template-sync-commit'
+      - '.vscode/**'
+      - 'docs/**'
+      - '**.md'
+      - '**.txt'
+      - 'LICENSE'
+      - 'NOTICE'
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  check-repo-state:
+    name: "Check Repository"
+    runs-on: ubuntu-latest
+    outputs:
+      initialized: ${{ steps.check_init.outputs.initialized }}
+      is_java_project: ${{ steps.check_java.outputs.is_java }}
+    steps:
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd  # v5.0.1
+        
+      - name: "Check Repository Initialization"
+        id: check_init
+        run: |
+          if [ -f "pom.xml" ] || [ -d "src" ]; then
+            echo "initialized=true" >> $GITHUB_OUTPUT
+          else
+            echo "initialized=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: "Check if Java Project"
+        id: check_java
+        run: |
+          if [ -f "pom.xml" ] || [ -n "$(find . -name 'pom.xml' -type f)" ]; then
+            echo "is_java=true" >> $GITHUB_OUTPUT
+          else
+            echo "is_java=false" >> $GITHUB_OUTPUT
+          fi
+
+  java-build:
+    name: "Java Build"
+    needs: check-repo-state
+    if: needs.check-repo-state.outputs.initialized == 'true' && needs.check-repo-state.outputs.is_java_project == 'true'
+    runs-on: ubuntu-latest
+    outputs:
+      is_java_project: ${{ steps.build.outputs.is_java_project }}
+      build_result: ${{ steps.build.outputs.build_result }}
+    steps:
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd  # v5.0.1
+      
+      - name: "Run Java Build"
+        id: build
+        uses: ./.github/actions/java-build
+
+  code-coverage:
+    name: "📊 Code Coverage"
+    needs: [check-repo-state, java-build]
+    if: needs.check-repo-state.outputs.is_java_project == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd  # v5.0.1
+
+      - name: "Resolve Java release"
+        id: java
+        uses: ./.github/actions/java-release
+
+      - name: "Setup Java Environment"
+        uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654  # v5.2.0
+        with:
+          java-version: ${{ steps.java.outputs.version }}
+          distribution: 'temurin'
+          cache: 'maven'
+          cache-dependency-path: '**/pom.xml'
+
+      - name: "Setup Maven"
+        uses: ./.github/actions/setup-maven
+
+      - name: "Cache Maven Packages"
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830  # v4.3.0
+        with:
+          path: |
+            ~/.m2/repository
+            !~/.m2/repository/org/opengroup/osdu
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+
+      - name: "Generate Coverage Report"
+        env:
+          MAVEN_OPTS: "-Dmaven.repo.local=$HOME/.m2/repository"
+        run: |
+          MAVEN_CLI_OPTS="--batch-mode -Drevision=${GITHUB_REF_NAME}-SNAPSHOT"
+
+          if [ -f ".mvn/community-maven.settings.xml" ]; then
+            MAVEN_CLI_OPTS="$MAVEN_CLI_OPTS --settings=.mvn/community-maven.settings.xml"
+          fi
+          
+          mvn $MAVEN_CLI_OPTS clean test org.jacoco:jacoco-maven-plugin:0.8.14:report
+          echo "# Test Coverage Report" >> $GITHUB_STEP_SUMMARY
+          echo "## Summary" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          find . -name "index.html" -path "*/target/site/jacoco/*" -exec grep -o '<tfoot>.*</tfoot>' {} \; | sed 's/<[^>]*>//g' >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+
+      - name: "Upload Coverage Report"
+        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4  # v5.0.0
+        with:
+          name: coverage-report
+          path: '**/target/site/jacoco/'
+          retention-days: 2
