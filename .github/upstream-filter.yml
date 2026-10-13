@@ -1,0 +1,88 @@
+# Per-service upstream filter config (ADR-038), hand-planted on the fork's main
+# before initialization because the layout deviates from the conventional shape:
+# the Azure provider is a nested reactor and the Azure tests are a Python suite
+# with no testing/pom.xml, so fork_owned lists the trees (engine 1.1.0).
+# Every upstream top-level entry, testing/ entry, root pom profile, and
+# .fossa.yml module must appear here: the engine halts rather than guess.
+service: crs-catalog
+
+fork_owned:
+  - provider/crs-catalog-azure
+  - testing/catalog_test_azure
+
+top_level:
+  .config: keep
+  .dockerignore: keep
+  .editorconfig: keep
+  .envrc.template: keep
+  .fossa.yml: keep
+  .gitattributes: keep
+  .gitignore: keep
+  .gitlab: strip
+  .gitlab-ci.yml: strip
+  .mvn: keep
+  .sonarlint: keep
+  .trufflehog-exclude: strip
+  crs-catalog-core: keep
+  crs-catalog-core-plus: strip
+  crs-catalog_acceptance_test: keep
+  data: keep
+  docs: keep
+  LICENSE: keep
+  maven: keep
+  NOTICE: keep
+  pom.xml: keep
+  publish.yml: strip
+  README.md: strip
+  skaffold.yaml: strip
+  v3-README.md: keep
+
+testing:
+  catalog_test_aws: strip
+  catalog_test_azure: fork
+  catalog_test_baremetal: strip
+  catalog_test_core: keep
+  catalog_test_gc: strip
+  catalog_test_gcp: strip
+  catalog_test_ibm: strip
+  README.md: keep
+
+profiles:
+  Default: keep
+  core: keep
+  azure: inject
+  aws: strip
+  gc: strip
+  gcp: strip
+  ibm: strip
+
+fossa_modules:
+  crs-catalog-service: keep
+  crs-catalog-core: keep
+  crs-catalog-core-plus: strip
+  crs-catalog-aks: strip
+  crs-catalog-ocp: strip
+
+expected_kept:
+  - pom.xml
+  - crs-catalog-core
+  - testing/catalog_test_core
+
+expected_absent:
+  - provider
+  - devops
+  - crs-catalog-core-plus
+  - .gitlab-ci.yml
+  - testing/catalog_test_azure
+  - testing/catalog_test_ibm
+  - testing/catalog_test_baremetal
+
+inject_root_pom_azure_profile: |
+        <profile>
+            <id>azure</id>
+            <modules>
+                <module>provider/crs-catalog-azure/crs-catalog-aks</module>
+            </modules>
+        </profile>
+
+inject_testing_pom_azure_module: |
