@@ -46,7 +46,7 @@ The runnable jar lands at `provider/crs-catalog-azure/crs-catalog-aks/target/crs
 
 ## Configuration
 
-SPI Stack sets the service's environment from two places: the shared `osdu-config` ConfigMap and the service's own entry in [`services-reference/crs-catalog.yaml`](https://github.com/Azure/osdu-spi-stack/blob/main/software/stacks/osdu/services-reference/crs-catalog.yaml). Those files are the contract; the tables below list what CRS Catalog actually reads from them.
+SPI Stack sets the service's environment from two places: the shared `osdu-config` ConfigMap and the service's own entry in [`services-reference/crs-catalog.yaml`](https://github.com/Azure/osdu-spi-stack/blob/main/software/stacks/osdu/services-reference/crs-catalog.yaml). Those files are the contract; the tables below distinguish variables CRS Catalog reads from additional service-specific values the stack sets but this service ignores.
 
 **Shared, from `osdu-config`:**
 
