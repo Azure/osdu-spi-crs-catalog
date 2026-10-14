@@ -6,8 +6,7 @@ updates:
 
   - package-ecosystem: "maven"
     directories:
-      - "/provider/*-azure"
-      - "/testing/*-test-azure"
+      - "/provider/crs-catalog-azure/crs-catalog-aks"
     schedule:
       interval: "weekly"
       day: "monday"
