@@ -24,7 +24,7 @@
         <slf4j.version>2.0.0-alpha1</slf4j.version>
         <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
         <core-lib-azure.version>3.0.4</core-lib-azure.version>
-        <org-eclipse-jetty.version>12.0.32</org-eclipse-jetty.version>
+        <org-eclipse-jetty.version>12.0.40</org-eclipse-jetty.version>
     </properties>
 
     <prerequisites>
@@ -37,7 +37,7 @@
             <dependency>
                 <groupId>com.squareup.okhttp3</groupId>
                 <artifactId>okhttp-bom</artifactId>
-                <version>4.9.2</version>
+                <version>4.9.3</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
