@@ -117,7 +117,9 @@ jobs:
         env:
           MAVEN_OPTS: "-Dmaven.repo.local=$HOME/.m2/repository"
         run: |
-          MAVEN_CLI_OPTS="--batch-mode -Drevision=${GITHUB_REF_NAME}-SNAPSHOT"
+          # flatten substitutes the version into pom comments, so keep it to [A-Za-z0-9._-] with no '--'.
+          SAFE_REF=$(printf '%s' "$GITHUB_REF_NAME" | tr -c 'A-Za-z0-9._' '-' | tr -s '-')
+          MAVEN_CLI_OPTS="--batch-mode -Drevision=${SAFE_REF}-SNAPSHOT"
 
           if [ -f ".mvn/community-maven.settings.xml" ]; then
             MAVEN_CLI_OPTS="$MAVEN_CLI_OPTS --settings=.mvn/community-maven.settings.xml"
