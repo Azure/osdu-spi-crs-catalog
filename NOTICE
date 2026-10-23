@@ -15,7 +15,7 @@ The following software have components provided under the terms of this license:
 - Apache Maven Wagon :: API (from https://maven.apache.org/wagon, https://repo1.maven.org/maven2/org/apache/maven/wagon/wagon-provider-api)
 - Apache Maven Wagon :: Providers :: File Provider (from https://maven.apache.org/wagon, https://repo1.maven.org/maven2/org/apache/maven/wagon/wagon-file)
 - AspectJ Weaver (from http://www.aspectj.org, https://www.eclipse.org/aspectj/)
-- Cobertura (from http://cobertura.sourceforge.net)
+- Cobertura (from http://cobertura.sourceforge.net, http://cobertura.sourceforge.net/)
 - Default Plexus Container (from https://codehaus-plexus.github.io/, https://repo1.maven.org/maven2/org/codehaus/plexus/plexus-container-default)
 - Doxia :: APT Module (from https://maven.apache.org/doxia/doxia/)
 - Doxia :: Core (from https://maven.apache.org/doxia/doxia/, https://repo1.maven.org/maven2/org/apache/maven/doxia/doxia-core)
@@ -83,7 +83,7 @@ The following software have components provided under the terms of this license:
 - CDI APIs (Relocation) (from https://projects.eclipse.org/projects/ee4j)
 - CDI Language Model (Relocation) (from https://projects.eclipse.org/projects/ee4j)
 - ClassMate (from http://github.com/cowtowncoder/java-classmate)
-- Cobertura (from http://cobertura.sourceforge.net)
+- Cobertura (from http://cobertura.sourceforge.net, http://cobertura.sourceforge.net/)
 - Cobertura Limited Runtime (from http://cobertura.sourceforge.net)
 - Collections (from https://repo1.maven.org/maven2/commons-collections/commons-collections)
 - Commons Digester (from http://commons.apache.org/digester/)
@@ -147,7 +147,7 @@ The following software have components provided under the terms of this license:
 - Jackson datatype: JSR310 (from http://wiki.fasterxml.com/JacksonModuleJSR310, https://github.com/FasterXML/jackson-modules-java8, https://repo1.maven.org/maven2/com/fasterxml/jackson/datatype/jackson-datatype-jsr310)
 - Jackson datatype: Joda (from http://wiki.fasterxml.com/JacksonModuleJoda, https://github.com/FasterXML/jackson-datatype-joda)
 - Jackson datatype: jdk8 (from https://github.com/FasterXML/jackson-modules-java8, https://repo1.maven.org/maven2/com/fasterxml/jackson/datatype/jackson-datatype-jdk8)
-- Jackson-annotations (from http://github.com/FasterXML/jackson, http://wiki.fasterxml.com/JacksonHome)
+- Jackson-annotations (from http://github.com/FasterXML/jackson, http://wiki.fasterxml.com/JacksonHome, https://github.com/FasterXML/jackson)
 - Jackson-core (from http://wiki.fasterxml.com/JacksonHome, https://github.com/FasterXML/jackson-core)
 - Jackson-dataformat-YAML (from https://github.com/FasterXML/jackson, https://github.com/FasterXML/jackson-dataformats-text)
 - Jackson-module-parameter-names (from https://github.com/FasterXML/jackson-modules-java8, https://repo1.maven.org/maven2/com/fasterxml/jackson/module/jackson-module-parameter-names)
@@ -534,21 +534,21 @@ GPL-1.0-or-later
 ========================================================================
 The following software have components provided under the terms of this license:
 
-- Cobertura (from http://cobertura.sourceforge.net)
+- Cobertura (from http://cobertura.sourceforge.net, http://cobertura.sourceforge.net/)
 
 ========================================================================
 GPL-2.0-only
 ========================================================================
 The following software have components provided under the terms of this license:
 
-- Cobertura (from http://cobertura.sourceforge.net)
+- Cobertura (from http://cobertura.sourceforge.net, http://cobertura.sourceforge.net/)
 
 ========================================================================
 GPL-2.0-or-later
 ========================================================================
 The following software have components provided under the terms of this license:
 
-- Cobertura (from http://cobertura.sourceforge.net)
+- Cobertura (from http://cobertura.sourceforge.net, http://cobertura.sourceforge.net/)
 
 ========================================================================
 GPL-2.0-with-classpath-exception
@@ -585,7 +585,7 @@ GPL-3.0-or-later
 ========================================================================
 The following software have components provided under the terms of this license:
 
-- Cobertura (from http://cobertura.sourceforge.net)
+- Cobertura (from http://cobertura.sourceforge.net, http://cobertura.sourceforge.net/)
 
 ========================================================================
 ICU
@@ -623,7 +623,7 @@ LGPL-2.1-only
 ========================================================================
 The following software have components provided under the terms of this license:
 
-- Cobertura (from http://cobertura.sourceforge.net)
+- Cobertura (from http://cobertura.sourceforge.net, http://cobertura.sourceforge.net/)
 - Javassist (from http://www.javassist.org/, https://www.javassist.org/)
 - Logback Classic Module (from http://logback.qos.ch, https://repo1.maven.org/maven2/ch/qos/logback/logback-classic)
 - Logback Contrib :: JSON :: Classic (from https://repo1.maven.org/maven2/ch/qos/logback/contrib/logback-json-classic)
@@ -720,7 +720,7 @@ MPL-1.1
 ========================================================================
 The following software have components provided under the terms of this license:
 
-- Cobertura (from http://cobertura.sourceforge.net)
+- Cobertura (from http://cobertura.sourceforge.net, http://cobertura.sourceforge.net/)
 
 ========================================================================
 Plexus
