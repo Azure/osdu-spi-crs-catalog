@@ -10,6 +10,7 @@
 *.iml
 openapi.json
 target/
+.flattened-pom.xml
 
 # IDE - VSCode
 .vscode/*
