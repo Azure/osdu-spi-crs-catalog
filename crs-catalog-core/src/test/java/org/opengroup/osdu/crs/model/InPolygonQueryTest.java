@@ -31,6 +31,21 @@ public class InPolygonQueryTest {
 	}
 
 	@Test
+	public void testConstructQueryWithEscaping(){
+		// arrange
+		inPolygonQuery.setRecordId("test\" || true || \"");
+		inPolygonQuery.setDataId("test\\data");
+
+		String expectedQuery = "id: \"test\\\" || true || \\\"\" && data.ID: \"test\\\\data\"";
+
+		// act
+		String query = inPolygonQuery.constructQuery();
+
+		// assert
+		Assertions.assertEquals(expectedQuery, query);
+	}
+
+	@Test
 	public void testSpatialFilter(){
 		// act
 		SpatialFilter spatialFilter = inPolygonQuery.constructSpatialFilter();
