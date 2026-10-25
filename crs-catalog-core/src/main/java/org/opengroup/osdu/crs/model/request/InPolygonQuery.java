@@ -43,11 +43,13 @@ public class InPolygonQuery implements ISearchQuery {
 	public String constructQuery() {
 		String query = "";
 		if(recordId != null && dataId != null){
-			query = "id: \"%s\" && data.ID: \"%s\"".formatted(recordId, dataId);
+			query = "%s && %s".formatted(
+					SearchQueryBuilder.buildPhraseQuery("id", recordId),
+					SearchQueryBuilder.buildPhraseQuery("data.ID", dataId));
 		} else if(recordId != null){
-			query = "id: \"%s\"".formatted(recordId);
+			query = SearchQueryBuilder.buildPhraseQuery("id", recordId);
 		} else if(dataId != null){
-			query = "data.ID: \"%s\"".formatted(dataId);
+			query = SearchQueryBuilder.buildPhraseQuery("data.ID", dataId);
 		}
 		return query;
 	}
