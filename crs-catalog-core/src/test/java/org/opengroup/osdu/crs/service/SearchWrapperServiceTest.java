@@ -276,4 +276,29 @@ public class SearchWrapperServiceTest {
 		Assertions.assertEquals(2, SearchWrapperService.dedupeByRecordId(Arrays.asList(a, b)).size());
 	}
 
+	@Test
+	void testGetSingleCrsOrCtEscapesSpecialCharacters() throws SearchException {
+		Mockito.when(searchFactory.create(dpsHeaders)).thenReturn(searchService);
+		searchWrapperService.postInit();
+		Mockito.when(searchService.search(Mockito.any())).thenReturn(new QueryResponse());
+
+		searchWrapperService.getSingleCrsOrCt("id\" || 1=1 || \"", "data\\id", "test-kind");
+
+		ArgumentCaptor<QueryRequest> captor = ArgumentCaptor.forClass(QueryRequest.class);
+		Mockito.verify(searchService).search(captor.capture());
+		Assertions.assertEquals("id: \"id\\\" || 1=1 || \\\"\" && data.ID: \"data\\\\id\"", captor.getValue().getQuery());
+	}
+
+	@Test
+	void testGetSingleCrsOrCtNormalRecordId() throws SearchException {
+		Mockito.when(searchFactory.create(dpsHeaders)).thenReturn(searchService);
+		searchWrapperService.postInit();
+		Mockito.when(searchService.search(Mockito.any())).thenReturn(new QueryResponse());
+
+		searchWrapperService.getSingleCrsOrCt("osdu:reference-data--CoordinateReferenceSystem:EPSG::4326", null, "test-kind");
+
+		ArgumentCaptor<QueryRequest> captor = ArgumentCaptor.forClass(QueryRequest.class);
+		Mockito.verify(searchService).search(captor.capture());
+		Assertions.assertEquals("id: \"osdu:reference-data--CoordinateReferenceSystem:EPSG::4326\"", captor.getValue().getQuery());
+	}
 }

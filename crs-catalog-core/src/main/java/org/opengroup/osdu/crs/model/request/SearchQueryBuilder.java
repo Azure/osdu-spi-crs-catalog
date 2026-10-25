@@ -28,7 +28,7 @@ public class SearchQueryBuilder {
 
     public static String buildPhraseQuery(String recordBodyAttrName, Object attribute) {
         if (attribute == null) return null;
-        return "%s: \"%s\"".formatted(recordBodyAttrName, attribute);
+        return "%s: \"%s\"".formatted(recordBodyAttrName, escapePhrase(attribute));
     }
 
     public void addPhraseQuery(String recordBodyAttrName, Object attribute) {
@@ -36,7 +36,7 @@ public class SearchQueryBuilder {
     }
     public static String buildNegativePhraseQuery(String recordBodyAttrName, Object attribute) {
         if (attribute == null) return null;
-        return "NOT %s: \"%s\"".formatted(recordBodyAttrName, attribute);
+        return "NOT %s: \"%s\"".formatted(recordBodyAttrName, escapePhrase(attribute));
     }
 
     public void addNegativePhraseQuery(String recordBodyAttrName, Object attribute) {
@@ -82,5 +82,9 @@ public class SearchQueryBuilder {
             builder.append("(%s)".formatted(query));
         }
         return builder.toString();
+    }
+
+    private static String escapePhrase(Object attribute) {
+        return attribute.toString().replace("\\", "\\\\").replace("\"", "\\\"");
     }
 }

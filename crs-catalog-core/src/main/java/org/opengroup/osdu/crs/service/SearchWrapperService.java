@@ -20,6 +20,7 @@ import org.opengroup.osdu.core.common.model.search.*;
 import org.opengroup.osdu.core.common.search.ISearchFactory;
 import org.opengroup.osdu.core.common.search.ISearchService;
 import org.opengroup.osdu.crs.model.request.ISearchQuery;
+import org.opengroup.osdu.crs.model.request.SearchQueryBuilder;
 import org.opengroup.osdu.crs.model.response.SearchResponse;
 import org.opengroup.osdu.crs.util.AppException;
 import org.springframework.beans.factory.annotation.Value;
@@ -74,11 +75,13 @@ public class SearchWrapperService {
     public SearchResponse getSingleCrsOrCt(String recordId, String dataId, String kind) {
         String query;
         if (recordId != null && dataId != null) {
-            query = "id: \"%s\" && data.ID: \"%s\"".formatted(recordId, dataId);
+            query = "%s && %s".formatted(
+                    SearchQueryBuilder.buildPhraseQuery("id", recordId),
+                    SearchQueryBuilder.buildPhraseQuery("data.ID", dataId));
         } else if (recordId != null) {
-            query = "id: \"%s\"".formatted(recordId);
+            query = SearchQueryBuilder.buildPhraseQuery("id", recordId);
         } else if (dataId != null) {
-            query = "data.ID: \"%s\"".formatted(dataId);
+            query = SearchQueryBuilder.buildPhraseQuery("data.ID", dataId);
         } else {
             throw AppException.createBadRequest("Must supply either recordId or dataId as request param");
         }
