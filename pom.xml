@@ -32,7 +32,7 @@
         <commons-lang3.version>3.20.0</commons-lang3.version>
         <lombok.version>1.18.42</lombok.version>
         <!-- CVE-2026-59889, GHSA-mhm7-754m-9p8w, CVE-2026-54515: jackson-databind < 2.21.5 has @JsonView bypasses -->
-        <jackson.version>2.21.7</jackson.version>
+        <jackson.version>2.21.8</jackson.version>
         <!-- CVE-2026-49844: log4j-api < 2.25.5 mishandles non-finite floats in MapMessage JSON serialization -->
         <log4j-api.version>2.25.5</log4j-api.version>
 
