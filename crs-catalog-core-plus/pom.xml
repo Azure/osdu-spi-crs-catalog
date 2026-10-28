@@ -19,27 +19,7 @@
     <app.version>1</app.version>
     <objectify.version>5.1.22</objectify.version>
     <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
-    <org-eclipse-jetty.version>12.0.36</org-eclipse-jetty.version>
   </properties>
-
-  <dependencyManagement>
-      <dependencies>
-          <dependency>
-              <groupId>org.eclipse.jetty</groupId>
-              <artifactId>jetty-bom</artifactId>
-              <version>${org-eclipse-jetty.version}</version>
-              <type>pom</type>
-              <scope>import</scope>
-          </dependency>
-          <dependency>
-              <groupId>org.eclipse.jetty.ee10</groupId>
-              <artifactId>jetty-ee10-bom</artifactId>
-              <version>${org-eclipse-jetty.version}</version>
-              <type>pom</type>
-              <scope>import</scope>
-          </dependency>
-      </dependencies>
-  </dependencyManagement>
 
     <dependencies>
         <dependency>
