@@ -21,8 +21,9 @@ limitations under the License.
 See also the test's [README.md](testing/README.md)
 
 ## Prerequisites
-1. The project builds with [maven](https://maven.apache.org/). Make sure maven is installed locally.
-1. The project requires the [Lombok](https://projectlombok.org/) plug-in installed for your IDE.
+1. The project builds with [Maven](https://maven.apache.org/) **3.9.16+**.
+1. Community modules (`crs-catalog-core`, `crs-catalog-core-plus`) require **JDK 25** (Epic 82).
+1. The project requires the [Lombok](https://projectlombok.org/) plug-in installed for your IDE (**1.18.40+** for JDK 25).
 
 ### Build service and run unit tests
 
