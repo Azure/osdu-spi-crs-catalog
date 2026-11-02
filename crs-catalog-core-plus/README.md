@@ -18,8 +18,8 @@ future context.
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Requirements
-* Java 17
-* [Maven 3.6.0+](https://maven.apache.org/download.cgi)
+* Java 25
+* [Maven 3.9.16+](https://maven.apache.org/download.cgi)
 
 ### General Tips
 
@@ -56,9 +56,9 @@ Check that maven is installed:
 
 ```bash
 $ mvn --version
-Apache Maven 3.6.0
+Apache Maven 3.9.16
 Maven home: /usr/share/maven
-Java version: 17.0.7, vendor: AdoptOpenJDK, runtime: /usr/lib/jvm/jdk17*/jre
+Java version: 25.0.4, vendor: Eclipse Adoptium, runtime: /usr/lib/jvm/temurin-25-jdk
 ...
 ```
 

@@ -52,6 +52,11 @@
 				</exclusion>
 			</exclusions>
         </dependency>
+        <!-- os-core-common declares lettuce-core as provided; GsonCodecFactory needs RedisCodec at runtime (Epic 82 tip 16) -->
+        <dependency>
+            <groupId>io.lettuce</groupId>
+            <artifactId>lettuce-core</artifactId>
+        </dependency>
         <!-- Compile/runtime dependencies -->
         <dependency>
             <groupId>javax.jdo</groupId>
@@ -73,26 +78,15 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
-        <!-- Test Dependencies -->
-    <dependency>
-      <groupId>org.powermock</groupId>
-      <artifactId>powermock-module-junit4</artifactId>
-      <scope>test</scope>
-      <exclusions>
-        <exclusion>
-          <groupId>junit</groupId>
-          <artifactId>junit</artifactId>
-        </exclusion>
-      </exclusions>
-        </dependency>
+        <!-- Test Dependencies — Mockito 5.23 (ByteBuddy Java 25); PowerMock removed -->
         <dependency>
-            <groupId>org.powermock</groupId>
-            <artifactId>powermock-api-mockito2</artifactId>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
+            <artifactId>mockito-junit-jupiter</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
