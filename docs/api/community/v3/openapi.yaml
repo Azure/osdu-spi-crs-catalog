@@ -499,6 +499,9 @@ components:
           example: "-122.174762"
           maximum: 180
           minimum: -180
+      required:
+      - latitude
+      - longitude
     PointsInAouSearchPoint:
       type: object
       description: A point that didn't land in the bounding box for area of use search
@@ -622,10 +625,15 @@ components:
         sets incrementally.
       properties:
         cursor:
-          type: string
+          type:
+          - string
+          - "null"
           description: Search context to retrieve the next page of results. Null when
             there are no more results.
-          example: AoE=
+          example: 098F6BCD4621D373CADE4E832627B4F6
+          maxLength: 32
+          minLength: 32
+          pattern: "^[0-9A-F]{32}$"
         results:
           type: array
           description: "List of matched records, each represented as a map of field\
