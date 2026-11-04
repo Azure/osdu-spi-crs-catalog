@@ -14,14 +14,22 @@
 
 package org.opengroup.osdu.crs.model.request;
 
+import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.Nulls;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
+import org.opengroup.osdu.crs.config.NullableStringDeserializer;
 
 @Data
 @Schema(description = "Description of extent. Corresponds to PreferredUsage.Extent.Description in the record. All entities with PreferredUsage.Extent.Description containing the search string will be returned. Wildcard is not supported.")
 public class Extent {
 	@Schema(type = "string")
+	@JsonSetter(nulls = Nulls.FAIL)
+	@JsonDeserialize(using = NullableStringDeserializer.class)
 	private String name;
 	@Schema(type = "string")
+	@JsonSetter(nulls = Nulls.FAIL)
+	@JsonDeserialize(using = NullableStringDeserializer.class)
 	private String description;
 }
