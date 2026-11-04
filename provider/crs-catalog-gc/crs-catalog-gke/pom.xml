@@ -7,12 +7,12 @@
     <parent>
         <groupId>org.opengroup.osdu.crs-catalog-service</groupId>
         <artifactId>crs-catalog-service</artifactId>
-        <version>0.30.5-SNAPSHOT</version>
+        <version>0.30.6-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
     <artifactId>crs-catalog-gke</artifactId>
-    <version>0.30.5-SNAPSHOT</version>
+    <version>0.30.6-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>crs-catalog-gke</name>
     <description>CRS Catalog service Google Kubernetes Engine deployment</description>

@@ -53,7 +53,7 @@
 
     <groupId>org.opengroup.osdu.crs-catalog-service</groupId>
     <artifactId>crs-catalog-service</artifactId>
-    <version>0.30.5-SNAPSHOT</version>
+    <version>0.30.6-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>crs-catalog-service</name>
     <description>crs-catalog service</description>
