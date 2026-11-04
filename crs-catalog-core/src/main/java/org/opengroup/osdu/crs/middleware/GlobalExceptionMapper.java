@@ -14,16 +14,20 @@
 
 package org.opengroup.osdu.crs.middleware;
 
+import jakarta.inject.Inject;
 import org.eclipse.jetty.http.BadMessageException;
 import org.opengroup.osdu.core.common.logging.JaxRsDpsLog;
 import org.opengroup.osdu.crs.util.AppError;
 import org.opengroup.osdu.crs.util.AppException;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-
-import jakarta.inject.Inject;
 
 import static org.springframework.http.HttpStatus.*;
 
@@ -32,6 +36,20 @@ public class GlobalExceptionMapper extends ResponseEntityExceptionHandler {
 
     @Inject
     private JaxRsDpsLog log;
+
+    /** Keep Spring MVC errors in the same OSDU error format as service errors. */
+    @Override
+    protected ResponseEntity<Object> handleExceptionInternal(
+            Exception ex, Object body, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
+        HttpStatus httpStatus = HttpStatus.resolve(status.value());
+        String reason = httpStatus == null ? "Error" : httpStatus.getReasonPhrase();
+        AppError error = AppError.builder().code(status.value()).reason(reason)
+                .message(ex.getMessage() == null ? reason : ex.getMessage()).build();
+        HttpHeaders responseHeaders = new HttpHeaders();
+        responseHeaders.putAll(headers);
+        responseHeaders.setContentType(MediaType.APPLICATION_PROBLEM_JSON);
+        return super.handleExceptionInternal(ex, error, responseHeaders, status, request);
+    }
 
     @ExceptionHandler(AppException.class)
     protected ResponseEntity<AppError> handleAppException(AppException e) {

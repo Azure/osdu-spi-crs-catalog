@@ -53,6 +53,8 @@ public class AuthSecurityConfig implements AccessDeniedHandler, AuthenticationEn
   private static final String[] AUTH_WHITELIST = {
     "/",
     "/_ah/*",
+    "/v2/_ah/liveness_check",
+    "/v2/_ah/readiness_check",
     "/v2/api-docs",
     "/api-docs/**",
     "/api-docs.yaml",

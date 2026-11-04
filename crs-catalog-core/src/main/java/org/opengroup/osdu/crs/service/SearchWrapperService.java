@@ -282,7 +282,8 @@ public class SearchWrapperService {
 
         if (e.getResponse() != null) {
             int originalResponseCode = e.getResponse().getResponseCode();
-            if (originalResponseCode == HttpStatus.TOO_MANY_REQUESTS.value()) {
+            if (originalResponseCode == HttpStatus.BAD_REQUEST.value()
+                    || originalResponseCode == HttpStatus.TOO_MANY_REQUESTS.value()) {
                 responseCode = originalResponseCode;
             }
         }

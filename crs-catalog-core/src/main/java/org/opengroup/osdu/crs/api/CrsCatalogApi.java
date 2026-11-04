@@ -73,7 +73,7 @@ public class CrsCatalogApi {
 			security = {@SecurityRequirement(name = "Authorization")}, tags = {"crs-catalog-api"})
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "A successful response", content = { @Content(schema = @Schema(implementation = Catalog.class)) }),
-			@ApiResponse(responseCode = "400", description = "Bad Request",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "400", description = "Bad Request",  content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))}),
 			@ApiResponse(responseCode = "401", description = "Unauthorized",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "403", description = "User not authorized to perform the action.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "404", description = "Not Found",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
@@ -95,7 +95,7 @@ public class CrsCatalogApi {
 			security = {@SecurityRequirement(name = "Authorization")}, tags = {"crs-catalog-api"})
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "A successful response", content = { @Content(schema = @Schema(implementation = CatalogAttributes.class)) }),
-			@ApiResponse(responseCode = "400", description = "Bad Request",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "400", description = "Bad Request",  content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))}),
 			@ApiResponse(responseCode = "401", description = "Unauthorized",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "403", description = "User not authorized to perform the action.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "404", description = "Not Found",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
@@ -121,7 +121,7 @@ public class CrsCatalogApi {
 			security = {@SecurityRequirement(name = "Authorization")}, tags = {"areas-of-use-api"})
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "A successful response", content = { @Content(schema = @Schema(implementation = AreaOfUseResults.class)) }),
-			@ApiResponse(responseCode = "400", description = "Bad Request",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "400", description = "Bad Request",  content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))}),
 			@ApiResponse(responseCode = "401", description = "Unauthorized",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "403", description = "User not authorized to perform the action.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "404", description = "Not Found",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
@@ -183,14 +183,15 @@ public class CrsCatalogApi {
 			requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE)))
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "A successful response", content = { @Content(schema = @Schema(implementation = AreaOfUse.class)) }),
-			@ApiResponse(responseCode = "400", description = "Bad Request",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "400", description = "Bad Request",  content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))}),
 			@ApiResponse(responseCode = "401", description = "Unauthorized",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "403", description = "User not authorized to perform the action.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "404", description = "Not Found",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "409", description = "A LegalTag with the given name already exists.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "500", description = "Internal Server Error",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "502", description = "Bad Gateway",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
-			@ApiResponse(responseCode = "503", description = "Service Unavailable",  content = {@Content(schema = @Schema(implementation = AppError.class ))})
+			@ApiResponse(responseCode = "503", description = "Service Unavailable",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "415", description = "Unsupported Media Type", content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))})
 	})
 	@PostMapping(value = "/area", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public AreaOfUse getAreaOfUse(@RequestBody AreaOfUseRequest request,
@@ -222,6 +223,9 @@ public class CrsCatalogApi {
 				Collections.singletonList("AreaOfUse is null"),
 				Collections.singletonList(CrsCatalogRole.CRS_CATALOG_AUTHENTICATED_USER));
 		}
+		if (aou == null) {
+		    throw AppException.createNotFound("No catalog entry matches the supplied reference or essence.");
+		}
 		return aou;
 	}
 
@@ -237,7 +241,7 @@ public class CrsCatalogApi {
 			requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE)))
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "A successful response", content = { @Content(schema = @Schema(implementation = CRSResults.class)) }),
-			@ApiResponse(responseCode = "400", description = "Bad Request",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "400", description = "Bad Request",  content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))}),
 			@ApiResponse(responseCode = "401", description = "Unauthorized",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "403", description = "User not authorized to perform the action.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "404", description = "Not Found",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
@@ -299,14 +303,15 @@ public class CrsCatalogApi {
 			requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE)))
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "A successful response", content = { @Content(schema = @Schema(implementation = CRS.class)) }),
-			@ApiResponse(responseCode = "400", description = "Bad Input format",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "400", description = "Bad Input format",  content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))}),
 			@ApiResponse(responseCode = "401", description = "Unauthorized",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "403", description = "User not authorized to perform the action.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "404", description = "Not Found",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "409", description = "A LegalTag with the given name already exists.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "500", description = "Internal Server Error",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "502", description = "Bad Gateway",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
-			@ApiResponse(responseCode = "503", description = "Service Unavailable",  content = {@Content(schema = @Schema(implementation = AppError.class ))})
+			@ApiResponse(responseCode = "503", description = "Service Unavailable",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "415", description = "Unsupported Media Type", content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))})
 	})
 	@PostMapping(value = "/crs", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public 	CRS getCRS(@RequestBody CRSRequest request,
@@ -339,6 +344,9 @@ public class CrsCatalogApi {
 				Collections.singletonList("CRS is null"),
 				Collections.singletonList(CrsCatalogRole.CRS_CATALOG_AUTHENTICATED_USER));
 		}
+		if (crs == null) {
+		    throw AppException.createNotFound("No catalog entry matches the supplied reference or essence.");
+		}
 		return crs;
 	}
 
@@ -354,7 +362,7 @@ public class CrsCatalogApi {
 			requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE)))
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "A successful response", content = { @Content(schema = @Schema(implementation = LateBoundCRSResults.class)) }),
-			@ApiResponse(responseCode = "400", description = "Bad Request",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "400", description = "Bad Request",  content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))}),
 			@ApiResponse(responseCode = "401", description = "Unauthorized",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "403", description = "User not authorized to perform the action.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "404", description = "Not Found",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
@@ -418,14 +426,15 @@ public class CrsCatalogApi {
 			requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE)))
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "A successful response", content = { @Content(schema = @Schema(implementation = LateBoundCRS.class)) }),
-			@ApiResponse(responseCode = "400", description = "Bad Request",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "400", description = "Bad Request",  content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))}),
 			@ApiResponse(responseCode = "401", description = "Unauthorized",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "403", description = "User not authorized to perform the action.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "404", description = "Not Found",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "409", description = "A LegalTag with the given name already exists.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "500", description = "Internal Server Error",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "502", description = "Bad Gateway",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
-			@ApiResponse(responseCode = "503", description = "Service Unavailable",  content = {@Content(schema = @Schema(implementation = AppError.class ))})
+			@ApiResponse(responseCode = "503", description = "Service Unavailable",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "415", description = "Unsupported Media Type", content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))})
 	})
 	@PostMapping(value = "/lateboundcrs", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public LateBoundCRS getLateBoundCRS(
@@ -460,6 +469,9 @@ public class CrsCatalogApi {
 				Collections.singletonList(CrsCatalogRole.CRS_CATALOG_AUTHENTICATED_USER)
 			);
 		}
+		if (crs == null) {
+		    throw AppException.createNotFound("No catalog entry matches the supplied reference or essence.");
+		}
 		return crs;
 	}
 
@@ -475,7 +487,7 @@ public class CrsCatalogApi {
 			requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE)))
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "A successful response", content = { @Content(schema = @Schema(implementation = EarlyBoundCRSResults.class)) }),
-			@ApiResponse(responseCode = "400", description = "Bad Request",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "400", description = "Bad Request",  content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))}),
 			@ApiResponse(responseCode = "401", description = "Unauthorized",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "403", description = "User not authorized to perform the action.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "404", description = "Not Found",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
@@ -539,14 +551,15 @@ public class CrsCatalogApi {
 			requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE)))
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "A successful response", content = { @Content(schema = @Schema(implementation = EarlyBoundCRS.class)) }),
-			@ApiResponse(responseCode = "400", description = "Bad Request",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "400", description = "Bad Request",  content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))}),
 			@ApiResponse(responseCode = "401", description = "Unauthorized",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "403", description = "User not authorized to perform the action.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "404", description = "Not Found",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "409", description = "A LegalTag with the given name already exists.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "500", description = "Internal Server Error",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "502", description = "Bad Gateway",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
-			@ApiResponse(responseCode = "503", description = "Service Unavailable",  content = {@Content(schema = @Schema(implementation = AppError.class ))})
+			@ApiResponse(responseCode = "503", description = "Service Unavailable",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "415", description = "Unsupported Media Type", content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))})
 	})
 	@PostMapping(value = "/earlyboundcrs", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public EarlyBoundCRS getEarlyBoundCRS(@RequestBody EarlyBoundCRSRequest request,
@@ -580,6 +593,9 @@ public class CrsCatalogApi {
 				Collections.singletonList(CrsCatalogRole.CRS_CATALOG_AUTHENTICATED_USER)
 			);
 		}
+		if (crs == null) {
+		    throw AppException.createNotFound("No catalog entry matches the supplied reference or essence.");
+		}
 		return crs;
 	}
 
@@ -595,7 +611,7 @@ public class CrsCatalogApi {
 			requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE)))
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "A successful response", content = { @Content(schema = @Schema(implementation = CompoundCRSResults.class)) }),
-			@ApiResponse(responseCode = "400", description = "Bad Request",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "400", description = "Bad Request",  content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))}),
 			@ApiResponse(responseCode = "401", description = "Unauthorized",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "403", description = "User not authorized to perform the action.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "404", description = "Not Found",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
@@ -659,14 +675,15 @@ public class CrsCatalogApi {
 			requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE)))
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "A successful response", content = { @Content(schema = @Schema(implementation = CompoundCRS.class)) }),
-			@ApiResponse(responseCode = "400", description = "Bad input format",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "400", description = "Bad input format",  content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))}),
 			@ApiResponse(responseCode = "401", description = "Unauthorized",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "403", description = "User not authorized to perform the action.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "404", description = "Not Found",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "409", description = "A LegalTag with the given name already exists.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "500", description = "Internal Server Error",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "502", description = "Bad Gateway",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
-			@ApiResponse(responseCode = "503", description = "Service Unavailable",  content = {@Content(schema = @Schema(implementation = AppError.class ))})
+			@ApiResponse(responseCode = "503", description = "Service Unavailable",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "415", description = "Unsupported Media Type", content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))})
 	})
 	@PostMapping(value = "/compoundcrs", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public CompoundCRS getCompoundCRS(@RequestBody CompoundCRSRequest request,
@@ -700,6 +717,9 @@ public class CrsCatalogApi {
 				Collections.singletonList(CrsCatalogRole.CRS_CATALOG_AUTHENTICATED_USER)
 			);
 		}
+		if (crs == null) {
+		    throw AppException.createNotFound("No catalog entry matches the supplied reference or essence.");
+		}
 		return crs;
 	}
 
@@ -715,7 +735,7 @@ public class CrsCatalogApi {
 			requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE)))
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "A successful response", content = { @Content(schema = @Schema(implementation = CTResults.class)) }),
-			@ApiResponse(responseCode = "400", description = "Bad input format",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "400", description = "Bad input format",  content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))}),
 			@ApiResponse(responseCode = "401", description = "Unauthorized",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "403", description = "User not authorized to perform the action.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "404", description = "Not Found",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
@@ -779,14 +799,15 @@ public class CrsCatalogApi {
 			requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE)))
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "A successful response", content = { @Content(schema = @Schema(implementation = CT.class)) }),
-			@ApiResponse(responseCode = "400", description = "Bad input format",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "400", description = "Bad input format",  content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))}),
 			@ApiResponse(responseCode = "401", description = "Unauthorized",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "403", description = "User not authorized to perform the action.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "404", description = "Not Found",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "409", description = "A LegalTag with the given name already exists.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "500", description = "Internal Server Error",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "502", description = "Bad Gateway",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
-			@ApiResponse(responseCode = "503", description = "Service Unavailable",  content = {@Content(schema = @Schema(implementation = AppError.class ))})
+			@ApiResponse(responseCode = "503", description = "Service Unavailable",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "415", description = "Unsupported Media Type", content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))})
 	})
 	@PostMapping(value = "/ct", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public CT getCT(@RequestBody CTRequest request,
@@ -821,6 +842,9 @@ public class CrsCatalogApi {
 				Collections.singletonList(CrsCatalogRole.CRS_CATALOG_AUTHENTICATED_USER)
 			);
 		}
+		if (ct == null) {
+		    throw AppException.createNotFound("No catalog entry matches the supplied reference or essence.");
+		}
 		return ct;
 	}
 
@@ -836,7 +860,7 @@ public class CrsCatalogApi {
 			requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE)))
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "A successful response", content = { @Content(schema = @Schema(implementation = SingleCTResults.class)) }),
-			@ApiResponse(responseCode = "400", description = "Bad input format",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "400", description = "Bad input format",  content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))}),
 			@ApiResponse(responseCode = "401", description = "Unauthorized",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "403", description = "User not authorized to perform the action.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "404", description = "Not Found",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
@@ -900,14 +924,15 @@ public class CrsCatalogApi {
 			requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE)))
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "A successful response", content = { @Content(schema = @Schema(implementation = SingleCT.class)) }),
-			@ApiResponse(responseCode = "400", description = "Bad input format",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "400", description = "Bad input format",  content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))}),
 			@ApiResponse(responseCode = "401", description = "Unauthorized",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "403", description = "User not authorized to perform the action.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "404", description = "Not Found",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "409", description = "A LegalTag with the given name already exists.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "500", description = "Internal Server Error",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "502", description = "Bad Gateway",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
-			@ApiResponse(responseCode = "503", description = "Service Unavailable",  content = {@Content(schema = @Schema(implementation = AppError.class ))})
+			@ApiResponse(responseCode = "503", description = "Service Unavailable",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "415", description = "Unsupported Media Type", content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))})
 	})
 	@PostMapping(value = "/singlect", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public SingleCT getSingleCT(@RequestBody SingleCTRequest request,
@@ -941,6 +966,9 @@ public class CrsCatalogApi {
 				Collections.singletonList(CrsCatalogRole.CRS_CATALOG_AUTHENTICATED_USER)
 			);
 		}
+		if (ct == null) {
+		    throw AppException.createNotFound("No catalog entry matches the supplied reference or essence.");
+		}
 		return ct;
 	}
 
@@ -956,7 +984,7 @@ public class CrsCatalogApi {
 			requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE)))
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "A successful response", content = { @Content(schema = @Schema(implementation = CompoundCTResults.class)) }),
-			@ApiResponse(responseCode = "400", description = "Bad input format",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "400", description = "Bad input format",  content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))}),
 			@ApiResponse(responseCode = "401", description = "Unauthorized",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "403", description = "User not authorized to perform the action.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "404", description = "Not Found",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
@@ -1020,15 +1048,16 @@ public class CrsCatalogApi {
 		   requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE)))
    @ApiResponses(value = {
 		   @ApiResponse(responseCode = "200", description = "A successful response", content = { @Content(schema = @Schema(implementation = CompoundCT.class)) }),
-		   @ApiResponse(responseCode = "400", description = "Bad input format",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+		   @ApiResponse(responseCode = "400", description = "Bad input format",  content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))}),
 		   @ApiResponse(responseCode = "401", description = "Unauthorized",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 		   @ApiResponse(responseCode = "403", description = "User not authorized to perform the action.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 		   @ApiResponse(responseCode = "404", description = "Not Found",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 		   @ApiResponse(responseCode = "409", description = "A LegalTag with the given name already exists.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 		   @ApiResponse(responseCode = "500", description = "Internal Server Error",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 		   @ApiResponse(responseCode = "502", description = "Bad Gateway",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
-		   @ApiResponse(responseCode = "503", description = "Service Unavailable",  content = {@Content(schema = @Schema(implementation = AppError.class ))})
-   })
+		   @ApiResponse(responseCode = "503", description = "Service Unavailable",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "415", description = "Unsupported Media Type", content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))})
+    })
    @PostMapping(value = "/compoundct", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public CompoundCT getCompoundCT(@RequestBody CompoundCTRequest request,
 									@RequestParam(name = "mode", required = false, defaultValue = "persistableReference") String reprMode) {
@@ -1060,6 +1089,9 @@ public class CrsCatalogApi {
 				Collections.singletonList(CrsCatalogRole.CRS_CATALOG_AUTHENTICATED_USER)
 			);
 		}
+		if (ct == null) {
+		    throw AppException.createNotFound("No catalog entry matches the supplied reference or essence.");
+		}
 		return ct;
 	}
 
@@ -1085,14 +1117,15 @@ public class CrsCatalogApi {
 			requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE)))
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "A successful response", content = { @Content(schema = @Schema(implementation = AreaOfUseResults.class)) }),
-			@ApiResponse(responseCode = "400", description = "Bad input format",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "400", description = "Bad input format",  content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))}),
 			@ApiResponse(responseCode = "401", description = "Unauthorized",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "403", description = "User not authorized to perform the action.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "404", description = "Not Found",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "409", description = "A LegalTag with the given name already exists.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "500", description = "Internal Server Error",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "502", description = "Bad Gateway",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
-			@ApiResponse(responseCode = "503", description = "Service Unavailable",  content = {@Content(schema = @Schema(implementation = AppError.class ))})
+			@ApiResponse(responseCode = "503", description = "Service Unavailable",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "415", description = "Unsupported Media Type", content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))})
 	})
 	@PostMapping(value = "/search/area", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public AreaOfUseResults searchAreasOfUse(@RequestBody SearchRequest request,
@@ -1137,14 +1170,15 @@ public class CrsCatalogApi {
 			requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE)))
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "A successful response", content = { @Content(schema = @Schema(implementation = CRSResults.class)) }),
-			@ApiResponse(responseCode = "400", description = "Bad input format",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "400", description = "Bad input format",  content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))}),
 			@ApiResponse(responseCode = "401", description = "Unauthorized",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "403", description = "User not authorized to perform the action.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "404", description = "Not Found",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "409", description = "A LegalTag with the given name already exists.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "500", description = "Internal Server Error",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "502", description = "Bad Gateway",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
-			@ApiResponse(responseCode = "503", description = "Service Unavailable",  content = {@Content(schema = @Schema(implementation = AppError.class ))})
+			@ApiResponse(responseCode = "503", description = "Service Unavailable",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "415", description = "Unsupported Media Type", content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))})
 	})
 	@PostMapping(value = "/search/crs", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public CRSResults searchCRSes(@RequestBody SearchRequest request,
@@ -1189,14 +1223,15 @@ public class CrsCatalogApi {
 			requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE)))
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "A successful response", content = { @Content(schema = @Schema(implementation = CTResults.class)) }),
-			@ApiResponse(responseCode = "400", description = "Bad input format",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "400", description = "Bad input format",  content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))}),
 			@ApiResponse(responseCode = "401", description = "Unauthorized",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "403", description = "User not authorized to perform the action.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "404", description = "Not Found",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "409", description = "A LegalTag with the given name already exists.",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "500", description = "Internal Server Error",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
 			@ApiResponse(responseCode = "502", description = "Bad Gateway",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
-			@ApiResponse(responseCode = "503", description = "Service Unavailable",  content = {@Content(schema = @Schema(implementation = AppError.class ))})
+			@ApiResponse(responseCode = "503", description = "Service Unavailable",  content = {@Content(schema = @Schema(implementation = AppError.class ))}),
+			@ApiResponse(responseCode = "415", description = "Unsupported Media Type", content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = AppError.class)), @Content(mediaType = MediaType.APPLICATION_PROBLEM_JSON_VALUE, schema = @Schema(implementation = AppError.class))})
 	})
 	@PostMapping(value = "/search/ct", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public CTResults searchCTs(@RequestBody SearchRequest request,

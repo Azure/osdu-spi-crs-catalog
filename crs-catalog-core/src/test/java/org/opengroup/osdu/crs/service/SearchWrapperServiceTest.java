@@ -27,6 +27,23 @@ import java.util.Map;
 
 @ExtendWith(MockitoExtension.class)
 public class SearchWrapperServiceTest {
+    @Test
+    void preservesSearchBadRequestForBothPagingModes() throws SearchException {
+        Mockito.when(searchFactory.create(dpsHeaders)).thenReturn(searchService);
+        searchWrapperService.postInit();
+        var response = new org.opengroup.osdu.core.common.http.HttpResponse();
+        response.setResponseCode(400);
+        var error = new SearchException("Invalid search request", response);
+        Mockito.when(searchService.search(Mockito.any())).thenThrow(error);
+        Mockito.when(searchService.searchCursor(Mockito.any())).thenThrow(error);
+        var query = new CoordinateReferenceSystemsQuery();
+        var offsetError = Assertions.assertThrows(org.opengroup.osdu.crs.util.AppException.class,
+                () -> searchWrapperService.search(query, "test-kind"));
+        var cursorError = Assertions.assertThrows(org.opengroup.osdu.crs.util.AppException.class,
+                () -> searchWrapperService.searchWithCursor(query, "test-kind"));
+        Assertions.assertEquals(400, offsetError.getError().getCode());
+        Assertions.assertEquals(400, cursorError.getError().getCode());
+    }
 
 	@InjectMocks
 	private SearchWrapperService searchWrapperService;
