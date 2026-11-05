@@ -15,6 +15,9 @@
 package org.opengroup.osdu.crs.model.search;
 
 import org.junit.jupiter.api.Test;
+import io.swagger.v3.core.converter.ModelConverters;
+import io.swagger.v3.core.util.Json31;
+import io.swagger.v3.oas.models.media.Schema;
 
 import org.opengroup.osdu.crs.model.Utility;
 import org.opengroup.osdu.crs.model.request.SearchRequest;
@@ -22,6 +25,18 @@ import org.opengroup.osdu.crs.model.request.SearchRequest;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SearchRequestTest {
+    @Test
+    public void openApi31AllowsNullQueryForBoundingBoxOnlySearches() throws Exception {
+        Schema<?> request = new ModelConverters(true).read(SearchRequest.class).get("SearchRequest");
+        var schema = Json31.mapper().readTree(Json31.mapper().writeValueAsString(request));
+        var types = schema.path("properties").path("query").path("type");
+        assertTrue(types.isArray(), schema.toString());
+        assertEquals(2, types.size());
+        assertTrue(types.toString().contains("\"string\""));
+        assertTrue(types.toString().contains("\"null\""));
+        assertFalse(schema.path("required").toString().contains("\"query\""));
+    }
+
     @Test
     public void testSearchRequest() throws Exception{
         String query = "name:to-look-for";

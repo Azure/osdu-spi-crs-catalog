@@ -76,6 +76,24 @@ public class CrsCatalogApiTest {
 		MockitoAnnotations.initMocks(this);
     }
 
+    @Test
+    public void missingCatalogEntriesReturnNotFoundInsteadOfEmptyJson() {
+        Runnable[] lookups = {
+                () -> crsCatalogApi.getCRS(new CRSRequest(new LateBoundCRSEssenceImpl()), "essence"),
+                () -> crsCatalogApi.getCT(new CTRequest(new SingleCTEssenceImpl()), "essence"),
+                () -> crsCatalogApi.getAreaOfUse(new AreaOfUseRequest(), "essence"),
+                () -> crsCatalogApi.getLateBoundCRS(new LateBoundCRSRequest(null, null), "essence"),
+                () -> crsCatalogApi.getEarlyBoundCRS(new EarlyBoundCRSRequest(null, null), "essence"),
+                () -> crsCatalogApi.getCompoundCRS(new CompoundCRSRequest(null), "essence"),
+                () -> crsCatalogApi.getSingleCT(new SingleCTRequest(null), "essence"),
+                () -> crsCatalogApi.getCompoundCT(new CompoundCTRequest(null), "essence")
+        };
+        for (Runnable lookup : lookups) {
+            AppException error = assertThrows(AppException.class, lookup::run);
+            assertEquals(404, error.getError().getCode());
+        }
+    }
+
 	@Test
 	public void testGetCatalogAttributes() {
 		assertNotNull(crsCatalogApi);

@@ -14,16 +14,26 @@
 
 package org.opengroup.osdu.crs.model.request;
 
+import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.Nulls;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
+import org.opengroup.osdu.crs.config.NullableStringDeserializer;
 
 @Data
 @Schema(description = "Datum associated with a CRS.")
 public class Datum {
 	@Schema(description = "Name of datum", type = "string")
+	@JsonSetter(nulls = Nulls.FAIL)
+	@JsonDeserialize(using = NullableStringDeserializer.class)
 	String name;
 	@Schema(description = "Codespace of datum", type = "string")
+	@JsonSetter(nulls = Nulls.FAIL)
+	@JsonDeserialize(using = NullableStringDeserializer.class)
 	String codeSpace;
 	@Schema(description = "Code of datum", type = "string")
+	@JsonSetter(nulls = Nulls.FAIL)
+	@JsonDeserialize(using = NullableStringDeserializer.class)
 	String code;
 }
