@@ -77,6 +77,9 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AppError"
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/AppError"
         "401":
           description: Unauthorized
           content:
@@ -159,6 +162,9 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AppError"
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/AppError"
         "401":
           description: Unauthorized
           content:
@@ -199,6 +205,15 @@ paths:
           description: Service Unavailable
           content:
             application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "415":
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+            application/problem+json:
               schema:
                 $ref: "#/components/schemas/AppError"
       security:
@@ -292,6 +307,9 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AppError"
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/AppError"
         "401":
           description: Unauthorized
           content:
@@ -332,6 +350,15 @@ paths:
           description: Service Unavailable
           content:
             application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "415":
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+            application/problem+json:
               schema:
                 $ref: "#/components/schemas/AppError"
       security:
@@ -427,6 +454,9 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AppError"
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/AppError"
         "401":
           description: Unauthorized
           content:
@@ -467,6 +497,15 @@ paths:
           description: Service Unavailable
           content:
             application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "415":
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+            application/problem+json:
               schema:
                 $ref: "#/components/schemas/AppError"
       security:
@@ -558,6 +597,9 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AppError"
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/AppError"
         "401":
           description: Unauthorized
           content:
@@ -598,6 +640,15 @@ paths:
           description: Service Unavailable
           content:
             application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "415":
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+            application/problem+json:
               schema:
                 $ref: "#/components/schemas/AppError"
       security:
@@ -650,6 +701,9 @@ paths:
           description: Bad Request
           content:
             application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+            application/problem+json:
               schema:
                 $ref: "#/components/schemas/AppError"
         "401":
@@ -735,6 +789,9 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AppError"
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/AppError"
         "401":
           description: Unauthorized
           content:
@@ -775,6 +832,15 @@ paths:
           description: Service Unavailable
           content:
             application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "415":
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+            application/problem+json:
               schema:
                 $ref: "#/components/schemas/AppError"
       security:
@@ -827,6 +893,9 @@ paths:
           description: Bad Request
           content:
             application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+            application/problem+json:
               schema:
                 $ref: "#/components/schemas/AppError"
         "401":
@@ -911,6 +980,9 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AppError"
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/AppError"
         "401":
           description: Unauthorized
           content:
@@ -951,6 +1023,15 @@ paths:
           description: Service Unavailable
           content:
             application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "415":
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+            application/problem+json:
               schema:
                 $ref: "#/components/schemas/AppError"
       security:
@@ -1003,6 +1084,9 @@ paths:
           description: Bad input format
           content:
             application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+            application/problem+json:
               schema:
                 $ref: "#/components/schemas/AppError"
         "401":
@@ -1087,6 +1171,9 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AppError"
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/AppError"
         "401":
           description: Unauthorized
           content:
@@ -1127,6 +1214,15 @@ paths:
           description: Service Unavailable
           content:
             application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "415":
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+            application/problem+json:
               schema:
                 $ref: "#/components/schemas/AppError"
       security:
@@ -1179,6 +1275,9 @@ paths:
           description: Bad Request
           content:
             application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+            application/problem+json:
               schema:
                 $ref: "#/components/schemas/AppError"
         "401":
@@ -1263,6 +1362,9 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AppError"
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/AppError"
         "401":
           description: Unauthorized
           content:
@@ -1303,6 +1405,15 @@ paths:
           description: Service Unavailable
           content:
             application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "415":
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+            application/problem+json:
               schema:
                 $ref: "#/components/schemas/AppError"
       security:
@@ -1355,6 +1466,9 @@ paths:
           description: Bad input format
           content:
             application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+            application/problem+json:
               schema:
                 $ref: "#/components/schemas/AppError"
         "401":
@@ -1439,6 +1553,9 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AppError"
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/AppError"
         "401":
           description: Unauthorized
           content:
@@ -1479,6 +1596,15 @@ paths:
           description: Service Unavailable
           content:
             application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "415":
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+            application/problem+json:
               schema:
                 $ref: "#/components/schemas/AppError"
       security:
@@ -1531,6 +1657,9 @@ paths:
           description: Bad Request
           content:
             application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+            application/problem+json:
               schema:
                 $ref: "#/components/schemas/AppError"
         "401":
@@ -1615,6 +1744,9 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AppError"
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/AppError"
         "401":
           description: Unauthorized
           content:
@@ -1655,6 +1787,15 @@ paths:
           description: Service Unavailable
           content:
             application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+        "415":
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+            application/problem+json:
               schema:
                 $ref: "#/components/schemas/AppError"
       security:
@@ -1705,6 +1846,9 @@ paths:
           description: Bad Request
           content:
             application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+            application/problem+json:
               schema:
                 $ref: "#/components/schemas/AppError"
         "401":
@@ -1790,6 +1934,9 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AppError"
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/AppError"
         "401":
           description: Unauthorized
           content:
@@ -1832,6 +1979,15 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AppError"
+        "415":
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/AppError"
       security:
       - Authorization: []
   /v2/info:
@@ -1842,13 +1998,6 @@ paths:
       description: "For deployment available public `/info` endpoint, which provides\
         \ build and git related information."
       operationId: info
-      parameters:
-      - name: data-partition-id
-        in: header
-        description: Tenant Id
-        required: true
-        schema:
-          type: string
       responses:
         "200":
           description: Version info.
@@ -1856,24 +2005,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/VersionInfo"
-        "400":
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/AppError"
-        "403":
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/AppError"
-        "404":
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/AppError"
+      security: []
   /v2/catalog:
     get:
       tags:
@@ -1901,6 +2033,9 @@ paths:
           description: Bad Request
           content:
             application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+            application/problem+json:
               schema:
                 $ref: "#/components/schemas/AppError"
         "401":
@@ -1974,6 +2109,9 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AppError"
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/AppError"
         "401":
           description: Unauthorized
           content:
@@ -2020,84 +2158,28 @@ paths:
       - Authorization: []
   /v2/_ah/readiness_check:
     get:
+      security: []
       tags:
       - health-check-api
       summary: Readiness Check endpoint
       description: "For deployment available public `/readiness_check` endpoint, which\
         \ provides `CRS Catalog Service is ready` message."
       operationId: readinessCheck
-      parameters:
-      - name: data-partition-id
-        in: header
-        description: Tenant Id
-        required: true
-        schema:
-          type: string
       responses:
         "200":
           description: CRS Catalog service is ready
-          content:
-            application/json:
-              schema:
-                type: string
-        "400":
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/AppError"
-        "403":
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/AppError"
-        "404":
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/AppError"
   /v2/_ah/liveness_check:
     get:
+      security: []
       tags:
       - health-check-api
       summary: Liveness Check endpoint
       description: "For deployment available public `/liveness_check` endpoint, which\
         \ provides `CRS Catalog Service is alive` message."
       operationId: livenessCheck
-      parameters:
-      - name: data-partition-id
-        in: header
-        description: Tenant Id
-        required: true
-        schema:
-          type: string
       responses:
         "200":
           description: CRS Catalog service is alive
-          content:
-            application/json:
-              schema:
-                type: string
-        "400":
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/AppError"
-        "403":
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/AppError"
-        "404":
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/AppError"
 components:
   schemas:
     AuthorityCode:
@@ -2162,9 +2244,9 @@ components:
       properties:
         supersededByArea:
           $ref: "#/components/schemas/AreaOfUse"
-        deprecationState:
-          type: string
         remarks:
+          type: string
+        deprecationState:
           type: string
     AreaOfUseEssence:
       type: object
@@ -2180,12 +2262,12 @@ components:
     CT:
       type: object
       properties:
+        ctdeprecationInfo:
+          $ref: "#/components/schemas/CTDeprecationInfo"
         fromCRSAuthorityCode:
           $ref: "#/components/schemas/AuthorityCode"
         toCRSAuthorityCode:
           $ref: "#/components/schemas/AuthorityCode"
-        ctdeprecationInfo:
-          $ref: "#/components/schemas/CTDeprecationInfo"
         source:
           type: string
         areaOfUse:
@@ -2209,16 +2291,16 @@ components:
       properties:
         supersededByCT:
           $ref: "#/components/schemas/CT"
-        deprecationState:
-          type: string
         remarks:
+          type: string
+        deprecationState:
           type: string
     DeprecationInfo:
       type: object
       properties:
-        deprecationState:
-          type: string
         remarks:
+          type: string
+        deprecationState:
           type: string
     Essence:
       type: object
@@ -2243,12 +2325,12 @@ components:
       properties:
         singleCTEssence:
           $ref: "#/components/schemas/SingleCTEssence"
+        ctdeprecationInfo:
+          $ref: "#/components/schemas/CTDeprecationInfo"
         fromCRSAuthorityCode:
           $ref: "#/components/schemas/AuthorityCode"
         toCRSAuthorityCode:
           $ref: "#/components/schemas/AuthorityCode"
-        ctdeprecationInfo:
-          $ref: "#/components/schemas/CTDeprecationInfo"
         source:
           type: string
         areaOfUse:
@@ -2283,16 +2365,16 @@ components:
     SphericalBoundingBox:
       type: object
       properties:
-        longitudeLeft:
+        longitudeRight:
           type: number
           format: double
         latitudeLower:
           type: number
           format: double
-        longitudeRight:
+        latitudeUpper:
           type: number
           format: double
-        latitudeUpper:
+        longitudeLeft:
           type: number
           format: double
     AppError:
@@ -2317,8 +2399,11 @@ components:
       description: Request containing a Lucene style query string.
       properties:
         query:
-          type: string
-          description: The Lucene style query string with keywords.
+          type:
+          - string
+          - "null"
+          description: The Lucene style query string with keywords. Omit or set to
+            null for a bounding-box-only search.
     CTResults:
       type: object
       description: A response containing a list of cartographic transformations
@@ -2345,17 +2430,17 @@ components:
     CRS:
       type: object
       properties:
-        baseCRSAuthorityCode:
-          $ref: "#/components/schemas/AuthorityCode"
-        numberOfAxes:
-          type: integer
-          format: int32
         axisUnits:
           type: array
           items:
             type: string
         crstype:
           type: string
+        numberOfAxes:
+          type: integer
+          format: int32
+        baseCRSAuthorityCode:
+          $ref: "#/components/schemas/AuthorityCode"
         transformationReady:
           type: boolean
         crsdeprecationInfo:
@@ -2383,9 +2468,9 @@ components:
       properties:
         supersededByCRS:
           $ref: "#/components/schemas/CRS"
-        deprecationState:
-          type: string
         remarks:
+          type: string
+        deprecationState:
           type: string
     CRSResults:
       type: object
@@ -2467,17 +2552,17 @@ components:
           type: string
         lateBoundCRSEssence:
           $ref: "#/components/schemas/LateBoundCRSEssence"
-        baseCRSAuthorityCode:
-          $ref: "#/components/schemas/AuthorityCode"
-        numberOfAxes:
-          type: integer
-          format: int32
         axisUnits:
           type: array
           items:
             type: string
         crstype:
           type: string
+        numberOfAxes:
+          type: integer
+          format: int32
+        baseCRSAuthorityCode:
+          $ref: "#/components/schemas/AuthorityCode"
         transformationReady:
           type: boolean
         crsdeprecationInfo:
@@ -2576,17 +2661,17 @@ components:
       properties:
         earlyBoundCRSEssence:
           $ref: "#/components/schemas/EarlyBoundCRSEssence"
-        baseCRSAuthorityCode:
-          $ref: "#/components/schemas/AuthorityCode"
-        numberOfAxes:
-          type: integer
-          format: int32
         axisUnits:
           type: array
           items:
             type: string
         crstype:
           type: string
+        numberOfAxes:
+          type: integer
+          format: int32
+        baseCRSAuthorityCode:
+          $ref: "#/components/schemas/AuthorityCode"
         transformationReady:
           type: boolean
         crsdeprecationInfo:
@@ -2616,9 +2701,9 @@ components:
           $ref: "#/components/schemas/LateBoundCRSEssence"
         ctessence:
           $ref: "#/components/schemas/CTEssence"
-        lateBoundCRSAuthorityCode:
-          $ref: "#/components/schemas/AuthorityCode"
         ctauthorityCode:
+          $ref: "#/components/schemas/AuthorityCode"
+        lateBoundCRSAuthorityCode:
           $ref: "#/components/schemas/AuthorityCode"
         name:
           type: string
@@ -2706,12 +2791,12 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/SingleCT"
+        ctdeprecationInfo:
+          $ref: "#/components/schemas/CTDeprecationInfo"
         fromCRSAuthorityCode:
           $ref: "#/components/schemas/AuthorityCode"
         toCRSAuthorityCode:
           $ref: "#/components/schemas/AuthorityCode"
-        ctdeprecationInfo:
-          $ref: "#/components/schemas/CTDeprecationInfo"
         source:
           type: string
         areaOfUse:
@@ -2733,6 +2818,8 @@ components:
     CompoundCTEssence:
       type: object
       properties:
+        policy:
+          type: string
         ctessences:
           type: array
           items:
@@ -2741,8 +2828,6 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/AuthorityCode"
-        policy:
-          type: string
         name:
           type: string
         type:
@@ -2807,17 +2892,17 @@ components:
       properties:
         compoundCRSEssence:
           $ref: "#/components/schemas/CompoundCRSEssence"
-        baseCRSAuthorityCode:
-          $ref: "#/components/schemas/AuthorityCode"
-        numberOfAxes:
-          type: integer
-          format: int32
         axisUnits:
           type: array
           items:
             type: string
         crstype:
           type: string
+        numberOfAxes:
+          type: integer
+          format: int32
+        baseCRSAuthorityCode:
+          $ref: "#/components/schemas/AuthorityCode"
         transformationReady:
           type: boolean
         crsdeprecationInfo:
@@ -3073,56 +3158,56 @@ components:
       properties:
         attributes:
           $ref: "#/components/schemas/CatalogAttributes"
-        allCTs:
-          type: array
-          items:
-            $ref: "#/components/schemas/CT"
-        singleCTs:
-          type: array
-          items:
-            $ref: "#/components/schemas/SingleCT"
-        compoundCTs:
-          type: array
-          items:
-            $ref: "#/components/schemas/CompoundCT"
         catalogResponse:
           $ref: "#/components/schemas/Catalog"
         areasOfUse:
           type: array
           items:
             $ref: "#/components/schemas/AreaOfUse"
-        allCRSes:
-          type: array
-          items:
-            $ref: "#/components/schemas/CRS"
         lateBoundCRSes:
           type: array
           items:
             $ref: "#/components/schemas/LateBoundCRS"
-        earlyBoundCRSes:
+        allCRSes:
           type: array
           items:
-            $ref: "#/components/schemas/EarlyBoundCRS"
+            $ref: "#/components/schemas/CRS"
+        singleCTs:
+          type: array
+          items:
+            $ref: "#/components/schemas/SingleCT"
+        allCTs:
+          type: array
+          items:
+            $ref: "#/components/schemas/CT"
         compoundCRSes:
           type: array
           items:
             $ref: "#/components/schemas/CompoundCRS"
-        lateBoundCRSesCount:
-          type: integer
-          format: int32
-        earlyBoundCRSesCount:
-          type: integer
-          format: int32
-        compoundCRSesCount:
-          type: integer
-          format: int32
+        earlyBoundCRSes:
+          type: array
+          items:
+            $ref: "#/components/schemas/EarlyBoundCRS"
+        compoundCTs:
+          type: array
+          items:
+            $ref: "#/components/schemas/CompoundCT"
         singleCTsCount:
+          type: integer
+          format: int32
+        areaOfUseCount:
           type: integer
           format: int32
         compoundCTsCount:
           type: integer
           format: int32
-        areaOfUseCount:
+        earlyBoundCRSesCount:
+          type: integer
+          format: int32
+        lateBoundCRSesCount:
+          type: integer
+          format: int32
+        compoundCRSesCount:
           type: integer
           format: int32
     CatalogAttributes:

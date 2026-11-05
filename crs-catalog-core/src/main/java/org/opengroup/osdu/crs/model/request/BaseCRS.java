@@ -14,14 +14,22 @@
 
 package org.opengroup.osdu.crs.model.request;
 
+import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.Nulls;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
+import org.opengroup.osdu.crs.config.NullableStringDeserializer;
 
 @Data
 @Schema(description = "BaseCRS")
 public class BaseCRS {
 	@Schema(description = "Record Id of parent CRS", type = "string")
+	@JsonSetter(nulls = Nulls.FAIL)
+	@JsonDeserialize(using = NullableStringDeserializer.class)
 	private String id;
 	@Schema(description = "Name of parent CRS", type = "string")
+	@JsonSetter(nulls = Nulls.FAIL)
+	@JsonDeserialize(using = NullableStringDeserializer.class)
 	private String name;
 }
