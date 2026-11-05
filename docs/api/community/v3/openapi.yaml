@@ -56,6 +56,9 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AppError"
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/AppError"
         "401":
           description: Unauthorized
           content:
@@ -98,6 +101,15 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AppError"
+        "415":
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/AppError"
       security:
       - Authorization: []
   /v3/coordinate-transformation:
@@ -135,6 +147,9 @@ paths:
           description: Bad Request
           content:
             application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+            application/problem+json:
               schema:
                 $ref: "#/components/schemas/AppError"
         "401":
@@ -199,6 +214,7 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/CoordinateTransformationsQuery"
+        required: true
       responses:
         "200":
           description: A successful response
@@ -210,6 +226,9 @@ paths:
           description: Bad Request
           content:
             application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+            application/problem+json:
               schema:
                 $ref: "#/components/schemas/AppError"
         "401":
@@ -254,6 +273,15 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AppError"
+        "415":
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/AppError"
       security:
       - Authorization: []
   /v3/coordinate-reference-system:
@@ -291,6 +319,9 @@ paths:
           description: Bad Request
           content:
             application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+            application/problem+json:
               schema:
                 $ref: "#/components/schemas/AppError"
         "401":
@@ -355,6 +386,7 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/CoordinateReferenceSystemsQuery"
+        required: true
       responses:
         "200":
           description: A successful response
@@ -366,6 +398,9 @@ paths:
           description: Bad Request
           content:
             application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+            application/problem+json:
               schema:
                 $ref: "#/components/schemas/AppError"
         "401":
@@ -410,6 +445,15 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AppError"
+        "415":
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppError"
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/AppError"
       security:
       - Authorization: []
   /v3/info:
@@ -420,13 +464,6 @@ paths:
       description: "For deployment available public `/info` endpoint, which provides\
         \ build and git related information.."
       operationId: info
-      parameters:
-      - name: data-partition-id
-        in: header
-        description: Tenant Id
-        required: true
-        schema:
-          type: string
       responses:
         "200":
           description: Version info.
@@ -434,24 +471,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/VersionInfo"
-        "400":
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/AppError"
-        "403":
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/AppError"
-        "404":
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/AppError"
+      security: []
 components:
   schemas:
     InPolygonQuery:
@@ -469,11 +489,14 @@ components:
           description: List of points to check against CRS or CT bounding boxes
           items:
             $ref: "#/components/schemas/Point"
+          minItems: 1
         offset:
-          type: string
+          type: integer
+          format: int32
           description: Corresponds to offset on search service
         limit:
-          type: string
+          type: integer
+          format: int32
           description: Corresponds to limit on search service. Default is to return
             all found entities.
         returnedFields:
@@ -481,6 +504,8 @@ components:
           description: List of specific fields to return.
           items:
             type: string
+      required:
+      - points
     Point:
       type: object
       description: A geographic coordinate expressed as a latitude/longitude pair.
@@ -584,25 +609,29 @@ components:
             . As SourceCRS and TargetCRS are interchangeable, it will also search\
             \ SourceCRS.SourceCRSID"
         latitude:
-          type: string
+          type: number
+          format: double
           description: "Returns all entities for which the (Latitude, Longitude) is\
             \ inside the Extent bounding box. Must also provide longitude"
         longitude:
-          type: string
+          type: number
+          format: double
           description: See latitude
         includeDeprecated:
-          type: string
+          type: boolean
           description: Whether to return deprecated records marked with InactiveIndicator=true.
             Default is false.
         offset:
-          type: string
+          type: integer
+          format: int32
           description: Corresponds to offset on search service
         limit:
-          type: string
+          type: integer
+          format: int32
           description: Corresponds to limit on search service. Default is to return
             all found entities.
         returnAllFields:
-          type: string
+          type: boolean
           description: Whether to return all fields in the record. Default is false
             and only a subset is returned
         returnedFields:
@@ -723,13 +752,13 @@ components:
           type: string
           description: "Type of CRS, e.g., BoundCRS, ProjectedCRS, GeodeticCRS, VerticalCRS"
         returnBoundProjectedAndProjectedBasedOnWgs84:
-          type: string
+          type: boolean
           description: "Whether or not to only return bound projected type or projected\
             \ type based on wgs84. If true, it only returns CRS 1. with Kind as \"\
             BoundProjected\" or 2. with Kind as \"projected\" and BaseCRS.AuthorityCode.Code\
             \ as 4326"
         returnBoundGeographic2DAndWgs84:
-          type: string
+          type: boolean
           description: "Whether or not to only return bound geopraphic 2d type. If\
             \ true, it only returns CRS 1. with Kind as \"BoundGeographic2D\" or 2.\
             \ with Kind as \"geographic 2D\" and Code as 4326 and CodeSpace as \"\
@@ -741,7 +770,7 @@ components:
           $ref: "#/components/schemas/Datum"
           description: Datum
         extent:
-          type: string
+          $ref: "#/components/schemas/Extent"
           description: Description of extent. Corresponds to PreferredUsage.Extent.Description
             in the record. All entities with PreferredUsage.Extent.Description containing
             the search string will be returned. Wildcard is not supported.
@@ -759,24 +788,28 @@ components:
           description: Corresponds to CoordinateSystem.VerticalAxisUnitID field on
             CRS records
         latitude:
-          type: string
+          type: number
+          format: double
           description: Latitude point for searching on CRS bounding box
         longitude:
-          type: string
+          type: number
+          format: double
           description: Longitude point for searching on CRS bounding box
         includeDeprecated:
-          type: string
+          type: boolean
           description: Whether to return deprecated records marked with InactiveIndicator=true.
             Default is false
         offset:
-          type: string
+          type: integer
+          format: int32
           description: Corresponds to offset on search service
         limit:
-          type: string
+          type: integer
+          format: int32
           description: Corresponds to limit on search service. Default is to return
             all found entities.
         returnAllFields:
-          type: string
+          type: boolean
           description: Whether to return all fields in the record. Default is false
             and only a subset is returned
         returnedFields:
@@ -797,6 +830,16 @@ components:
         code:
           type: string
           description: Code of datum
+    Extent:
+      type: object
+      description: Description of extent. Corresponds to PreferredUsage.Extent.Description
+        in the record. All entities with PreferredUsage.Extent.Description containing
+        the search string will be returned. Wildcard is not supported.
+      properties:
+        name:
+          type: string
+        description:
+          type: string
     ConnectedOuterService:
       type: object
       description: Name and version of an external service that this OSDU service
