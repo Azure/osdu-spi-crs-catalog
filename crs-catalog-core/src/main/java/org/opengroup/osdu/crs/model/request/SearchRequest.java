@@ -19,6 +19,9 @@
 package org.opengroup.osdu.crs.model.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import org.opengroup.osdu.crs.config.NullableStringDeserializer;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -30,7 +33,9 @@ import io.swagger.v3.oas.annotations.media.Schema;
 public class SearchRequest {
     @Expose
     @SerializedName("query")
-    @Schema(description = "The Lucene style query string with keywords.", type = "string")
+    @JsonDeserialize(using = NullableStringDeserializer.class)
+    @Schema(description = "The Lucene style query string with keywords. Omit or set to null for a bounding-box-only search.",
+            types = {"string", "null"}, nullable = true)
     private String query;
 
     /**
@@ -42,6 +47,8 @@ public class SearchRequest {
      * Public constructor with query value
      * @param query The Lucene style keyword query
      */
+    // Keep this Java convenience constructor from accepting a bare JSON string.
+    @JsonCreator(mode = JsonCreator.Mode.DISABLED)
     public SearchRequest(String query) {
         this.query = query;
     }
