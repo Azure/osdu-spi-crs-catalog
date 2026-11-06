@@ -2,4 +2,15 @@ schemaVersion: 3
 service:
   name: crs-catalog
   archetype: java-maven-azure
-tests: {}
+tests:
+  acceptance:
+    type: pytest
+    path: crs-catalog_acceptance_test
+    requirements: [requirements.txt, v2/requirements.txt]
+    pytestArguments: [test_crs_catalog_v2.py, test_crs_catalog_v3.py]
+    timeoutMinutes: 20
+    bindings:
+      VIRTUAL_SERVICE_HOST_NAME: { source: gatewayHost }
+      MY_TENANT: { source: partition }
+      ENTITLEMENTS_DOMAIN: { source: domain }
+      PRIVILEGED_USER_TOKEN: { source: token }
