@@ -8,8 +8,6 @@
         <maven.compiler.release>${java.version}</maven.compiler.release>
         <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
         <docker.image.prefix>org.opengroup.osdu</docker.image.prefix>
-        <!-- CSP Azure profile still references PowerMock; Community modules use Mockito 5 only. -->
-        <powermock.version>2.0.6</powermock.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- OSDU Versions (Epic 82 Java 25 releases) -->
@@ -113,12 +111,6 @@
             <modules>
                 <module>crs-catalog-core</module>
                 <module>crs-catalog-core-plus</module>
-            </modules>
-        </profile>
-        <profile>
-            <id>azure</id>
-            <modules>
-                <module>provider/crs-catalog-azure/crs-catalog-aks</module>
             </modules>
         </profile>
     </profiles>
@@ -273,16 +265,6 @@
                 <version>3.1</version>
             </dependency>
             <dependency>
-                <groupId>org.powermock</groupId>
-                <artifactId>powermock-module-junit4</artifactId>
-                <version>${powermock.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.powermock</groupId>
-                <artifactId>powermock-api-mockito2</artifactId>
-                <version>${powermock.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>io.lettuce</groupId>
                 <artifactId>lettuce-core</artifactId>
                 <version>${lettuce.version}</version>
@@ -431,7 +413,6 @@
                                         <exclude>org.opengroup.osdu.crs-catalog-service:crs-catalog-service</exclude>
                                         <exclude>org.opengroup.osdu.crs-catalog-service:crs-catalog-core</exclude>
                                         <exclude>org.opengroup.osdu.crs-catalog-service:crs-catalog-core-plus</exclude>
-                                        <exclude>org.opengroup.osdu.crs-catalog-service:crs-catalog-aks</exclude>
                                     </excludes>
                                 </requireReleaseDeps>
                             </rules>

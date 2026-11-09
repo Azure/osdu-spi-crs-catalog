@@ -1,15 +1,6 @@
 variables:
   CORE_BUILD_SUBDIR: crs-catalog-core
 
-  #azure
-  AZURE_SERVICE: crs_catalog
-  AZURE_BUILD_SUBDIR: provider/crs-catalog-azure/crs-catalog-aks
-  AZURE_TEST_SUBDIR: testing/catalog_test_azure
-  AZURE_TEST_TYPE: python
-  AZURE_SWAGGER_PATH: api/crs/catalog/swagger-ui/index.html#
-  SHARE_NAME: crs
-  AZURE_SKIP_INTEGRATION_TEST: "true"
-
   ACCEPTANCE_TEST_DIR: $CI_PROJECT_DIR/crs-catalog_acceptance_test
   CIMPL_BAREMETAL_PYTHON_INT_TEST_SUBDIR: $CI_PROJECT_DIR/crs-catalog_acceptance_test
   CIMPL_OPENAPI_CONFIG_ROUTE: /api/crs/catalog/api-docs/swagger-config
@@ -35,13 +26,7 @@ include:
     file: "scanners/sbom-maven.yml"
 
   - project: "osdu/platform/ci-cd-pipelines"
-    file: "cloud-providers/azure.yml"
-
-  - project: "osdu/platform/ci-cd-pipelines"
     file: "cloud-providers/cimpl-global.yml"
-
-  - project: "osdu/platform/ci-cd-pipelines"
-    file: "cloud-providers/azure-one-pipeline.yml"
 
   - project: "osdu/platform/ci-cd-pipelines"
     file: "reporting/reporting.yml"
@@ -51,21 +36,11 @@ include:
 
   - local: "devops/core-plus/pipeline/override-stages.yml"
 
-azure_containerize:
-  variables:
-    AZURE_CONTAINERIZE_REPOSITORY: "https://gitlab-ci-token:${CI_JOB_TOKEN}@community.opengroup.org/osdu/platform/deployment-and-operations/base-containers-azure/service-base-image"
-
 fossa-analyze:
   image: $CI_REGISTRY/divido/fossa-with-cache:v0.11
 
 fossa-check-notice:
   image: $CI_REGISTRY/divido/fossa-with-cache:v0.11
-
-# It is a temporary change as there are no tests written for this service.
-# Therefore the job has been disabled
-azure_code_coverage:
-  variables:
-    AZURE_SKIP_COVERAGE: "true"
 
 .schemathesis-crs-catalog-matrix:
   parallel:
