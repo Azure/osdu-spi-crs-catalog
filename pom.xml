@@ -20,7 +20,7 @@
         <!-- os-core-common declares lettuce-core as provided; CVE-2025-58057 requires >= 7.5.2.RELEASE -->
         <lettuce.version>7.5.2.RELEASE</lettuce.version>
         <!-- lettuce-core 7.x requires Netty 4.2+; Spring Boot 3.5.x provides 4.1.x -->
-        <netty.version>4.2.18.Final</netty.version>
+        <netty.version>4.2.20.Final</netty.version>
         <!-- Spring Boot 3.5.16 ships Tomcat 10.1.55; CVE remediations need >= 10.1.58 (use 10.1.60) -->
         <tomcat.version>10.1.60</tomcat.version>
         <spring-security.version>6.5.11</spring-security.version>
