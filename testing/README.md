@@ -42,21 +42,12 @@ Windows
 
 ```bat
 cd testing
-java -jar %UserProfile%\repositories\azure\swagger-codegen-cli-2.2.3.jar generate -i catalog_test_core\api_spec\crs-catalog-openapi-v2.json -l python -o catalog_test_core\v2
+java -jar %UserProfile%\swagger-codegen-cli-2.2.3.jar generate -i catalog_test_core\api_spec\crs-catalog-openapi-v2.json -l python -o catalog_test_core\v2
 ```
 
 ## Environment
 
 The following parameters are expected as environment variables: Soon to change again with the standard authentication.
-
-## Azure authentication provider (catalog_test_azure/jwt_client.py)
-
-| Variable | Contents |
-|----------|----------|
-| AZURE_AD_APP_RESOURCE_ID | e.g. |
-| AZURE_DEPLOY_TENANT | e.g.  |
-| AZURE_DEPLOY_CLIENT_ID | e.g.  |
-| AZURE_DEPLOY_CLIENT_SECRET | e.g.  |
 
 ## Baremetal auth provider (catalog_test_baremetal/jwt_client.py)
 

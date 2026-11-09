@@ -1,6 +1,0 @@
-apiVersion: v2
-name: crs-catalog-service
-appVersion: "latest"
-description: Helm Chart for installing crs-catalog-service service.
-version: 0.1.0
-type: application
