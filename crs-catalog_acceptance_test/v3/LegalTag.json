@@ -3,7 +3,7 @@
   "properties": {
     "countryOfOrigin":["US"],
     "contractId":"A1234",
-    "expirationDate":2222222222222,
+    "expirationDate": "2099-12-25",
     "originator":"Default",
     "dataType":"Public Domain Data",
     "securityClassification":"Public",

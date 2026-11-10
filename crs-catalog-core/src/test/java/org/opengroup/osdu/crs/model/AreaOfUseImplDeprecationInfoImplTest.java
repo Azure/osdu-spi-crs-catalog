@@ -14,8 +14,8 @@
 
 package org.opengroup.osdu.crs.model;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 
 import org.opengroup.osdu.crs.model.interfaces.*;
@@ -77,7 +77,7 @@ public class AreaOfUseImplDeprecationInfoImplTest {
             String  json = mapper.writeValueAsString(areaOfUseDeprecationInfoImpl);
             assertTrue(json.contains("\"supersededByArea\""));
             assertFalse(json.contains("\"supersededByAouId\""));
-        } catch (JsonProcessingException ex) {
+        } catch (JacksonException ex) {
             fail();
         }
     }

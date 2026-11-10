@@ -18,6 +18,7 @@
  */
 package org.opengroup.osdu.crs.model.search;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -66,5 +67,6 @@ public class CTResults extends SearchResults {
      * @return {@link CT} objects
      */
     @Schema(description = "Generic cartographic transformation")
+    @JsonProperty("cts")
     public List<CT> getCTs() { return items;}
 }

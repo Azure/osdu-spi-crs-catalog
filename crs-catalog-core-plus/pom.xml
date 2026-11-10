@@ -18,28 +18,7 @@
     <app.version>1</app.version>
     <objectify.version>5.1.22</objectify.version>
     <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
-    <!-- CVE-2026-10050, CVE-2026-2332, CVE-2026-8384, CVE-2026-10051, CVE-2026-6790: jetty < 12.0.36 -->
-    <org-eclipse-jetty.version>12.0.36</org-eclipse-jetty.version>
   </properties>
-
-  <dependencyManagement>
-      <dependencies>
-          <dependency>
-              <groupId>org.eclipse.jetty</groupId>
-              <artifactId>jetty-bom</artifactId>
-              <version>${org-eclipse-jetty.version}</version>
-              <type>pom</type>
-              <scope>import</scope>
-          </dependency>
-          <dependency>
-              <groupId>org.eclipse.jetty.ee10</groupId>
-              <artifactId>jetty-ee10-bom</artifactId>
-              <version>${org-eclipse-jetty.version}</version>
-              <type>pom</type>
-              <scope>import</scope>
-          </dependency>
-      </dependencies>
-  </dependencyManagement>
 
     <dependencies>
         <dependency>
@@ -78,7 +57,7 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
-        <!-- Test Dependencies — Mockito 5.23 (ByteBuddy Java 25); PowerMock removed -->
+        <!-- Test Dependencies -->
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
