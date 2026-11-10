@@ -2158,7 +2158,6 @@ paths:
       - Authorization: []
   /v2/_ah/readiness_check:
     get:
-      security: []
       tags:
       - health-check-api
       summary: Readiness Check endpoint
@@ -2168,9 +2167,9 @@ paths:
       responses:
         "200":
           description: CRS Catalog service is ready
+      security: []
   /v2/_ah/liveness_check:
     get:
-      security: []
       tags:
       - health-check-api
       summary: Liveness Check endpoint
@@ -2180,14 +2179,15 @@ paths:
       responses:
         "200":
           description: CRS Catalog service is alive
+      security: []
 components:
   schemas:
     AuthorityCode:
       type: object
       properties:
-        authority:
-          type: string
         code:
+          type: string
+        authority:
           type: string
     SingleCTEssenceImpl:
       type: object
@@ -2219,96 +2219,96 @@ components:
     AreaOfUse:
       type: object
       properties:
-        name:
-          type: string
-        areaOfUseEssence:
-          $ref: "#/components/schemas/AreaOfUseEssence"
         areaOfUseDeprecationInfo:
           $ref: "#/components/schemas/AreaOfUseDeprecationInfo"
-        lastModified:
+        areaOfUseEssence:
+          $ref: "#/components/schemas/AreaOfUseEssence"
+        name:
           type: string
         description:
           type: string
-        essence:
-          $ref: "#/components/schemas/Essence"
-        deprecationInfo:
-          $ref: "#/components/schemas/DeprecationInfo"
         namedReference:
           $ref: "#/components/schemas/NamedReference"
+        essence:
+          $ref: "#/components/schemas/Essence"
         aliasNames:
           type: array
           items:
             type: string
+        deprecationInfo:
+          $ref: "#/components/schemas/DeprecationInfo"
+        lastModified:
+          type: string
     AreaOfUseDeprecationInfo:
       type: object
       properties:
         supersededByArea:
           $ref: "#/components/schemas/AreaOfUse"
-        remarks:
-          type: string
         deprecationState:
+          type: string
+        remarks:
           type: string
     AreaOfUseEssence:
       type: object
       properties:
-        name:
-          type: string
         boundingBox:
           $ref: "#/components/schemas/SphericalBoundingBox"
-        type:
+        name:
           type: string
         authorityCode:
           $ref: "#/components/schemas/AuthorityCode"
+        type:
+          type: string
     CT:
       type: object
       properties:
-        ctdeprecationInfo:
-          $ref: "#/components/schemas/CTDeprecationInfo"
         fromCRSAuthorityCode:
           $ref: "#/components/schemas/AuthorityCode"
         toCRSAuthorityCode:
           $ref: "#/components/schemas/AuthorityCode"
+        ctdeprecationInfo:
+          $ref: "#/components/schemas/CTDeprecationInfo"
         source:
           type: string
         areaOfUse:
           $ref: "#/components/schemas/AreaOfUse"
-        lastModified:
-          type: string
         description:
           type: string
-        essence:
-          $ref: "#/components/schemas/Essence"
-        deprecationInfo:
-          $ref: "#/components/schemas/DeprecationInfo"
         namedReference:
           $ref: "#/components/schemas/NamedReference"
+        essence:
+          $ref: "#/components/schemas/Essence"
         aliasNames:
           type: array
           items:
             type: string
+        deprecationInfo:
+          $ref: "#/components/schemas/DeprecationInfo"
+        lastModified:
+          type: string
     CTDeprecationInfo:
       type: object
       properties:
         supersededByCT:
           $ref: "#/components/schemas/CT"
-        remarks:
-          type: string
         deprecationState:
+          type: string
+        remarks:
           type: string
     DeprecationInfo:
       type: object
       properties:
-        remarks:
-          type: string
         deprecationState:
+          type: string
+        remarks:
           type: string
     Essence:
       type: object
       properties:
-        type:
-          type: string
         authorityCode:
           $ref: "#/components/schemas/AuthorityCode"
+        type:
+          type: string
     NamedReference:
       type: object
       description: Name and Persistable Reference (the essence converted to a JSON
@@ -2325,56 +2325,56 @@ components:
       properties:
         singleCTEssence:
           $ref: "#/components/schemas/SingleCTEssence"
-        ctdeprecationInfo:
-          $ref: "#/components/schemas/CTDeprecationInfo"
         fromCRSAuthorityCode:
           $ref: "#/components/schemas/AuthorityCode"
         toCRSAuthorityCode:
           $ref: "#/components/schemas/AuthorityCode"
+        ctdeprecationInfo:
+          $ref: "#/components/schemas/CTDeprecationInfo"
         source:
           type: string
         areaOfUse:
           $ref: "#/components/schemas/AreaOfUse"
-        lastModified:
-          type: string
         description:
           type: string
-        essence:
-          $ref: "#/components/schemas/Essence"
-        deprecationInfo:
-          $ref: "#/components/schemas/DeprecationInfo"
         namedReference:
           $ref: "#/components/schemas/NamedReference"
+        essence:
+          $ref: "#/components/schemas/Essence"
         aliasNames:
           type: array
           items:
             type: string
+        deprecationInfo:
+          $ref: "#/components/schemas/DeprecationInfo"
+        lastModified:
+          type: string
     SingleCTEssence:
       type: object
       properties:
         wellKnownText:
           type: string
+        engineVersion:
+          type: string
         name:
           type: string
         type:
-          type: string
-        engineVersion:
           type: string
         authorityCode:
           $ref: "#/components/schemas/AuthorityCode"
     SphericalBoundingBox:
       type: object
       properties:
-        longitudeRight:
+        longitudeLeft:
           type: number
           format: double
         latitudeLower:
           type: number
           format: double
-        latitudeUpper:
+        longitudeRight:
           type: number
           format: double
-        longitudeLeft:
+        latitudeUpper:
           type: number
           format: double
     AppError:
@@ -2430,47 +2430,47 @@ components:
     CRS:
       type: object
       properties:
-        axisUnits:
-          type: array
-          items:
-            type: string
-        crstype:
-          type: string
-        numberOfAxes:
-          type: integer
-          format: int32
         baseCRSAuthorityCode:
           $ref: "#/components/schemas/AuthorityCode"
         transformationReady:
           type: boolean
         crsdeprecationInfo:
           $ref: "#/components/schemas/CRSDeprecationInfo"
+        numberOfAxes:
+          type: integer
+          format: int32
+        axisUnits:
+          type: array
+          items:
+            type: string
+        crstype:
+          type: string
         source:
           type: string
         areaOfUse:
           $ref: "#/components/schemas/AreaOfUse"
-        lastModified:
-          type: string
         description:
           type: string
-        essence:
-          $ref: "#/components/schemas/Essence"
-        deprecationInfo:
-          $ref: "#/components/schemas/DeprecationInfo"
         namedReference:
           $ref: "#/components/schemas/NamedReference"
+        essence:
+          $ref: "#/components/schemas/Essence"
         aliasNames:
           type: array
           items:
             type: string
+        deprecationInfo:
+          $ref: "#/components/schemas/DeprecationInfo"
+        lastModified:
+          type: string
     CRSDeprecationInfo:
       type: object
       properties:
         supersededByCRS:
           $ref: "#/components/schemas/CRS"
-        remarks:
-          type: string
         deprecationState:
+          type: string
+        remarks:
           type: string
     CRSResults:
       type: object
@@ -2548,62 +2548,62 @@ components:
     LateBoundCRS:
       type: object
       properties:
-        source:
-          type: string
         lateBoundCRSEssence:
           $ref: "#/components/schemas/LateBoundCRSEssence"
-        axisUnits:
-          type: array
-          items:
-            type: string
-        crstype:
+        source:
           type: string
-        numberOfAxes:
-          type: integer
-          format: int32
         baseCRSAuthorityCode:
           $ref: "#/components/schemas/AuthorityCode"
         transformationReady:
           type: boolean
         crsdeprecationInfo:
           $ref: "#/components/schemas/CRSDeprecationInfo"
+        numberOfAxes:
+          type: integer
+          format: int32
+        axisUnits:
+          type: array
+          items:
+            type: string
+        crstype:
+          type: string
         areaOfUse:
           $ref: "#/components/schemas/AreaOfUse"
-        lastModified:
-          type: string
         description:
           type: string
-        essence:
-          $ref: "#/components/schemas/Essence"
-        deprecationInfo:
-          $ref: "#/components/schemas/DeprecationInfo"
         namedReference:
           $ref: "#/components/schemas/NamedReference"
+        essence:
+          $ref: "#/components/schemas/Essence"
         aliasNames:
           type: array
           items:
             type: string
+        deprecationInfo:
+          $ref: "#/components/schemas/DeprecationInfo"
+        lastModified:
+          type: string
     LateBoundCRSEssence:
       type: object
       properties:
         wellKnownText:
           type: string
+        engineVersion:
+          type: string
         name:
           type: string
         type:
-          type: string
-        engineVersion:
           type: string
         authorityCode:
           $ref: "#/components/schemas/AuthorityCode"
     CTEssence:
       type: object
       properties:
+        engineVersion:
+          type: string
         name:
           type: string
         type:
-          type: string
-        engineVersion:
           type: string
         authorityCode:
           $ref: "#/components/schemas/AuthorityCode"
@@ -2661,55 +2661,55 @@ components:
       properties:
         earlyBoundCRSEssence:
           $ref: "#/components/schemas/EarlyBoundCRSEssence"
-        axisUnits:
-          type: array
-          items:
-            type: string
-        crstype:
-          type: string
-        numberOfAxes:
-          type: integer
-          format: int32
         baseCRSAuthorityCode:
           $ref: "#/components/schemas/AuthorityCode"
         transformationReady:
           type: boolean
         crsdeprecationInfo:
           $ref: "#/components/schemas/CRSDeprecationInfo"
+        numberOfAxes:
+          type: integer
+          format: int32
+        axisUnits:
+          type: array
+          items:
+            type: string
+        crstype:
+          type: string
         source:
           type: string
         areaOfUse:
           $ref: "#/components/schemas/AreaOfUse"
-        lastModified:
-          type: string
         description:
           type: string
-        essence:
-          $ref: "#/components/schemas/Essence"
-        deprecationInfo:
-          $ref: "#/components/schemas/DeprecationInfo"
         namedReference:
           $ref: "#/components/schemas/NamedReference"
+        essence:
+          $ref: "#/components/schemas/Essence"
         aliasNames:
           type: array
           items:
             type: string
+        deprecationInfo:
+          $ref: "#/components/schemas/DeprecationInfo"
+        lastModified:
+          type: string
     EarlyBoundCRSEssence:
       type: object
       properties:
+        lateBoundCRSAuthorityCode:
+          $ref: "#/components/schemas/AuthorityCode"
         lateBoundCRSEssence:
           $ref: "#/components/schemas/LateBoundCRSEssence"
         ctessence:
           $ref: "#/components/schemas/CTEssence"
         ctauthorityCode:
           $ref: "#/components/schemas/AuthorityCode"
-        lateBoundCRSAuthorityCode:
-          $ref: "#/components/schemas/AuthorityCode"
+        engineVersion:
+          type: string
         name:
           type: string
         type:
-          type: string
-        engineVersion:
           type: string
         authorityCode:
           $ref: "#/components/schemas/AuthorityCode"
@@ -2791,48 +2791,48 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/SingleCT"
-        ctdeprecationInfo:
-          $ref: "#/components/schemas/CTDeprecationInfo"
         fromCRSAuthorityCode:
           $ref: "#/components/schemas/AuthorityCode"
         toCRSAuthorityCode:
           $ref: "#/components/schemas/AuthorityCode"
+        ctdeprecationInfo:
+          $ref: "#/components/schemas/CTDeprecationInfo"
         source:
           type: string
         areaOfUse:
           $ref: "#/components/schemas/AreaOfUse"
-        lastModified:
-          type: string
         description:
           type: string
-        essence:
-          $ref: "#/components/schemas/Essence"
-        deprecationInfo:
-          $ref: "#/components/schemas/DeprecationInfo"
         namedReference:
           $ref: "#/components/schemas/NamedReference"
+        essence:
+          $ref: "#/components/schemas/Essence"
         aliasNames:
           type: array
           items:
             type: string
+        deprecationInfo:
+          $ref: "#/components/schemas/DeprecationInfo"
+        lastModified:
+          type: string
     CompoundCTEssence:
       type: object
       properties:
-        policy:
-          type: string
-        ctessences:
-          type: array
-          items:
-            $ref: "#/components/schemas/CTEssence"
         ctauthorityCodes:
           type: array
           items:
             $ref: "#/components/schemas/AuthorityCode"
+        ctessences:
+          type: array
+          items:
+            $ref: "#/components/schemas/CTEssence"
+        policy:
+          type: string
+        engineVersion:
+          type: string
         name:
           type: string
         type:
-          type: string
-        engineVersion:
           type: string
         authorityCode:
           $ref: "#/components/schemas/AuthorityCode"
@@ -2879,11 +2879,11 @@ components:
     CRSEssence:
       type: object
       properties:
+        engineVersion:
+          type: string
         name:
           type: string
         type:
-          type: string
-        engineVersion:
           type: string
         authorityCode:
           $ref: "#/components/schemas/AuthorityCode"
@@ -2892,39 +2892,39 @@ components:
       properties:
         compoundCRSEssence:
           $ref: "#/components/schemas/CompoundCRSEssence"
-        axisUnits:
-          type: array
-          items:
-            type: string
-        crstype:
-          type: string
-        numberOfAxes:
-          type: integer
-          format: int32
         baseCRSAuthorityCode:
           $ref: "#/components/schemas/AuthorityCode"
         transformationReady:
           type: boolean
         crsdeprecationInfo:
           $ref: "#/components/schemas/CRSDeprecationInfo"
+        numberOfAxes:
+          type: integer
+          format: int32
+        axisUnits:
+          type: array
+          items:
+            type: string
+        crstype:
+          type: string
         source:
           type: string
         areaOfUse:
           $ref: "#/components/schemas/AreaOfUse"
-        lastModified:
-          type: string
         description:
           type: string
-        essence:
-          $ref: "#/components/schemas/Essence"
-        deprecationInfo:
-          $ref: "#/components/schemas/DeprecationInfo"
         namedReference:
           $ref: "#/components/schemas/NamedReference"
+        essence:
+          $ref: "#/components/schemas/Essence"
         aliasNames:
           type: array
           items:
             type: string
+        deprecationInfo:
+          $ref: "#/components/schemas/DeprecationInfo"
+        lastModified:
+          type: string
     CompoundCRSEssence:
       type: object
       properties:
@@ -2936,11 +2936,11 @@ components:
           $ref: "#/components/schemas/AuthorityCode"
         verticalCRSAuthorityCode:
           $ref: "#/components/schemas/AuthorityCode"
+        engineVersion:
+          type: string
         name:
           type: string
         type:
-          type: string
-        engineVersion:
           type: string
         authorityCode:
           $ref: "#/components/schemas/AuthorityCode"
@@ -3156,68 +3156,68 @@ components:
     Catalog:
       type: object
       properties:
-        attributes:
-          $ref: "#/components/schemas/CatalogAttributes"
-        catalogResponse:
-          $ref: "#/components/schemas/Catalog"
-        areasOfUse:
-          type: array
-          items:
-            $ref: "#/components/schemas/AreaOfUse"
-        lateBoundCRSes:
-          type: array
-          items:
-            $ref: "#/components/schemas/LateBoundCRS"
-        allCRSes:
-          type: array
-          items:
-            $ref: "#/components/schemas/CRS"
-        singleCTs:
-          type: array
-          items:
-            $ref: "#/components/schemas/SingleCT"
-        allCTs:
-          type: array
-          items:
-            $ref: "#/components/schemas/CT"
-        compoundCRSes:
-          type: array
-          items:
-            $ref: "#/components/schemas/CompoundCRS"
-        earlyBoundCRSes:
-          type: array
-          items:
-            $ref: "#/components/schemas/EarlyBoundCRS"
-        compoundCTs:
-          type: array
-          items:
-            $ref: "#/components/schemas/CompoundCT"
-        singleCTsCount:
-          type: integer
-          format: int32
-        areaOfUseCount:
-          type: integer
-          format: int32
-        compoundCTsCount:
+        lateBoundCRSesCount:
           type: integer
           format: int32
         earlyBoundCRSesCount:
           type: integer
           format: int32
-        lateBoundCRSesCount:
-          type: integer
-          format: int32
         compoundCRSesCount:
           type: integer
           format: int32
+        compoundCTsCount:
+          type: integer
+          format: int32
+        areaOfUseCount:
+          type: integer
+          format: int32
+        lateBoundCRSes:
+          type: array
+          items:
+            $ref: "#/components/schemas/LateBoundCRS"
+        earlyBoundCRSes:
+          type: array
+          items:
+            $ref: "#/components/schemas/EarlyBoundCRS"
+        compoundCRSes:
+          type: array
+          items:
+            $ref: "#/components/schemas/CompoundCRS"
+        singleCTs:
+          type: array
+          items:
+            $ref: "#/components/schemas/SingleCT"
+        compoundCTs:
+          type: array
+          items:
+            $ref: "#/components/schemas/CompoundCT"
+        areasOfUse:
+          type: array
+          items:
+            $ref: "#/components/schemas/AreaOfUse"
+        allCRSes:
+          type: array
+          items:
+            $ref: "#/components/schemas/CRS"
+        allCTs:
+          type: array
+          items:
+            $ref: "#/components/schemas/CT"
+        catalogResponse:
+          $ref: "#/components/schemas/Catalog"
+        singleCTsCount:
+          type: integer
+          format: int32
+        attributes:
+          $ref: "#/components/schemas/CatalogAttributes"
     CatalogAttributes:
       type: object
       properties:
+        description:
+          type: string
         name:
           type: string
         lastModified:
-          type: string
-        description:
           type: string
   securitySchemes:
     Authorization:
