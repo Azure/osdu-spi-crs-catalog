@@ -216,7 +216,7 @@ The following software have components provided under the terms of this license:
 - Mojo's Maven plugin for Cobertura (from http://mojo.codehaus.org/cobertura-maven-plugin/)
 - Netty Reactive Streams Implementation (from https://repo1.maven.org/maven2/com/typesafe/netty/netty-reactive-streams)
 - Netty/Buffer (from http://netty.io/, https://repo1.maven.org/maven2/io/netty/netty-buffer)
-- Netty/Codec (from http://netty.io/, https://repo1.maven.org/maven2/io/netty/netty-codec)
+- Netty/Codec (from https://netty.io/, https://repo1.maven.org/maven2/io/netty/netty-codec)
 - Netty/Codec/Base (from https://netty.io/)
 - Netty/Codec/Compression (from https://netty.io/)
 - Netty/Codec/DNS (from http://netty.io/, https://repo1.maven.org/maven2/io/netty/netty-codec-dns)
@@ -843,7 +843,7 @@ cc-pd
 ========================================================================
 The following software have components provided under the terms of this license:
 
-- Netty/Codec (from http://netty.io/, https://repo1.maven.org/maven2/io/netty/netty-codec)
+- Netty/Codec (from https://netty.io/, https://repo1.maven.org/maven2/io/netty/netty-codec)
 - Netty/Codec/Base (from https://netty.io/)
 
 ========================================================================
