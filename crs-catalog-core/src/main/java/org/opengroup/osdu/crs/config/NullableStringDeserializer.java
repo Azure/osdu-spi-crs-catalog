@@ -1,17 +1,16 @@
 package org.opengroup.osdu.crs.config;
 
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonToken;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonDeserializer;
-import java.io.IOException;
+import tools.jackson.core.JsonParser;
+import tools.jackson.core.JsonToken;
+import tools.jackson.databind.DeserializationContext;
+import tools.jackson.databind.ValueDeserializer;
 
 /** Accepts JSON strings and null without coercing numbers or booleans to strings. */
-public final class NullableStringDeserializer extends JsonDeserializer<String> {
+public final class NullableStringDeserializer extends ValueDeserializer<String> {
     @Override
-    public String deserialize(JsonParser parser, DeserializationContext context) throws IOException {
+    public String deserialize(JsonParser parser, DeserializationContext context) {
         if (parser.hasToken(JsonToken.VALUE_STRING)) {
-            return parser.getText();
+            return parser.getString();
         }
         return (String) context.handleUnexpectedToken(String.class, parser);
     }

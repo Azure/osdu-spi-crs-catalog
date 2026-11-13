@@ -1,15 +1,14 @@
 package org.opengroup.osdu.crs.config;
 
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonToken;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonDeserializer;
-import java.io.IOException;
+import tools.jackson.core.JsonParser;
+import tools.jackson.core.JsonToken;
+import tools.jackson.databind.DeserializationContext;
+import tools.jackson.databind.ValueDeserializer;
 
 /** Integer request fields reject strings, booleans, fractions and overflow. */
-public final class StrictIntegerDeserializer extends JsonDeserializer<Integer> {
+public final class StrictIntegerDeserializer extends ValueDeserializer<Integer> {
     @Override
-    public Integer deserialize(JsonParser parser, DeserializationContext context) throws IOException {
+    public Integer deserialize(JsonParser parser, DeserializationContext context) {
         if (parser.hasToken(JsonToken.VALUE_NUMBER_INT)) {
             return parser.getIntValue();
         }

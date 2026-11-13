@@ -1,6 +1,6 @@
 package org.opengroup.osdu.crs.api;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.databind.json.JsonMapper;
 import org.junit.jupiter.api.Test;
 import org.opengroup.osdu.crs.middleware.GlobalExceptionMapper;
 import org.opengroup.osdu.crs.model.interfaces.Catalog;
@@ -47,7 +47,7 @@ class SearchRequestTypeTest {
 
     @Test
     void preservesNullOmittedEmptyAndStringQueries() throws Exception {
-        ObjectMapper mapper = new ObjectMapper();
+        JsonMapper mapper = new JsonMapper();
         assertNull(mapper.readValue("{\"query\":null}", SearchRequest.class).getQuery());
         assertNull(mapper.readValue("{}", SearchRequest.class).getQuery());
         assertEquals("", mapper.readValue("{\"query\":\"\"}", SearchRequest.class).getQuery());

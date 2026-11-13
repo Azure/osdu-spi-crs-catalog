@@ -18,6 +18,7 @@
  */
 package org.opengroup.osdu.crs.model.search;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,5 +66,6 @@ public class CRSResults extends SearchResults {
      * @return {@link CRS} objects
      */
     @Schema(description = "A response containing a list of CRSes.")
+    @JsonProperty("crses")
     public List<CRS> getCRSes() { return items;}
 }
