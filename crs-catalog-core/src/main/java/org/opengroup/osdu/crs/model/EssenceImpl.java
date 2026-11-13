@@ -20,10 +20,11 @@ package org.opengroup.osdu.crs.model;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.MapperFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.DeserializationFeature;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.MapperFeature;
+import tools.jackson.databind.json.JsonMapper;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -32,7 +33,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.opengroup.osdu.crs.model.interfaces.Essence;
 import org.opengroup.osdu.crs.model.interfaces.AuthorityCode;
 
-import java.io.IOException;
 
 /**
  *  EssenceImpl is a base class which implements the Essence interface
@@ -103,12 +103,16 @@ public class EssenceImpl extends RootImpl implements Essence {
 		if (json != null && !json.isEmpty()) {
 			String trimmed = json.trim();
 			try {
-				ObjectMapper mapper = new ObjectMapper();
-				mapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
-				mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+				// Jackson 3 rejects trailing tokens and null primitives by default; keep the Jackson 2 leniency
+				JsonMapper mapper = JsonMapper.builder()
+						.enable(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES)
+						.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+						.disable(DeserializationFeature.FAIL_ON_TRAILING_TOKENS)
+						.disable(DeserializationFeature.FAIL_ON_NULL_FOR_PRIMITIVES)
+						.build();
 				JsonNode node = mapper.readTree(trimmed);
 				return mapper.treeToValue(node, EssenceImpl.class);
-			} catch (IOException e) {
+			} catch (JacksonException e) {
 				return null;
 			}
 		}

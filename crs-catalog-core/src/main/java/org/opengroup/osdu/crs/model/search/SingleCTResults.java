@@ -18,6 +18,7 @@
  */
 package org.opengroup.osdu.crs.model.search;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,5 +66,6 @@ public class SingleCTResults extends SearchResults {
      * get the list of {@link SingleCT} objects
      * @return {@link SingleCT} objects
      */
+    @JsonProperty("cts")
     public List<SingleCT> getCTs() { return items;}
 }

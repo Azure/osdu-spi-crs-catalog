@@ -22,32 +22,11 @@
         <objectify.version>5.1.22</objectify.version>
         <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
         <commons-beanutils.version>1.11.0</commons-beanutils.version>
-        <!-- CVE-2026-10050, CVE-2026-2332, CVE-2026-8384, CVE-2026-10051, CVE-2026-6790: jetty < 12.0.36 -->
-        <org-eclipse-jetty.version>12.0.36</org-eclipse-jetty.version>
     </properties>
 
     <prerequisites>
         <maven>3.1.0</maven>
     </prerequisites>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-bom</artifactId>
-                <version>${org-eclipse-jetty.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.eclipse.jetty.ee10</groupId>
-                <artifactId>jetty-ee10-bom</artifactId>
-                <version>${org-eclipse-jetty.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
   <dependencies>
     <!-- Compile/runtime dependencies -->
@@ -72,7 +51,7 @@
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
+      <artifactId>spring-boot-starter-webmvc</artifactId>
       <exclusions>
         <exclusion>
           <groupId>org.springframework.boot</groupId>
@@ -146,6 +125,7 @@
             <version>${lucene.version}</version>
         </dependency>
 
+        <!-- Test Dependencies -->
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
