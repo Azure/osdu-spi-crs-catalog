@@ -1,5 +1,5 @@
 msal==1.3.0
-certifi==2019.11.28
+certifi==2026.10.18
 cffi==1.14.0
 chardet==3.0.4
 cryptography==2.8
