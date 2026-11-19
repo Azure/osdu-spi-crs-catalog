@@ -17,6 +17,7 @@
  */
 package org.opengroup.osdu.crs.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -126,6 +127,7 @@ public abstract class CRSImpl extends CRSCTBaseImpl implements CRS {
 	 * get the coordinate reference system type.
 	 * @return the coordinate reference system type.
 	 */
+	@JsonProperty("crstype")
 	public String getCRSType() {
 		return crsType;
 	}
