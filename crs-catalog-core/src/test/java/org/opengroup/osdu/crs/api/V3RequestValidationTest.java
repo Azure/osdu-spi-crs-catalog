@@ -1,6 +1,6 @@
 package org.opengroup.osdu.crs.api;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.databind.json.JsonMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.Test;
@@ -10,7 +10,7 @@ import org.mockito.Mock;
 import org.opengroup.osdu.crs.middleware.GlobalExceptionMapper;
 import org.opengroup.osdu.crs.service.PointsInAouService;
 import org.opengroup.osdu.crs.service.SearchWrapperService;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.http.converter.json.JacksonJsonHttpMessageConverter;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -27,12 +27,12 @@ class V3RequestValidationTest {
     @Mock PointsInAouService points;
     @InjectMocks CrsCatalogApiV3 controller;
     MockMvc mvc;
-    ObjectMapper mapper;
+    JsonMapper mapper;
 
     @BeforeEach
     void setup() {
-        mapper = new ObjectMapper();
-        var converter = new MappingJackson2HttpMessageConverter(mapper);
+        mapper = new JsonMapper();
+        var converter = new JacksonJsonHttpMessageConverter(mapper);
         mvc = MockMvcBuilders.standaloneSetup(controller)
                 .setControllerAdvice(new GlobalExceptionMapper())
                 .setMessageConverters(converter).build();
