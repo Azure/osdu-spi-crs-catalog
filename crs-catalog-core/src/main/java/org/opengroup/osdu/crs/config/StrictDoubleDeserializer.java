@@ -1,15 +1,14 @@
 package org.opengroup.osdu.crs.config;
 
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonToken;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonDeserializer;
-import java.io.IOException;
+import tools.jackson.core.JsonParser;
+import tools.jackson.core.JsonToken;
+import tools.jackson.databind.DeserializationContext;
+import tools.jackson.databind.ValueDeserializer;
 
 /** Numeric request fields accept integral and fractional JSON numbers. */
-public final class StrictDoubleDeserializer extends JsonDeserializer<Double> {
+public final class StrictDoubleDeserializer extends ValueDeserializer<Double> {
     @Override
-    public Double deserialize(JsonParser parser, DeserializationContext context) throws IOException {
+    public Double deserialize(JsonParser parser, DeserializationContext context) {
         if (parser.hasToken(JsonToken.VALUE_NUMBER_INT) || parser.hasToken(JsonToken.VALUE_NUMBER_FLOAT)) {
             return parser.getDoubleValue();
         }
