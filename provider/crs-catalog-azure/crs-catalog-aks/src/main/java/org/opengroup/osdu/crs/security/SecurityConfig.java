@@ -14,7 +14,7 @@
 
 package org.opengroup.osdu.crs.security;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.databind.json.JsonMapper;
 import org.opengroup.osdu.core.common.model.http.AppError;
 import org.opengroup.osdu.crs.middleware.AuthenticationRequestFilter;
 import org.opengroup.osdu.crs.middleware.AuthenticationService;
@@ -49,7 +49,7 @@ public class SecurityConfig  implements AccessDeniedHandler, AuthenticationEntry
 
     private AuthenticationRequestFilter authFilter;
 
-    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
+    private static final JsonMapper OBJECT_MAPPER = new JsonMapper();
 
     private static final String[] AUTH_WHITELIST = {
             "/",

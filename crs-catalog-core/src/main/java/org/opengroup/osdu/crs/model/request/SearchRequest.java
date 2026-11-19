@@ -20,7 +20,7 @@ package org.opengroup.osdu.crs.model.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import tools.jackson.databind.annotation.JsonDeserialize;
 import org.opengroup.osdu.crs.config.NullableStringDeserializer;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

@@ -18,6 +18,7 @@
  */
 package org.opengroup.osdu.crs.model.search;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,5 +66,6 @@ public class EarlyBoundCRSResults extends SearchResults {
      * @return {@link EarlyBoundCRS} objects
      */
     @Schema(description = "The EarlyBoundCRS class.")
+    @JsonProperty("crses")
     public List<EarlyBoundCRS> getCRSes() { return items;}
 }
