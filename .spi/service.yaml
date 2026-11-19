@@ -2,6 +2,9 @@ schemaVersion: 3
 service:
   name: crs-catalog
   archetype: java-maven-azure
+componentGovernance:
+  upstream: https://community.opengroup.org/osdu/platform/system/reference/crs-catalog-service
+  ignoreDirectories: [crs-catalog_acceptance_test, testing, data]
 tests:
   acceptance:
     type: pytest
