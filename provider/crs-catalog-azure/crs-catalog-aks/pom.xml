@@ -23,8 +23,7 @@
         <objectify.version>5.1.22</objectify.version>
         <slf4j.version>2.0.0-alpha1</slf4j.version>
         <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
-        <core-lib-azure.version>3.0.4</core-lib-azure.version>
-        <org-eclipse-jetty.version>12.0.40</org-eclipse-jetty.version>
+        <core-lib-azure.version>5.0.0</core-lib-azure.version>
     </properties>
 
     <prerequisites>
@@ -33,31 +32,9 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- CVE-2021-0341 | HIGH | com.squareup.okhttp3:okhttp-->
-            <dependency>
-                <groupId>com.squareup.okhttp3</groupId>
-                <artifactId>okhttp-bom</artifactId>
-                <version>4.9.3</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-bom</artifactId>
-                <version>${org-eclipse-jetty.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.eclipse.jetty.ee10</groupId>
-                <artifactId>jetty-ee10-bom</artifactId>
-                <version>${org-eclipse-jetty.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
             <dependency>
                 <groupId>org.opengroup.osdu</groupId>
-                <artifactId>core-lib-azure</artifactId>
+                <artifactId>core-lib-azure-bom</artifactId>
                 <version>${core-lib-azure.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
@@ -74,7 +51,6 @@
     <dependency>
       <groupId>org.opengroup.osdu</groupId>
       <artifactId>core-lib-azure</artifactId>
-      <version>${core-lib-azure.version}</version>
       <exclusions>
         <exclusion>
             <groupId>org.apache.logging.log4j</groupId>
@@ -93,37 +69,6 @@
       <version>${lettuce.version}</version>
     </dependency>
 
-    <dependency>
-      <groupId>com.azure.spring</groupId>
-      <artifactId>azure-spring-boot-starter-active-directory</artifactId>
-      <version>3.0.0</version>
-      <exclusions>
-        <exclusion>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-logging</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-webflux</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.springframework.security</groupId>
-          <artifactId>spring-security-core</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.springframework.security</groupId>
-          <artifactId>spring-security-config</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.springframework.security</groupId>
-          <artifactId>spring-security-web</artifactId>
-        </exclusion>
-          <exclusion>
-              <groupId>com.microsoft.azure</groupId>
-              <artifactId>msal4j</artifactId>
-          </exclusion>
-      </exclusions>
-    </dependency>
     <dependency>
       <groupId>jakarta.inject</groupId>
       <artifactId>jakarta.inject-api</artifactId>
