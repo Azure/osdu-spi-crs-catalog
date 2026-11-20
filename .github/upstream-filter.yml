@@ -30,7 +30,7 @@ top_level:
   docs: keep
   LICENSE: keep
   maven: keep
-  NOTICE: keep
+  NOTICE: strip
   pom.xml: keep
   publish.yml: strip
   README.md: strip
