@@ -22,7 +22,7 @@
         <!-- The service runs on Jetty; Spring Boot 4.0.9 manages Jetty 12.1.12, use the latest 12.1.x patch -->
         <jetty.version>12.1.14</jetty.version>
         <!-- Tomcat is not the runtime server, but keep any transitive tomcat-embed artifacts on the patched 11.0.x line -->
-        <tomcat.version>11.0.27</tomcat.version>
+        <tomcat.version>11.0.29</tomcat.version>
         <spring-security.version>7.0.7</spring-security.version>
         <spring-framework.version>7.0.10</spring-framework.version>
         <logback.version>1.6.5</logback.version>
