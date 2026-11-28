@@ -1,5 +1,85 @@
 # Changelog
 
+## [1.4.1](https://github.com/Azure/osdu-spi-crs-catalog/compare/v1.4.0...v1.4.1) (2026-11-24)
+
+
+### 🐛 Bug Fixes
+
+* [Venus] Remove IBM provider code and CI/CD from CRS Catalog ([#240](https://github.com/Azure/osdu-spi-crs-catalog/issues/240)) ([b4be48f](https://github.com/Azure/osdu-spi-crs-catalog/commit/b4be48fd6bdfd128b15d49f162926ea8afd93f6f))
+* Classify schemathesis-tests in upstream filter ([6e10047](https://github.com/Azure/osdu-spi-crs-catalog/commit/6e100473495cc7220020024efdaf90d7745ed3ac))
+* Classify schemathesis-tests in upstream filter ([0052232](https://github.com/Azure/osdu-spi-crs-catalog/commit/005223241d2cf9be4decb8d766c361944fe5d293))
+* **deploy:** Allow /info without a token in the core-plus Istio policy ([85a01ee](https://github.com/Azure/osdu-spi-crs-catalog/commit/85a01eeef9e91fbaa83d02accc7fe1ed74badc2a))
+* **deploy:** Allow /info without a token in the core-plus Istio policy ([23ae21a](https://github.com/Azure/osdu-spi-crs-catalog/commit/23ae21a283b5bbc48c99a4fdab587292574854a0))
+* Store community v3 OpenAPI as YAML ([1b4640c](https://github.com/Azure/osdu-spi-crs-catalog/commit/1b4640cbeaf77ae81eda348be527aba847c441ef))
+* Sync upstream changes from 14b7f3f3 ([7f499d8](https://github.com/Azure/osdu-spi-crs-catalog/commit/7f499d8d382e756c2f20779d0e17639f13a9735b))
+* Sync upstream changes from 2135a320 ([f3f68a6](https://github.com/Azure/osdu-spi-crs-catalog/commit/f3f68a6fa7d6b920849c9296e63c76b8539aaff2))
+* Sync upstream changes from 3d98e8e7 ([80481c5](https://github.com/Azure/osdu-spi-crs-catalog/commit/80481c5c1fafa56586704b6adff705c99e0405e0))
+* Sync upstream changes from 4b014fbb ([52d0a0c](https://github.com/Azure/osdu-spi-crs-catalog/commit/52d0a0c0c69a14869a8d7811f1171d336c2dd762))
+* Sync upstream changes from 787c7471 ([6383421](https://github.com/Azure/osdu-spi-crs-catalog/commit/6383421c24dcc344ca957b2a14351d432857729b))
+* Sync upstream changes from 85a01eee ([0f1ce0d](https://github.com/Azure/osdu-spi-crs-catalog/commit/0f1ce0d915df0f40085ba3d32f01a9728a9c2493))
+* Update CODEOWNERS team to @Azure/osdu-spi ([5f8025b](https://github.com/Azure/osdu-spi-crs-catalog/commit/5f8025b7e7ea9d38399155c2fd08db612ad05d46))
+* Update CODEOWNERS team to @Azure/osdu-spi ([4af6af2](https://github.com/Azure/osdu-spi-crs-catalog/commit/4af6af2d8e80fdaf5f89a9732f75c50d36bca7f7))
+
+
+### 🔧 Miscellaneous
+
+* Declare component governance inputs ([c4ce729](https://github.com/Azure/osdu-spi-crs-catalog/commit/c4ce7296d9d199aa7f74a30a8c29691769760f03))
+* Declare component governance inputs ([599b102](https://github.com/Azure/osdu-spi-crs-catalog/commit/599b1024fc90cc9257e8eda600ba7a8257f664aa))
+* Generate filtered upstream tree ([15c0deb](https://github.com/Azure/osdu-spi-crs-catalog/commit/15c0deb1929990dafd924bd405e15885c4d81366))
+* Generate filtered upstream tree ([fcc6397](https://github.com/Azure/osdu-spi-crs-catalog/commit/fcc6397d2592fd127e019b02f0604f0ef844f344))
+* Generate filtered upstream tree ([4027bbb](https://github.com/Azure/osdu-spi-crs-catalog/commit/4027bbbedb3c2f342fc9c6b1232102b1f13c5c23))
+* Generate filtered upstream tree ([53186d4](https://github.com/Azure/osdu-spi-crs-catalog/commit/53186d4dd8e2b51b8806b7992cbde13de7ebaf92))
+* Generate filtered upstream tree ([8aedf34](https://github.com/Azure/osdu-spi-crs-catalog/commit/8aedf345276dcab9f90f86d38bb55cc44af6f862))
+* Generate filtered upstream tree ([1cd66ed](https://github.com/Azure/osdu-spi-crs-catalog/commit/1cd66ede9675e0f41df913fab0b022abd3fc8b79))
+* **notice:** Refresh NOTICE from Component Governance ([d8b7b6c](https://github.com/Azure/osdu-spi-crs-catalog/commit/d8b7b6c8a41a3661dcaedd13b3db632a1c9297ca))
+* **notice:** Refresh NOTICE from Component Governance ([fce6c64](https://github.com/Azure/osdu-spi-crs-catalog/commit/fce6c64c666a79a0c78f322951070869eda78215))
+* Remove Azure provider and Azure CI/CD ([1d23f1f](https://github.com/Azure/osdu-spi-crs-catalog/commit/1d23f1f9c3a9574f64fb9b4cc5bb04fbc2bf8e5c))
+* Remove Azure provider and Azure CI/CD ([186027d](https://github.com/Azure/osdu-spi-crs-catalog/commit/186027d8c9813ada52b7fe2d45feb508722b1fc0))
+* Stamp fork-owned pom versions ([3789bc0](https://github.com/Azure/osdu-spi-crs-catalog/commit/3789bc012d7bd4097adc14faf27930c8eaba2ecb))
+* Sync template updates ([b066f76](https://github.com/Azure/osdu-spi-crs-catalog/commit/b066f768df7acbb6548c1e49f5bd141c55bc826b))
+* Sync template updates ([f2e0f02](https://github.com/Azure/osdu-spi-crs-catalog/commit/f2e0f0253fba8f83272736eccfe3f97ee0cad67f))
+* Sync template updates ([4750dd9](https://github.com/Azure/osdu-spi-crs-catalog/commit/4750dd9887343df03bbfc61e7d3a4c873ecfcea0))
+* Sync template updates ([3091f40](https://github.com/Azure/osdu-spi-crs-catalog/commit/3091f40829242fa67b83ef7bdb33fff55b6e20c2))
+* Sync template updates ([817b9dd](https://github.com/Azure/osdu-spi-crs-catalog/commit/817b9dd7ae2e04c5aacbc7feaa2c5ecb4fb85980))
+* Sync template updates ([21a5b12](https://github.com/Azure/osdu-spi-crs-catalog/commit/21a5b1235275ec40189105213c7171ce74fc12d8))
+* Sync template updates ([87af997](https://github.com/Azure/osdu-spi-crs-catalog/commit/87af9979530feebfbe748360d2ddd6ca545116c5))
+* Sync template updates ([55a8b8f](https://github.com/Azure/osdu-spi-crs-catalog/commit/55a8b8f51f28afa484b28e796e532e2d6ebd1268))
+* Sync template updates ([11e27d8](https://github.com/Azure/osdu-spi-crs-catalog/commit/11e27d88bf246d41acf04ea5d3a49cfc1fe59331))
+* Sync template updates ([7a97728](https://github.com/Azure/osdu-spi-crs-catalog/commit/7a97728555ad2b36d3e5da55b65a45733b86e3d1))
+* Sync template updates ([e5a8b4a](https://github.com/Azure/osdu-spi-crs-catalog/commit/e5a8b4a2aa9b93610c901dfcc0fa5014ec6a2212))
+* Sync template updates ([3a76a52](https://github.com/Azure/osdu-spi-crs-catalog/commit/3a76a52904be496cf8d0a00878bb63d09904b4cb))
+* **template-sync:** Sync template updates (updated 2026-10-22) ([2674014](https://github.com/Azure/osdu-spi-crs-catalog/commit/267401467c4f4bb1c697afdf2986ac35d5eefff0))
+* **template-sync:** Sync template updates (updated 2026-10-27) ([e89a31c](https://github.com/Azure/osdu-spi-crs-catalog/commit/e89a31cbb69c731b8f4761c4e0e5586b2e8396ac))
+* **template-sync:** Sync template updates (updated 2026-10-31) ([e7d7a8e](https://github.com/Azure/osdu-spi-crs-catalog/commit/e7d7a8e42d5084004fb7924ae0de7ee78c585d90))
+* **template-sync:** Sync template updates (updated 2026-11-02) ([582aa00](https://github.com/Azure/osdu-spi-crs-catalog/commit/582aa00670c0b4823640ffcca91ba68f748c9458))
+* **template-sync:** Sync template updates (updated 2026-11-04) ([5e6e7e1](https://github.com/Azure/osdu-spi-crs-catalog/commit/5e6e7e13061f8598c0f8e2ac7609e519f0292b84))
+* **template-sync:** Sync template updates (updated 2026-11-13) ([2ab87f3](https://github.com/Azure/osdu-spi-crs-catalog/commit/2ab87f3c1d2f45a676daa1f5b4b8488eb783519f))
+* **template-sync:** Sync template updates (updated 2026-11-18) ([3a25ebf](https://github.com/Azure/osdu-spi-crs-catalog/commit/3a25ebf385e4d80893024b67d1a32fe946eac0e6))
+* **template-sync:** Sync template updates 2026-10-27 ([a84750a](https://github.com/Azure/osdu-spi-crs-catalog/commit/a84750a9ffb2b0bf2b6cba8730e673f0b4e23242))
+* **template-sync:** Sync template updates 2026-11-02 ([88cff25](https://github.com/Azure/osdu-spi-crs-catalog/commit/88cff2553e8139643363c188572b7e7c6b72dc14))
+* **template-sync:** Sync template updates 2026-11-05 ([934c526](https://github.com/Azure/osdu-spi-crs-catalog/commit/934c52608d1fd7a078dc08c2be6145d0deed8930))
+* **template-sync:** Sync template updates 2026-11-06 ([0d205bd](https://github.com/Azure/osdu-spi-crs-catalog/commit/0d205bd9aff08c78ff95431b38bd1533da354c52))
+* **template-sync:** Sync template updates 2026-11-24 ([5a6c718](https://github.com/Azure/osdu-spi-crs-catalog/commit/5a6c718b1fde6b57c8658670f00e841909839516))
+* Update NOTICE from fossa-check-notice ([957d0ef](https://github.com/Azure/osdu-spi-crs-catalog/commit/957d0ef09b5e27c00e8f120b526147b3104aa751))
+* Update NOTICE from fossa-check-notice ([ea4ed56](https://github.com/Azure/osdu-spi-crs-catalog/commit/ea4ed56f6cc14a638eca5720ba720e58071c2318))
+
+
+### 🔨 Build System
+
+* **aks:** Upgrade core-lib-azure to 5.0.0 and use its bom ([3d27c62](https://github.com/Azure/osdu-spi-crs-catalog/commit/3d27c62c9fb5118bc01b595716050a9c859c6631))
+* **deps:** Bump idna from 2.9 to 3.15 in /testing/catalog_test_azure ([eacf016](https://github.com/Azure/osdu-spi-crs-catalog/commit/eacf016787a62bcfae05475ea81c5738e0101ab1))
+* **deps:** Bump idna from 2.9 to 3.15 in /testing/catalog_test_azure ([139ae6c](https://github.com/Azure/osdu-spi-crs-catalog/commit/139ae6cb96f50d44752c5d30937a8d151f6a0cf6))
+* **deps:** Bump jetty and python test dependencies ([f6d1c7b](https://github.com/Azure/osdu-spi-crs-catalog/commit/f6d1c7bf163e2f0ebf7563391481e223dd555aa0))
+* **deps:** Consolidate open Dependabot bumps in catalog_test_azure ([3e57384](https://github.com/Azure/osdu-spi-crs-catalog/commit/3e573841275cd691a1bbf8a1d4a9de4603cdf45c))
+* **deps:** Remove powermock test dependencies from aks pom ([8410187](https://github.com/Azure/osdu-spi-crs-catalog/commit/841018776784289dc7d9eab66ca1d5084b03f36a))
+* **deps:** Remove unused PowerMock test dependencies from the Azure provider ([1a95246](https://github.com/Azure/osdu-spi-crs-catalog/commit/1a952464064827866d60976959e84be7bfea4d5c))
+
+
+### ⚙️ Continuous Integration
+
+* **spi:** Configure acceptance tests in service.yaml ([b1456cb](https://github.com/Azure/osdu-spi-crs-catalog/commit/b1456cbcfcd97dce4582103a2ea6274e1577a062))
+* **spi:** Declare the pytest acceptance suite ([2e4ebc2](https://github.com/Azure/osdu-spi-crs-catalog/commit/2e4ebc2f025027a4f2ed108181c20de0546a316f))
+
 ## [1.4.0](https://github.com/Azure/osdu-spi-crs-catalog/compare/v1.3.0...v1.4.0) (2026-10-14)
 
 
